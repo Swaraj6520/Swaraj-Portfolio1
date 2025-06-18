@@ -38,75 +38,33 @@
     font-size: 40px;
     font-weight: 600;
 }
-.home-cont p::before{
-    content:"";
-    animation: typing 2.8s infinite;
+.home-cont p::before {
+  content: "";
+  border-right: 2px solid white; /* Cursor */
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typingDM 4s steps(15) infinite, blinkCursor 0.7s step-end infinite;
 }
-@keyframes typing {
 
-    0%{
-        content: "";
-    }
-    5%{
-        content: "D";
-    }
-    10%{
-        content: "De";
-    }
-    15%{
-        content: "Dev";
-    }
-    20%{
-        content: "Deve";
-    }
-    25%{
-        content: "Devel";
-    }
-    30%{
-        content: "Develo";
-    }
-    35%{
-        content: "Develop";
-    }
-    40%{
-        content: "Develope";
-    }
-    45%{
-        content: "Developer";
-    }
-    50%{
-        content: "Developer";
-    }
-    55%{
-        content: "Develope";
-    }
-    60%{
-        content: "Develop|";
-    }
-    65%{
-        content: "Develo";
-    }
-    70%{
-        content: "Devel";
-    }
-    75%{
-        content: "Deve";
-    }
-    80%{
-        content: "Dev";
-    }
-    85%{
-        content: "De";
-    }
-    90%{
-        content: "D";
-    } 
-    95%{
-        content: "";
-    }  
-    100%{
-        content: "";
-    }
+@keyframes typingDM {
+  0%   { content: ""; }
+  10%  { content: "D"; }
+  20%  { content: "Di"; }
+  30%  { content: "Dig"; }
+  40%  { content: "Digi"; }
+  50%  { content: "Digit"; }
+  60%  { content: "Digita"; }
+  70%  { content: "Digital"; }
+  80%  { content: "Digital M"; }
+  90%  { content: "Digital Ma"; }
+  95%  { content: "Digital Mar"; }
+  97%  { content: "Digital Marketer"; }
+  100% { content: ""; }
+}
+@keyframes blinkCursor {
+  50% {
+    border-color: transparent;
+  }
 }
 .nav-link{
     padding: 0 !important;
