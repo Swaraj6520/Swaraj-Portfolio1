@@ -286,6 +286,49 @@
     padding: 30px 0px 10px 0px;
     background-color: #0062d3f8;
 }
+/* Education Timeline */
+.timeline {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 40px;
+  border-top: 2px solid white;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.timeline-item {
+  text-align: center;
+  position: relative;
+  max-width: 300px;
+  flex: 1;
+}
+.timeline-item .dot {
+  width: 20px;
+  height: 20px;
+  background-color: #fdd835;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.timeline-item .date {
+  font-family: monospace;
+  margin-top: 20px;
+  font-size: 16px;
+}
+.timeline-item .degree {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.timeline-item .school,
+.timeline-item .gpa {
+  font-family: monospace;
+  font-size: 16px;
+}
 /* THE END */
 /*-----------------------------------------------------------------*/
 /* EXTRAAA = HAS - HAS NOT - TARGET*/
@@ -310,5 +353,31 @@ body:has(.contact:target) .contact-link::before{
 /*  */
 body:not(:has(:target)) .home-link::before{
     width: 100%;
+}
+/* ----------------------------------------------- */
+/* Responsive Timeline for Mobile */
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column;
+    align-items: center;
+    border-left: 2px solid white;
+    border-top: none;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .timeline-item {
+    max-width: none;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 40px;
+    padding-left: 20px;
+  }
+
+  .timeline-item .dot {
+    top: 0;
+    left: -10px;
+    transform: translateX(0);
+  }
 }
 /* ----------------------------------------------- */
