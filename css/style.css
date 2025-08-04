@@ -1,13 +1,21 @@
 /* ***************************** */
 /* First section */
-.home{
-    height: 100vh;
-    background:linear-gradient(rgba(0, 0, 0, 0.531) ,rgba(0, 0, 0, 0.531)), url(../media/New-BG.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+#home {
+  height: 50vh; /* Adjust to 40vh, 60vh, etc. for desired size */
+  background: linear-gradient(rgba(0, 0, 0, 0.531), rgba(0, 0, 0, 0.531)),
+              url(../media/New-BG.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+} 
+
 .navbar{
     position: fixed;
     width: 100%;
