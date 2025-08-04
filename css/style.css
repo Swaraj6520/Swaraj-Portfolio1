@@ -1,7 +1,7 @@
 /* ***************************** */
 /* First section */
 .home-cont {
-  height: 75vh;
+  height: 100vh;
   padding-top: 80px; /* Adjusted for navbar spacing */
   background: linear-gradient(rgba(0, 0, 0, 0.531), rgba(0, 0, 0, 0.531)),
               url(../media/New-BG.jpg);
