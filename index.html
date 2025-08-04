@@ -57,42 +57,88 @@
   </div>
 </div>
 
-<div class="about" id="about">
-  <div class="container py-5">
-    <div class="home-parent bg-white shadow p-4 rounded">
+<section class="about">
+  <div class="container home-parent">
+    <!-- Image Block -->
+    <div class="h-child">
+      <img src="media/about-pic.jpg" alt="Swaraj Acharekar smiling in nature" style="border-radius: 12px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); max-width: 100%;">
+    </div>
 
-      <div class="row justify-content-center align-items-start gx-5">
+    <!-- Text Block -->
+    <div class="h-child">
+      <h2>About me</h2>
+      <p>
+        Hi, I’m Swaraj Acharekar — a marketing grad student with a creative soul and an analytical mind. I like to say I speak fluent Gen Z and Excel. My background blends communications, content creation, and data-driven thinking — whether I’m planning a campaign, diving into survey results, or designing social media creatives.
+      </p>
+      <p>
+        Currently studying Marketing at Yeshiva University, I’ve worked on projects ranging from consumer research on short-form video to web strategy for real-world clients. I love uncovering what makes people tick and turning that into strategy that works — and resonates.
+      </p>
+      <p>
+        From storytelling to segmentation, I enjoy wearing multiple hats, especially the ones that let me blend creativity, curiosity, and conversion.
+      </p>
 
-        <!-- Left: Image -->
-        <div class="col-md-4 text-center mb-4">
-          <img class="rounded img-fluid mb-3"
-               src="media/PXL_20250104_195541287.jpg"
-               style="max-width: 260px;"
-               alt="Swaraj Acharekar">
-        </div>
+      <ul class="about-facts">
+        <li>📊 Data-driven storytelling</li>
+        <li>🎥 Short-form video strategy</li>
+        <li>📈 Campaign analytics</li>
+        <li>🎨 Canva, Premiere, Excel</li>
+      </ul>
 
-        <!-- Right: About Text + CV Button -->
-        <div class="col-md-8 h-child2">
-          <h5 class="fw-medium fs-2 lh-base mb-4">About me</h5>
-          <p class="fs-5 fw-light text-dark-emphasis">
-            Hi, I’m Swaraj Acharekar — a marketing grad student with a creative soul and an analytical mind. I like to say I speak fluent Gen Z and Excel. My background blends communications, content creation, and data-driven thinking — whether I’m planning a campaign, diving into survey results, or designing social media creatives.
-          </p>
-          <p class="fs-5 fw-light text-dark-emphasis">
-            Currently studying Marketing at Yeshiva University, I’ve worked on projects ranging from consumer research on short-form video to web strategy for real-world clients. I love uncovering what makes people tick and turning that into strategy that works — and resonates.
-          </p>
-          <p class="fs-5 fw-light text-dark-emphasis">
-            From storytelling to segmentation, I enjoy wearing multiple hats, especially the ones that let me blend creativity, curiosity, and conversion.
-          </p>
+      <a href="media/Swaraj-CV.pdf" download class="btn-cv">📄 Download CV</a>
+    </div>
+  </div>
+</section>
 
-          <a href="media/Swaraj_Acharekar_CV.pdf" target="_blank" class="btn btn-primary btn-lg rounded-5 mt-3">
-            <i class="fa-solid fa-file-lines me-2"></i> Download CV
-          </a>
-        </div>
+<style>
+.home-parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 40px;
+  flex-wrap: wrap;
+}
 
-      </div> <!-- End row -->
+.h-child p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
 
-    </div> <!-- End home-parent -->
-</div> <!-- End about -->
+.h-child h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.btn-cv {
+  background-color: #0078FF;
+  color: white;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.btn-cv:hover {
+  background-color: #005fc1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 120, 255, 0.3);
+}
+
+.about-facts {
+  columns: 2;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+  font-family: monospace;
+}
+
+.about-facts li {
+  margin-bottom: 8px;
+}
+</style>
 
     
  <!-- Skills Section -->
@@ -510,3 +556,4 @@ I’m always open to collaborations, creative chats, or sharing marketing insigh
 </body>
 
 </html>
+
