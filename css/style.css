@@ -1,7 +1,8 @@
 /* ***************************** */
 /* First section */
 .home-cont {
-  height: 50vh; /* or adjust as needed */
+  height: 50vh;
+  padding-top: 80px; /* Adjusted for navbar spacing */
   background: linear-gradient(rgba(0, 0, 0, 0.531), rgba(0, 0, 0, 0.531)),
               url(../media/New-BG.jpg);
   background-position: center;
@@ -21,7 +22,6 @@
 }
 .let-space{
     letter-spacing: 1px;
-    /* made by me */
 }
 .dropdown-item{
     font-size: 15px !important;
@@ -32,9 +32,6 @@
 .dropdown-item:hover{
     color:#0078FF !important;
     background-color: transparent !important;
-}
-.home-cont{
-    padding-top: 220px;
 }
 .home-cont h1{
     font-size: 72px;
@@ -111,11 +108,9 @@
 }
 .w-85{
     width: 85%;
-    /* made by me */
 }
 .w-90{
     width: 90%;
-    /* made by me */
 }
 /*-----------------------------------------------------------------*/
 /* Third section */
@@ -253,9 +248,6 @@
     margin-bottom: 50px;
     padding: 40px 20px;
 }
-.contact-parent h5{
-    position: relative;
-}
 .contact-parent h5::after{
     content:"";
     width: 20%;
@@ -335,32 +327,18 @@
   font-family: monospace;
   font-size: 16px;
 }
-/* THE END */
 /*-----------------------------------------------------------------*/
-/* EXTRAAA = HAS - HAS NOT - TARGET*/
-body:has(.home:target) .home-link::before{
+/* Highlight current nav section */
+body:has(.home:target) .home-link::before,
+body:has(.about:target) .about-link::before,
+body:has(.services:target) .services-link::before,
+body:has(.work:target) .work-link::before,
+body:has(.blog:target) .blog-link::before,
+body:has(.contact:target) .contact-link::before,
+body:not(:has(:target)) .home-link::before {
     width: 100%;
 }
-body:has(.about:target) .about-link::before{
-    width: 100%;
-}
-body:has(.services:target) .services-link::before{
-    width: 100%;
-}
-body:has(.work:target) .work-link::before{
-    width: 100%;
-}
-body:has(.blog:target) .blog-link::before{
-    width: 100%;
-}
-body:has(.contact:target) .contact-link::before{
-    width: 100%;
-}
-/*  */
-body:not(:has(:target)) .home-link::before{
-    width: 100%;
-}
-/* ----------------------------------------------- */
+/*-----------------------------------------------------------------*/
 /* Responsive Timeline for Mobile */
 @media (max-width: 768px) {
   .timeline {
@@ -386,4 +364,3 @@ body:not(:has(:target)) .home-link::before{
     transform: translateX(0);
   }
 }
-/* ----------------------------------------------- */
