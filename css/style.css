@@ -3,7 +3,7 @@
 .home-cont {
   height: 100vh;
   padding-top: 80px; /* Adjusted for navbar spacing */
-  background: linear-gradient(rgba(0, 0, 0, 0.531), rgba(0, 0, 0, 0.531)),
+  background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
               url(../media/New-BG.jpg);
   background-position: center;
   background-size: cover;
