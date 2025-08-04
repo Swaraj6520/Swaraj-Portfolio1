@@ -3,7 +3,7 @@
 .home-cont {
   height: 100vh;
   padding-top: 80px; /* Adjusted for navbar spacing */
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+  background: linear-gradient(rgba(0, 0, 0, 0.531), rgba(0, 0, 0, 0.531)),
               url(../media/New-BG.jpg);
   background-position: center;
   background-size: cover;
@@ -33,13 +33,15 @@
     color:#0078FF !important;
     background-color: transparent !important;
 }
-.home-cont h1{
-    font-size: 72px;
-    font-weight: 700;
+.home-cont h1 {
+  font-size: 72px;
+  font-weight: 700;
+  color: black;
 }
-.home-cont p{
-    font-size: 40px;
-    font-weight: 600;
+.home-cont p {
+  font-size: 40px;
+  font-weight: 600;
+  color: black;
 }
 
 .nav-link{
