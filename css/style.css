@@ -366,3 +366,13 @@ body:not(:has(:target)) .home-link::before {
     transform: translateX(0);
   }
 }
+/* Ensure image height matches text block in About section */
+.h-child img {
+  max-width: 100%;
+  height: auto;
+  max-height: 420px; /* Adjust this value as needed */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  display: block;
+}
