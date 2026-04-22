@@ -1,554 +1,687 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swaraj's Portfolio</title>
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/media.css"> 
-    <link rel="shortcut icon" href="media/favicon.png" type="image/x-icon">
-    <script src="js/bootstrap.bundle.min.js"></script>
-</head>
-
-<body>
-    
-    <div class="home" id="home">
-        
-        <nav class="navbar navbar-expand-lg pt-3 bg-black bg-opacity-50">
-            <div class="container">
-              <a class="navbar-brand text-white fw-semibold fs-3 let-space" href="#home">Swaraj's Portfolio</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span><i class="fa-solid fa-bars" style="color: #ffffff;"></i></span>
-              </button>
-
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ms-auto">
-                  <li class="nav-item mx-3">
-                    <a class="nav-link active text-white fs-6 fw-bold home-link" aria-current="page" href="#home">HOME</a>
-                  </li>
-                  <li class="nav-item mx-3">
-                    <a class="nav-link text-white fs-6 fw-bold about-link" href="#about">ABOUT</a>
-                  </li>
-                  <li class="nav-item mx-3">
-                    <a class="nav-link text-white fs-6 fw-bold services-link" href="#skills">SKILLS</a>
-                  </li>
-                  <li class="nav-item dropdown fs-6 fw-bold mx-3">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">PORTFOLIO</a>
-                    <ul class="dropdown-menu p-3">
-                      <li><a class="dropdown-item my-2 fw-semibold" href="#creatives">Creatives</a></li>
-                      <li><a class="dropdown-item my-2 fw-semibold" href="#reels">Instagram Reels</a></li>
-                      <li><a class="dropdown-item my-2 fw-semibold" href="#work">Content Work</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item mx-3">
-                    <a class="nav-link text-white fs-6 fw-bold contact-link" href="#contact">CONTACT</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </nav>   
-
-        <div class="home-cont text-center">
-  <div class="container">
-    <h1 class="text-white">I am Swaraj Acharekar</h1>
-    <p class="text-white fs-3 fw-semibold">Marketing & Digital Media Professional</p>
-  </div>
-</div>
-
-<section class="about">
-  <div class="container home-parent">
-    <!-- Image Block -->
-    <div class="h-child">
-      <img src="media/About-you.jpg" 
-     alt="Swaraj Acharekar smiling in nature" 
-     style="border-radius: 12px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); width: 100%; height: 100%; object-fit: cover; max-height: 500px;">
-    </div>
-
-    <!-- Text Block -->
-    <div class="h-child">
-      <h2>About me</h2>
-      <p>
-        Hi, I’m Swaraj Acharekar — a marketing grad student with a creative soul and an analytical mind. I like to say I speak fluent Gen Z and Excel. My background blends communications, content creation, and data-driven thinking — whether I’m planning a campaign, diving into survey results, or designing social media creatives.
-      </p>
-      <p>
-        Currently studying Marketing at Yeshiva University, I’ve worked on projects ranging from consumer research on short-form video to web strategy for real-world clients. I love uncovering what makes people tick and turning that into strategy that works — and resonates.
-      </p>
-      <p>
-        From storytelling to segmentation, I enjoy wearing multiple hats, especially the ones that let me blend creativity, curiosity, and conversion.
-      </p>
-
-      <ul class="about-facts">
-        <li>📊 Data-driven storytelling</li>
-        <li>🎥 Short-form video strategy</li>
-        <li>📈 Campaign analytics</li>
-        <li>🎨 Canva, Premiere, Excel</li>
-      </ul>
-
-      <a href="media/Swaraj_Acharekar_CV.pdf" download class="btn-cv">📄 Download CV</a>
-    </div>
-  </div>
-</section>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swaraj Acharekar — Digital Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-.home-parent {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 40px;
-  flex-wrap: wrap;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:#0d0d0d; --surface:#141414; --card:#1a1a1a; --border:#252525;
+  --accent:#e8ff47; --accent2:#ff6b35; --text:#f0ede6; --muted:#7a7a78;
+  --serif:'Syne',sans-serif; --body:'DM Sans',sans-serif;
+  --radius:12px; --t:0.35s cubic-bezier(0.22,1,0.36,1);
 }
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;} ::-webkit-scrollbar-track{background:var(--bg);} ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.35;}
 
-.h-child p {
-  line-height: 1.8;
-  font-size: 1.05rem;
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(13,13,13,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:var(--serif);font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;color:var(--text);text-decoration:none;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:0.76rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color var(--t);}
+.nav-links a:hover{color:var(--accent);}
 
-.h-child h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:60px;padding:120px 48px 80px;position:relative;overflow:hidden;}
+.hero-left{flex:1;min-width:0;display:flex;flex-direction:column;}
+.hero-eyebrow{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px;animation:fadeUp 0.7s var(--t) 0.1s both;}
+.hero-eyebrow::before{content:'';display:block;width:30px;height:1px;background:var(--accent);}
+.hero-headline{font-family:var(--serif);font-size:clamp(2.8rem,5vw,5rem);font-weight:800;line-height:1.0;letter-spacing:-0.03em;margin-bottom:26px;animation:fadeUp 0.8s var(--t) 0.2s both;}
+.hero-headline em{color:var(--accent);font-style:normal;}
+.hero-sub{font-size:1rem;font-weight:300;color:var(--muted);max-width:500px;margin-bottom:38px;line-height:1.7;animation:fadeUp 0.8s var(--t) 0.3s both;}
+.hero-ctas{display:flex;gap:12px;align-items:center;animation:fadeUp 0.8s var(--t) 0.4s both;}
+.btn-primary{background:var(--accent);color:#0d0d0d;font-family:var(--serif);font-weight:700;font-size:0.83rem;letter-spacing:0.04em;padding:13px 26px;border:none;border-radius:6px;cursor:pointer;text-decoration:none;display:inline-block;transition:transform var(--t),box-shadow var(--t);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(232,255,71,0.25);}
+.btn-ghost{color:var(--text);font-size:0.83rem;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:8px;padding:13px 20px;border:1px solid var(--border);border-radius:6px;transition:border-color var(--t),color var(--t);}
+.btn-ghost:hover{border-color:var(--text);color:var(--accent);}
 
-.btn-cv {
-  background-color: #0078FF;
-  color: white;
-  padding: 12px 24px;
-  font-weight: 600;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-  display: inline-block;
-  margin-top: 20px;
-}
+/* HERO RIGHT */
+.hero-right{flex-shrink:0;width:340px;animation:fadeUp 0.9s var(--t) 0.35s both;}
+.hero-photo-wrap{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/5;background:var(--card);}
+.hero-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;filter:grayscale(15%);transition:filter var(--t);}
+.hero-photo-wrap:hover img{filter:grayscale(0%);}
+.hero-photo-wrap::after{content:'SA';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:5rem;font-weight:800;color:var(--border);z-index:0;}
+.hero-photo-wrap img{position:relative;z-index:1;}
+.hero-photo-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(13,13,13,0.9));padding:36px 22px 22px;}
+.hero-photo-name{font-family:var(--serif);font-size:1rem;font-weight:800;margin-bottom:3px;}
+.hero-photo-title{font-size:0.72rem;color:var(--muted);letter-spacing:0.04em;}
+.hero-accent-dot{position:absolute;top:-8px;right:-8px;width:20px;height:20px;background:var(--accent);border-radius:50%;box-shadow:0 0 24px 6px rgba(232,255,71,0.35);animation:pulse 2.5s ease-in-out infinite;}
+.hero-stats-below{display:grid;grid-template-columns:repeat(3,1fr);margin-top:10px;border:1px solid var(--border);border-radius:10px;overflow:hidden;animation:fadeUp 0.8s var(--t) 0.5s both;}
+.stat-item{padding:14px 8px;text-align:center;border-right:1px solid var(--border);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:var(--serif);font-size:1.2rem;font-weight:800;color:var(--accent);line-height:1;display:block;margin-bottom:3px;}
+.stat-label{font-size:0.56rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.7);}}
 
-.btn-cv:hover {
-  background-color: #005fc1;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 120, 255, 0.3);
-}
+/* SECTIONS */
+section{padding:96px 48px;}
+.section-tag{font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.section-tag::before{content:'';display:block;width:20px;height:1px;background:var(--accent);}
+h2.section-title{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.8rem);font-weight:800;letter-spacing:-0.025em;line-height:1.05;margin-bottom:48px;}
+h2.section-title .dim{color:var(--muted);font-weight:400;}
 
-.about-facts {
-  columns: 2;
-  list-style: none;
-  padding-left: 0;
-  margin-top: 20px;
-  font-family: monospace;
-}
+/* ABOUT */
+#about{background:var(--surface);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.about-copy p{color:rgba(240,237,230,0.75);font-weight:300;margin-bottom:18px;font-size:1rem;}
+.about-copy p strong{color:var(--text);font-weight:500;}
+.about-copy p em{color:var(--accent);font-style:normal;}
+.about-right{display:flex;flex-direction:column;gap:10px;}
+.fact-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:flex-start;gap:12px;transition:border-color var(--t),transform var(--t);}
+.fact-card:hover{border-color:var(--accent);transform:translateX(5px);}
+.fact-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+.fact-text{font-size:0.86rem;color:var(--muted);line-height:1.5;}
+.fact-text strong{color:var(--text);font-weight:500;display:block;margin-bottom:2px;}
 
-.about-facts li {
-  margin-bottom: 8px;
+/* EXPERIENCE */
+#experience{background:var(--bg);}
+.exp-list{display:flex;flex-direction:column;gap:14px;}
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color var(--t);}
+.exp-card:hover{border-color:rgba(232,255,71,0.35);}
+.exp-header{padding:28px 32px 20px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;}
+.exp-role{font-family:var(--serif);font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:6px;}
+.exp-company-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.exp-company{font-size:0.9rem;color:var(--accent);font-weight:600;}
+.exp-location{font-size:0.78rem;color:var(--muted);}
+.exp-dates{font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,0.05);border:1px solid var(--border);padding:5px 12px;border-radius:100px;white-space:nowrap;align-self:flex-start;}
+.exp-dates.current{color:var(--accent);border-color:rgba(232,255,71,0.3);background:rgba(232,255,71,0.08);}
+.exp-metrics{display:flex;gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:0 32px;}
+.metric{flex:1;padding:14px 0;text-align:center;border-right:1px solid var(--border);}
+.metric:last-child{border-right:none;}
+.metric-num{font-family:var(--serif);font-size:1.3rem;font-weight:800;color:var(--accent);line-height:1;display:block;margin-bottom:3px;}
+.metric-desc{font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;}
+.exp-toggle{margin:0 32px;padding:14px 0;display:flex;align-items:center;gap:8px;font-size:0.72rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:color var(--t);background:none;border:none;width:100%;text-align:left;}
+.exp-toggle:hover{color:var(--accent);}
+.toggle-icon{transition:transform var(--t);}
+.exp-toggle.open .toggle-icon{transform:rotate(45deg);}
+.exp-body{max-height:0;overflow:hidden;transition:max-height 0.55s cubic-bezier(0.22,1,0.36,1);padding:0 32px;}
+.exp-body.open{max-height:900px;padding-bottom:32px;}
+.exp-body-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;margin-bottom:16px;}
+.exp-col h4{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:7px;font-weight:600;}
+.exp-col ul{list-style:none;padding:0;}
+.exp-col ul li{font-size:0.84rem;color:rgba(240,237,230,0.67);padding:3px 0 3px 15px;position:relative;line-height:1.5;}
+.exp-col ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:0.72rem;}
+.exp-col p{font-size:0.84rem;color:rgba(240,237,230,0.67);line-height:1.6;}
+.insight-bar{background:rgba(232,255,71,0.06);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:13px 18px;font-size:0.84rem;color:var(--text);font-style:italic;margin-top:14px;}
+.insight-bar span{color:var(--accent);font-style:normal;font-weight:600;}
+.award-tag{display:inline-flex;align-items:center;gap:5px;font-size:0.7rem;font-weight:600;color:#fbbf24;background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.25);border-radius:100px;padding:4px 11px;margin-right:6px;margin-top:10px;}
+
+/* WORK SAMPLES */
+#work{background:var(--surface);}
+.work-tabs{display:flex;gap:8px;margin-bottom:36px;flex-wrap:wrap;}
+.tab-btn{font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:8px 16px;border-radius:6px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--muted);transition:all var(--t);}
+.tab-btn.active,.tab-btn:hover{background:var(--accent);color:#0d0d0d;border-color:var(--accent);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.writing-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+.writing-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:var(--text);display:flex;flex-direction:column;transition:border-color var(--t),transform var(--t);}
+.writing-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.writing-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--border);display:block;}
+.writing-info{padding:16px 18px;flex:1;display:flex;flex-direction:column;gap:5px;}
+.writing-source{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.writing-title{font-family:var(--serif);font-size:0.92rem;font-weight:700;line-height:1.3;}
+.writing-arrow{font-size:0.72rem;color:var(--muted);margin-top:auto;padding-top:8px;}
+.creatives-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;}
+.creative-thumb{border-radius:10px;overflow:hidden;border:1px solid var(--border);aspect-ratio:1;transition:border-color var(--t),transform var(--t);}
+.creative-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
+.creative-thumb:hover{border-color:var(--accent);transform:scale(1.02);}
+.creative-thumb:hover img{transform:scale(1.06);}
+.view-more-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:0.82rem;font-weight:600;color:var(--accent);text-decoration:none;letter-spacing:0.04em;transition:gap var(--t);}
+.view-more-link:hover{gap:14px;}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color var(--t),transform var(--t);}
+.project-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.project-label{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent2);font-weight:600;margin-bottom:7px;}
+.project-title{font-family:var(--serif);font-size:1rem;font-weight:800;margin-bottom:7px;letter-spacing:-0.01em;}
+.project-desc{font-size:0.83rem;color:var(--muted);line-height:1.55;margin-bottom:14px;}
+.project-links{display:flex;gap:7px;flex-wrap:wrap;}
+.project-link{font-size:0.7rem;font-weight:600;padding:5px 11px;border:1px solid var(--border);border-radius:5px;text-decoration:none;color:var(--muted);transition:border-color var(--t),color var(--t);}
+.project-link:hover{border-color:var(--accent);color:var(--accent);}
+
+/* SKILLS */
+#skills{background:var(--bg);}
+.skills-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.skill-group{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color var(--t),transform var(--t);}
+.skill-group:hover{border-color:var(--accent);transform:translateY(-4px);}
+.skill-group-title{font-family:var(--serif);font-size:0.92rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:7px;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.skill-tag{font-size:0.71rem;font-weight:500;padding:5px 10px;border-radius:5px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:rgba(240,237,230,0.7);transition:all var(--t);}
+.skill-tag:hover{background:rgba(232,255,71,0.1);color:var(--accent);border-color:rgba(232,255,71,0.3);}
+
+/* EDUCATION */
+#education{background:var(--surface);}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color var(--t),transform var(--t);}
+.edu-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+.edu-degree{font-family:var(--serif);font-size:0.98rem;font-weight:800;margin-bottom:5px;letter-spacing:-0.01em;}
+.edu-school{font-size:0.83rem;color:var(--accent);font-weight:500;margin-bottom:3px;}
+.edu-detail{font-size:0.76rem;color:var(--muted);}
+.edu-gpa{display:inline-block;margin-top:10px;font-size:0.7rem;font-weight:700;color:var(--accent);background:rgba(232,255,71,0.1);padding:3px 9px;border-radius:4px;}
+
+
+
+/* CERTS */
+#certs{background:var(--surface);}
+.certs-row{display:flex;flex-wrap:wrap;gap:9px;}
+.cert-pill{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:10px 16px;display:flex;align-items:center;gap:8px;font-size:0.8rem;font-weight:500;transition:border-color var(--t),transform var(--t);}
+.cert-pill:hover{border-color:var(--accent);transform:translateY(-2px);}
+
+/* CONTACT */
+#contact{background:var(--bg);text-align:center;}
+.contact-inner{max-width:660px;margin:0 auto;}
+.contact-big{font-family:var(--serif);font-size:clamp(2rem,4vw,3.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.0;margin-bottom:16px;}
+.contact-big .line2{color:transparent;-webkit-text-stroke:1px var(--accent);}
+.contact-sub{color:var(--muted);font-size:0.97rem;margin-bottom:34px;font-weight:300;}
+.contact-links{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;}
+.contact-link{display:flex;align-items:center;gap:7px;padding:10px 18px;border:1px solid var(--border);border-radius:7px;font-size:0.8rem;font-weight:500;color:var(--text);text-decoration:none;transition:border-color var(--t),color var(--t),transform var(--t);}
+.contact-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.contact-note{font-size:0.71rem;color:var(--muted);letter-spacing:0.04em;}
+
+footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;font-size:0.71rem;color:var(--muted);}
+footer span:last-child{color:var(--accent);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s var(--t);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:860px){
+  nav{padding:14px 20px;flex-wrap:wrap;gap:10px;}
+  .nav-links{gap:14px;flex-wrap:wrap;}
+  section{padding:64px 22px;}
+  #hero{flex-direction:column;padding:105px 22px 56px;gap:36px;align-items:flex-start;}
+  .hero-right{width:100%;max-width:300px;}
+  .about-grid{grid-template-columns:1fr;gap:32px;}
+  .exp-header{grid-template-columns:1fr;}
+  .exp-metrics,.exp-toggle{margin-left:22px;margin-right:22px;}
+  .exp-body{padding:0 22px;}
+  .exp-body.open{padding-bottom:26px;}
+  footer{flex-direction:column;gap:7px;text-align:center;}
 }
 </style>
+</head>
+<body>
 
-    
- <!-- Skills Section -->
-<div class="container py-5" id="skills">
-  <h3 class="text-center fw-bold" style="font-size: 48px;">Skills</h3>
-  <p class="text-center fw-light text-dark-emphasis">A snapshot of the tools and platforms I work with</p>
-  <div class="blue-line m-auto mb-5"></div>
+<nav id="nav">
+  <a href="#hero" class="nav-logo">SA<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 text-center">
-
-    <!-- Graphic Design Tools -->
-    <div class="col">
-  <img src="media/canva-svgrepo-com.svg" class="skill-icon" alt="Canva">
-  <p class="mt-2">Canva</p>
-</div>
- <div class="col">
-  <img src="media/photoshop.svg" class="skill-icon" alt="Adobe Photoshop Logo">
-  <p class="mt-2">Photoshop</p>
-</div>
-  <div class="col">
-  <img src="media/premierepro.svg" class="skill-icon" alt="Adobe Premiere Pro Logo">
-  <p class="mt-2">Premiere Pro</p>
-</div>
-    <div class="col">
-      <i class="fa-solid fa-film fs-1 text-secondary"></i>
-      <p class="mt-2">Clipchamp</p>
-    </div>
-
-    <!-- Digital Marketing & Analytics -->
-  <div class="col">
-  <img src="media/googleanalytics.svg" class="skill-icon" alt="Google Analytics Logo">
-  <p class="mt-2">Google Analytics GA4</p>
-</div>
-    <div class="col">
-      <i class="fa-solid fa-pen-to-square fs-1 text-info"></i>
-      <p class="mt-2">SEO Writing</p>
-    </div>
-    <div class="col">
-      <i class="fa-solid fa-bullhorn fs-1 text-warning"></i>
-      <p class="mt-2">Campaign Mgmt</p>
-    </div>
-
-    <!-- CMS -->
-    <div class="col">
-      <i class="fa-brands fa-wordpress fs-1 text-dark"></i>
-      <p class="mt-2">WordPress</p>
-    </div>
-
-    <!-- Social Media Platforms -->
-    <div class="col">
-      <i class="fa-brands fa-instagram fs-1 text-danger"></i>
-      <p class="mt-2">Instagram</p>
-    </div>
-    <div class="col">
-      <i class="fa-brands fa-facebook fs-1 text-primary"></i>
-      <p class="mt-2">Facebook</p>
-    </div>
-    <div class="col">
-      <i class="fa-brands fa-youtube fs-1 text-danger"></i>
-      <p class="mt-2">YouTube</p>
-    </div>
-    <div class="col">
-      <i class="fa-brands fa-twitter fs-1 text-info"></i>
-      <p class="mt-2">Twitter</p>
-    </div>
-
-<!-- Data & Productivity -->
-<div class="col">
-  <img src="media/sql.svg" class="skill-icon" alt="SQL Logo">
-  <p class="mt-2">SQL</p>
-</div>
-<div class="col">
-  <img src="media/microsoft.svg" class="skill-icon" alt="Microsoft Office Suite">
-  <p class="mt-2">Microsoft Office Suite</p>
-</div>
-
-  </div>
-</div>
-
-   <div class="container py-5" id="creatives">
-  <h3 class="text-center fw-bold" style="font-size: 48px;">Creatives</h3>
-  <p class="text-center fw-light text-dark-emphasis">A glimpse into my design work — social media graphics, campaigns, and more.</p>
-  <div class="blue-line m-auto mb-5"></div>
-
-  <div class="row g-4">
-    <div class="col-md-6 col-lg-4">
-      <img src="media/creative1.jpg" class="img-fluid rounded w-100 mb-3" alt="Creative 1">
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <img src="media/creative2.jpg" class="img-fluid rounded w-100 mb-3" alt="Creative 2">
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <img src="media/creative3.jpg" class="img-fluid rounded w-100 mb-3" alt="Creative 3">
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Available for full-time roles · Jersey City, NJ</div>
+    <h1 class="hero-headline">
+      I don't just make<br>content.<br>
+      I make <em>things move.</em>
+    </h1>
+    <p class="hero-sub">
+      Digital marketer with 3+ years driving content-led growth — 2400% traffic increases, 10K+ followers built organically, and campaigns that actually convert.
+    </p>
+    <div class="hero-ctas">
+      <a href="#experience" class="btn-primary">See My Work →</a>
+      <a href="#contact" class="btn-ghost">Let's talk</a>
     </div>
   </div>
-</div>
-    
-        <div class="text-center mt-4">
-    <a href="https://drive.google.com/drive/folders/1fyhGiM5bE_gG1RmcRaMRaSAqOFjaXfk_?usp=sharing" 
-       target="_blank" 
-       class="btn btn-outline-primary btn-lg rounded-5">
-      <i class="fa-solid fa-folder-open me-2"></i> View Full Creative Archive
-    </a>
-  </div>
-</div> <!-- end container -->
 
-        <div class="container py-5" id="reels">
-  <h3 class="text-center fw-bold" style="font-size: 48px;">Instagram Reels</h3>
-  <p class="text-center fw-light text-dark-emphasis">
-    A few moments I’ve featured in — storytelling, humor, and creative experiments.
-  </p>
-  <div class="blue-line m-auto mb-5"></div>
-
-  <div class="row justify-content-center g-4">
-    
-    <!-- Reel 1 -->
-    <div class="col-12 col-md-6 d-flex justify-content-center">
-      <blockquote 
-        class="instagram-media" 
-        data-instgrm-permalink="https://www.instagram.com/p/Co4mXdStfRA/" 
-        data-instgrm-version="14"
-        style="max-width: 360px; width: 100%; margin: auto;">
-      </blockquote>
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <img src="https://swaraj6520.github.io/Swaraj-Portfolio1/media/About-you.jpg" alt="Swaraj Acharekar" onerror="this.style.background='#1a1a1a';this.style.minHeight='360px'">
+      <div class="hero-photo-overlay">
+        <div class="hero-photo-name">Swaraj Acharekar</div>
+        <div class="hero-photo-title">Digital Marketing · Content · SEO</div>
+      </div>
+      <div class="hero-accent-dot"></div>
     </div>
-
-    <!-- Reel 2 -->
-    <div class="col-12 col-md-6 d-flex justify-content-center">
-      <blockquote 
-        class="instagram-media" 
-        data-instgrm-permalink="https://www.instagram.com/p/CikkZj-jvMu/" 
-        data-instgrm-version="14"
-        style="max-width: 360px; width: 100%; margin: auto;">
-      </blockquote>
-    </div>
-
-  </div>
-
-  <!-- View More Reels -->
-  <div class="text-center mt-4">
-    <a href="https://www.instagram.com/swaraj_acharekar/reels/" target="_blank" class="btn btn-outline-primary btn-lg rounded-5">
-      <i class="fa-brands fa-instagram me-2"></i> View All Reels
-    </a>
-  </div>
-</div>
-
-<!-- Instagram Embed Script -->
-<script async src="//www.instagram.com/embed.js"></script>
-    
-<div class="work" id="work">
-  <div class="container">
-
-    <h3 class="text-center fw-bold mt-5" style="font-size: 48px;">Content Work</h3>
-    <p class="text-center fw-light text-dark-emphasis">A glimpse into some of my featured writing work across the web.</p>
-    <div class="blue-line m-auto mb-5"></div>
-
-    <div class="row g-4 pb-3">
-
-      <!-- MotorOctane Article 1 -->
-<div class="col-md-6 col-lg-4">
-  <a href="https://motoroctane.com/news/252917-what-does-horn-ok-please-mean-behind-trucks-in-india" target="_blank" class="text-decoration-none text-dark">
-    <div class="item bg-white shadow-sm">
-      <div class="overflow-hidden">
-        <img src="media/motoroctane-1.jpg" class="w-100 object-fit-cover" style="height: 250px;" alt="MotorOctane Article 1"/>
+    <div class="hero-stats-below">
+      <div class="stat-item">
+        <span class="stat-num">2400%</span>
+        <span class="stat-label">Traffic growth</span>
       </div>
-      <div class="mt-3 p-3 item-cont position-relative">
-        <h3 class="fs-5">What does ‘Horn OK Please’ mean behind trucks in India?</h3>
-        <p style="font-size: 13px;"><span style="color: #0078FF;">MotorOctane</span></p>
+      <div class="stat-item">
+        <span class="stat-num">10K+</span>
+        <span class="stat-label">Followers built</span>
       </div>
-    </div>
-  </a>
-</div>
-
-      <!-- MotorOctane Article 2 -->
-      <div class="col-md-6 col-lg-4">
-        <a href="https://motoroctane.com/news/268343-are-toyota-suvs-safe" target="_blank" class="text-decoration-none text-dark">
-          <div class="item bg-white shadow-sm">
-            <div class="overflow-hidden">
-              <img src="media/motoroctane-2.jpg" class="w-100 object-fit-cover" style="height: 250px;" alt="MotorOctane Article 2"/>
-            </div>
-            <div class="mt-3 p-3 item-cont position-relative">
-              <h3 class="fs-5">Are Toyota SUVs Safe?</h3>
-              <p style="font-size: 13px;"><span style="color: #0078FF;">MotorOctane</span></p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- MotorOctane Article 3 -->
-      <div class="col-md-6 col-lg-4">
-        <a href="https://motoroctane.com/news/264918-winter-car-care-tips-you-need-to-know-these" target="_blank" class="text-decoration-none text-dark">
-          <div class="item bg-white shadow-sm">
-            <div class="overflow-hidden">
-              <img src="media/motoroctane-3.jpg" class="w-100 object-fit-cover" style="height: 250px;" alt="MotorOctane Article 3"/>
-            </div>
-            <div class="mt-3 p-3 item-cont position-relative">
-              <h3 class="fs-5">Winter car care tips – You need to know these!</h3>
-              <p style="font-size: 13px;"><span style="color: #0078FF;">MotorOctane</span></p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- MotorOctane Author Profile -->
-      <div class="col-md-6 col-lg-4">
-        <a href="https://motoroctane.com/author/acharekarswaraj" target="_blank" class="text-decoration-none text-dark">
-          <div class="item bg-white shadow-sm">
-            <div class="overflow-hidden">
-              <img src="media/motoroctane-profile.jpg" class="w-100 object-fit-cover" style="height: 250px;" alt="MotorOctane Author Profile"/>
-            </div>
-            <div class="mt-3 p-3 item-cont position-relative">
-              <h3 class="fs-5">MotorOctane Author Profile</h3>
-              <p style="font-size: 13px;"><span style="color: #0078FF;">Author Page</span> <span class="text-dark-emphasis">/ View My Work</span></p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Sportskeeda Article -->
-      <div class="col-md-6 col-lg-4">
-        <a href="https://www.sportskeeda.com/esports/knowing-the-teams-which-have-qualified-from-north-america-for-the-pro-league" target="_blank" class="text-decoration-none text-dark">
-          <div class="item bg-white shadow-sm">
-            <div class="overflow-hidden">
-              <img src="media/sportskeeda-article.jpg" class="w-100 object-fit-cover" style="height: 250px;" alt="Sportskeeda Article"/>
-            </div>
-            <div class="mt-3 p-3 item-cont position-relative">
-              <h3 class="fs-5">North American teams qualifying for Pro League</h3>
-              <p style="font-size: 13px;"><span style="color: #0078FF;">Sportskeeda</span></p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Sportskeeda Author Profile -->
-      <div class="col-md-6 col-lg-4">
-        <a href="https://www.sportskeeda.com/author/swaraj-acharekar" target="_blank" class="text-decoration-none text-dark">
-          <div class="item bg-white shadow-sm">
-            <div class="overflow-hidden">
-              <img src="media/sportskeeda-profile.jpg" class="w-100 object-fit-cover" style="height: 250px;" alt="Sportskeeda Profile"/>
-            </div>
-            <div class="mt-3 p-3 item-cont position-relative">
-              <h3 class="fs-5">Sportskeeda Author Profile</h3>
-              <p style="font-size: 13px;"><span style="color: #0078FF;">Author Page</span> <span class="text-dark-emphasis">/ View My Work</span></p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</div>
-        <!-- Academic Projects Section -->
-<div class="container py-5" id="academic-projects">
-  <h3 class="text-center fw-bold" style="font-size: 48px;">Academic Projects</h3>
-  <p class="text-center fw-light text-dark-emphasis">
-    A few selected projects I've worked on — research-driven, client-based, and strategy-focused.
-  </p>
-  <div class="blue-line m-auto mb-5"></div>
-
-  <div class="row g-4">
-    <!-- Project Card 1 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow-sm">
-        <img src="media/valent-project.jpg" class="card-img-top object-fit-cover" style="height: 180px;" alt="Valent Project">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Valent Communications</h5>
-          <h6 class="text-primary fw-semibold">Web Strategy Consultant</h6>
-          <p class="card-text text-dark-emphasis">Developed a real-client website strategy using segmentation, UX principles, and digital branding frameworks.</p>
-          <div class="mt-auto">
-            <a href="https://design421.com/group1/" class="btn btn-outline-primary btn-sm rounded-pill" target="_blank" rel="noopener noreferrer">Website</a>
-            <a href="https://docs.google.com/document/d/1TeX1dvb3z8r4sBla35xIagmg85HPRTjFIyZeTyHRO34/edit?usp=sharing" class="btn btn-outline-secondary btn-sm rounded-pill" ms-2 target="_blank" rel="noopener noreferrer">View Report</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project Card 2 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow-sm">
-        <img src="media/attention-research.jpg" class="card-img-top object-fit-cover" style="height: 180px;" alt="Attention Span Research">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Reels & Attention Span Study</h5>
-          <h6 class="text-primary fw-semibold">Marketing Research</h6>
-          <p class="card-text text-dark-emphasis">Led a study on the impact of short-form videos on student attention, combining survey insights with interviews.</p>
-          <div class="mt-auto">
-            <a href="media/MMR Project.pdf" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">View Report</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Project Card 3 Placeholder -->
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow-sm">
-        <img src="media/project-placeholder.jpg" class="card-img-top object-fit-cover" style="height: 180px;" alt="Other Projects">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Marketing Launch Plan for a New EV</h5>
-          <h6 class="text-primary fw-semibold">Altura EV</h6>
-          <p class="card-text text-dark-emphasis">Created a launch strategy for an all-new electric vehicle</p>
-          <div class="mt-auto">
-            <a href="media/Altura EV.pdf" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill">View Report</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-        <section id="education" class="py-5 bg-dark text-white">
-  <div class="container">
-    <h3 class="text-center fw-bold mb-4" style="font-size: 48px;">Education</h3>
-    <div class="timeline">
-      <div class="timeline-item">
-        <span class="dot"></span>
-        <p class="date">September ’20</p>
-        <h5 class="degree">Bachelors of Mass Media</h5>
-        <p class="school">University of Mumbai, India</p>
-        <p class="gpa">GPA: 3.30/4</p>
-      </div>
-      <div class="timeline-item">
-        <span class="dot"></span>
-        <p class="date">October ’22</p>
-        <h5 class="degree">MA in Communication & Journalism</h5>
-        <p class="school">University of Mumbai, India</p>
-        <p class="gpa">GPA: 3.82/4</p>
-      </div>
-      <div class="timeline-item">
-        <span class="dot"></span>
-        <p class="date">Expected May ’26</p>
-        <h5 class="degree">MS in Digital Marketing and Media</h5>
-        <p class="school">Yeshiva University, New York</p>
-        <p class="gpa">GPA: 3.7/4</p>
+      <div class="stat-item">
+        <span class="stat-num">1000+</span>
+        <span class="stat-label">Articles Written</span>
       </div>
     </div>
   </div>
 </section>
 
-    <div class="contact" id="contact">
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-tag">About</div>
+  <h2 class="section-title">The story behind <span class="dim">the numbers.</span></h2>
+  <div class="about-grid">
+    <div class="about-copy">
+      <p>I'm <strong>Swaraj Acharekar</strong> — a digital marketer finishing my MS at Yeshiva University, with a track record of turning under-resourced teams into content machines that rank, engage, and convert.</p>
+      <p>My career started at <strong>MotorOctane</strong>, one of India's leading automotive media brands with 5M+ subscribers. I learned fast: when you pair consistent publishing volume with real keyword discipline, <em>traffic doesn't just grow — it explodes.</em> We hit 2400% growth. I stopped treating SEO as a checklist and started treating it as a conversation with an audience.</p>
+      <p>At <strong>DASH</strong>, a NYC startup, I shifted to SMB-focused content and early-stage growth — writing copy that had to earn attention without budget. It taught me that clarity beats cleverness, every single time.</p>
+      <p>I think in <strong>systems, not posts.</strong> Every piece of content should do a job. Every metric should change what you do next.</p>
+    </div>
+    <div class="about-right">
+      <div class="fact-card reveal">
+        <div class="fact-icon">🎓</div>
+        <div class="fact-text"><strong>MS Digital Marketing & Media</strong>Yeshiva University · GPA 3.89 · Expected May 2026</div>
+      </div>
+      <div class="fact-card reveal">
+        <div class="fact-icon">📍</div>
+        <div class="fact-text"><strong>Based in Jersey City, NJ</strong>Open to NYC roles + remote opportunities</div>
+      </div>
+      <div class="fact-card reveal">
+        <div class="fact-icon">🏆</div>
+        <div class="fact-text"><strong>Recognised at MotorOctane</strong>2× Performer of the Month · Most Disciplined Performer 2023</div>
+      </div>
+      <div class="fact-card reveal">
+        <div class="fact-icon">⚡</div>
+        <div class="fact-text"><strong>Currently targeting:</strong>Content marketing, growth strategy, digital campaign management, and SEO-led editorial roles</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="container">
-        
-        <div class="contact-parent row bg-white g-0 row-gap-5">
-        
-          <div class="col-md-6 pe-4">
-            <h5 class="fw-medium fs-2 lh-base mb-5">Let's Connect</h5>
-            
-            <form>
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingName" placeholder="name@example.com" required>
-                <label for="floatingName">Your Name</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingEmail" placeholder=Email" required>
-                <label for="floatingEmail">Your Email</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingSubject" placeholder="Subject" required>
-                <label for="floatingSubject">Subject</label>
-              </div>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-tag">Experience</div>
+  <h2 class="section-title">Roles I've held, <span class="dim">impact I've made.</span></h2>
+  <div class="exp-list">
 
-              <div class="form-floating mb-4">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Message</label>
-              </div>
-
-              <div class="text-center">
-                <button type="submit" class="btn btn-primary btn-lg rounded-5 bt-end">Send Message</button>
-              </div>
-
-            </form>
+    <!-- DASH -->
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Digital Marketing Intern</div>
+          <div class="exp-company-row">
+            <span class="exp-company">DASH</span>
+            <span class="exp-location">· NYC Startup · New York</span>
           </div>
-
-          <div class="col-md-6">
-            <h5 class="fw-medium fs-2 lh-base mb-5">Get in Touch</h5>
-            <p class="fs-5 fw-light text-dark-emphasis mb-3">Got a project, idea, or just want to say hi?
-I’m always open to collaborations, creative chats, or sharing marketing insights over coffee (or Zoom!). Drop me a message and let’s connect.</p>
-            <p class="text-dark-emphasis mb-1"><i class="fa-solid fa-location-dot pe-3 text-primary"></i>115 Logan Avenue, Jersey City, NJ, 07306</p>
-            <p class="text-dark-emphasis mb-1"><i class="fa-solid fa-mobile-screen pe-3 text-primary"></i>(929) 710-5370</p>
-            <p class="text-dark-emphasis mb-4"><i class="fa-solid fa-envelope pe-3 text-primary"></i>acharekarswaraj53@gmail.com</p>
-            <a href="https://www.facebook.com/swaraj.acharekar" target="_blank">
-  <i class="fa-brands fa-facebook me-2 fs-4 co-ico"></i>
-</a>
-            <a href="https://www.instagram.com/swaraj_acharekar/" target="_blank">
-  <i class="fa-brands fa-instagram me-2 fs-4 co-ico"></i>
-</a>
-           <a href="https://x.com/Swarajachareka5" target="_blank">
-  <i class="fa-brands fa-twitter me-2 fs-4 co-ico"></i>
-</a>
-           <a href="https://www.linkedin.com/in/swaraj-acharekar-64b500201/" target="_blank">
-  <i class="fa-brands fa-linkedin me-2 fs-4 co-ico"></i>
-</a>
-          </div>
-          
-
         </div>
-
+        <div class="exp-dates current">Jan 2026 – Present</div>
       </div>
-
+      <button class="exp-toggle" onclick="toggleExp(this)">
+        <span class="toggle-icon">+</span> What I'm doing here
+      </button>
+      <div class="exp-body">
+        <div class="exp-body-grid">
+          <div class="exp-col">
+            <h4>The Context</h4>
+            <p>DASH is a NYC-based startup targeting small business owners. Budget is lean, the brand is early-stage, and every piece of content has to earn its attention without paid backing.</p>
+          </div>
+          <div class="exp-col">
+            <h4>What I Do</h4>
+            <ul>
+              <li>Create daily platform-specific content for Alignable — the leading SMB professional network</li>
+              <li>Drive engagement and thought leadership among small business audiences</li>
+              <li>Support social media planning, content coordination, and performance tracking</li>
+              <li>Contribute to community growth and brand visibility initiatives</li>
+            </ul>
+          </div>
+          <div class="exp-col">
+            <h4>Key Takeaways</h4>
+            <ul>
+              <li>Channel selection IS strategy at a startup — Alignable reaches SMBs where LinkedIn doesn't</li>
+              <li>SMB audiences trust peer voice over brand voice</li>
+              <li>Pre-scale content is also the sales team's warmup act</li>
+            </ul>
+          </div>
+        </div>
+        <div class="insight-bar"><span>Key insight:</span> At an early-stage startup, content isn't separate from sales — it's the credibility that makes cold outreach actually get replies.</div>
+      </div>
     </div>
 
-    <div class="footer text-white fs-6">
-      <div class="text-center mb-0">
-        <p class="mb-1">© Copyright <b>DevFolio</b>. All Rights Reserved</p>
-        <p>Designed by <a class="text-decoration-none text-white" href="#home">BootstrapMade</a></p>
+    <!-- GRAD ASSISTANT -->
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Graduate Assistant – Alumni Engagement</div>
+          <div class="exp-company-row">
+            <span class="exp-company">Yeshiva University</span>
+            <span class="exp-location">· New York, NY</span>
+          </div>
+        </div>
+        <div class="exp-dates">Aug 2025 – Jan 2026</div>
+      </div>
+      <button class="exp-toggle" onclick="toggleExp(this)">
+        <span class="toggle-icon">+</span> What I did here
+      </button>
+      <div class="exp-body">
+        <div class="exp-body-grid">
+          <div class="exp-col">
+            <h4>Responsibilities</h4>
+            <ul>
+              <li>Cleaned and organised alumni data from 1986 onward, improving accuracy of school records</li>
+              <li>Researched and verified alumni profiles on LinkedIn to build outreach contact lists</li>
+              <li>Supported alumni engagement campaigns and outreach coordination</li>
+            </ul>
+          </div>
+          <div class="exp-col">
+            <h4>Skills Applied</h4>
+            <ul>
+              <li>Data hygiene and CRM-ready list building</li>
+              <li>Research and verification at scale</li>
+              <li>Institutional outreach and engagement strategy</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- MOTOROCTANE -->
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Content Writer & Social Media Executive</div>
+          <div class="exp-company-row">
+            <span class="exp-company">MotorOctane</span>
+            <span class="exp-location">· Automotive Media (5M+ subscribers) · Mumbai</span>
+          </div>
+        </div>
+        <div class="exp-dates">Jul 2021 – Jun 2024</div>
+      </div>
+      <div class="exp-metrics">
+        <div class="metric"><span class="metric-num">2400%</span><span class="metric-desc">Traffic growth</span></div>
+        <div class="metric"><span class="metric-num">10K+</span><span class="metric-desc">Twitter followers</span></div>
+        <div class="metric"><span class="metric-num">5–6</span><span class="metric-desc">Articles/day</span></div>
+        <div class="metric"><span class="metric-num">4</span><span class="metric-desc">OEM campaigns</span></div>
+      </div>
+      <button class="exp-toggle" onclick="toggleExp(this)">
+        <span class="toggle-icon">+</span> How we got to 2400%
+      </button>
+      <div class="exp-body">
+        <div class="exp-body-grid">
+          <div class="exp-col">
+            <h4>The Challenge</h4>
+            <p>MotorOctane had strong editorial voice but minimal search visibility. Traffic was stagnant and the content process wasn't built around search intent.</p>
+          </div>
+          <div class="exp-col">
+            <h4>The Approach</h4>
+            <ul>
+              <li>Shifted from opinion-first to intent-first content using keyword research</li>
+              <li>Built a publishing rhythm of 5–6 daily articles aligned to automotive search trends</li>
+              <li>Developed and executed a Twitter growth strategy from the ground up</li>
+              <li>Coordinated influencer campaigns with Hyundai, Kia, Volvo, and Mercedes-Benz</li>
+            </ul>
+          </div>
+          <div class="exp-col">
+            <h4>The Results</h4>
+            <ul>
+              <li>Website traffic grew 2400% over the engagement period</li>
+              <li>Twitter following grew by 10,000+ organic followers</li>
+              <li>Delivered high-impact sponsored content for 4 major automotive OEMs</li>
+              <li>Supported Instagram and YouTube teams with branded video content</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <span class="award-tag">🏆 Performer of the Month ×2</span>
+          <span class="award-tag">⭐ Most Disciplined Performer 2023</span>
+        </div>
+        <div class="insight-bar">
+          <span>Key insight:</span> The unlock wasn't writing more — it was writing specifically. Keyword-research-first content turns the algorithm from an obstacle into a distribution channel.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WORK SAMPLES -->
+<section id="work">
+  <div class="section-tag">Work Samples</div>
+  <h2 class="section-title">Real work, <span class="dim">real links.</span></h2>
+
+  <div class="work-tabs">
+    <button class="tab-btn active" onclick="switchTab(this,'writing')">Writing</button>
+    <button class="tab-btn" onclick="switchTab(this,'creatives')">Creatives</button>
+    <button class="tab-btn" onclick="switchTab(this,'projects')">Academic Projects</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-writing">
+    <div class="writing-grid">
+      <a href="https://motoroctane.com/news/252917-what-does-horn-ok-please-mean-behind-trucks-in-india" target="_blank" class="writing-card">
+        <img src="https://swaraj6520.github.io/Swaraj-Portfolio1/media/motoroctane-1.jpg" alt="Horn OK Please" class="writing-thumb">
+        <div class="writing-info">
+          <span class="writing-source">MotorOctane</span>
+          <div class="writing-title">What does 'Horn OK Please' mean behind trucks in India?</div>
+          <div class="writing-arrow">Read article →</div>
+        </div>
+      </a>
+      <a href="https://motoroctane.com/news/268343-are-toyota-suvs-safe" target="_blank" class="writing-card">
+        <img src="https://swaraj6520.github.io/Swaraj-Portfolio1/media/motoroctane-2.jpg" alt="Toyota SUVs" class="writing-thumb">
+        <div class="writing-info">
+          <span class="writing-source">MotorOctane</span>
+          <div class="writing-title">Are Toyota SUVs Safe?</div>
+          <div class="writing-arrow">Read article →</div>
+        </div>
+      </a>
+      <a href="https://motoroctane.com/news/264918-winter-car-care-tips-you-need-to-know-these" target="_blank" class="writing-card">
+        <img src="https://swaraj6520.github.io/Swaraj-Portfolio1/media/motoroctane-3.jpg" alt="Winter car care" class="writing-thumb">
+        <div class="writing-info">
+          <span class="writing-source">MotorOctane</span>
+          <div class="writing-title">Winter car care tips – You need to know these!</div>
+          <div class="writing-arrow">Read article →</div>
+        </div>
+      </a>
+      <a href="https://www.sportskeeda.com/esports/knowing-the-teams-which-have-qualified-from-north-america-for-the-pro-league" target="_blank" class="writing-card">
+        <img src="https://swaraj6520.github.io/Swaraj-Portfolio1/media/sportskeeda-article.jpg" alt="Sportskeeda" class="writing-thumb">
+        <div class="writing-info">
+          <span class="writing-source">Sportskeeda</span>
+          <div class="writing-title">North American teams qualifying for Pro League</div>
+          <div class="writing-arrow">Read article →</div>
+        </div>
+      </a>
+      <a href="https://motoroctane.com/author/acharekarswaraj" target="_blank" class="writing-card" style="border-style:dashed;align-items:center;justify-content:center;padding:24px;text-align:center;min-height:140px;">
+        <div class="writing-info" style="align-items:center;text-align:center;">
+          <span class="writing-source">MotorOctane</span>
+          <div class="writing-title">Full Author Profile →</div>
+          <div class="writing-arrow" style="color:var(--accent)">All published articles</div>
+        </div>
+      </a>
+      <a href="https://www.sportskeeda.com/author/swaraj-acharekar" target="_blank" class="writing-card" style="border-style:dashed;align-items:center;justify-content:center;padding:24px;text-align:center;min-height:140px;">
+        <div class="writing-info" style="align-items:center;text-align:center;">
+          <span class="writing-source">Sportskeeda</span>
+          <div class="writing-title">Full Author Profile →</div>
+          <div class="writing-arrow" style="color:var(--accent)">All published articles</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-creatives">
+    <div class="creatives-grid">
+      <div class="creative-thumb"><img src="https://swaraj6520.github.io/Swaraj-Portfolio1/media/creative1.jpg" alt="Creative 1"></div>
+      <div class="creative-thumb"><img src="https://swaraj6520.github.io/Swaraj-Portfolio1/media/creative2.jpg" alt="Creative 2"></div>
+      <div class="creative-thumb"><img src="https://swaraj6520.github.io/Swaraj-Portfolio1/media/creative3.jpg" alt="Creative 3"></div>
+    </div>
+    <a href="https://drive.google.com/drive/folders/1fyhGiM5bE_gG1RmcRaMRaSAqOFjaXfk_?usp=sharing" target="_blank" class="view-more-link">View full creative archive →</a>
+  </div>
+
+  <div class="tab-panel" id="tab-projects">
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-label">Marketing Capstone · Fall 2025</div>
+        <div class="project-title">Aidium SaaS CRM — Marketing Plan</div>
+        <div class="project-desc">Developed a comprehensive marketing plan for a CRM rebranding to Lendware — competitor analysis, loan officer adoption strategy, pricing model, and full KPI framework.</div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-label">Marketing Analytics · Spring 2025</div>
+        <div class="project-title">Macy's — RFM Customer Segmentation</div>
+        <div class="project-desc">Conducted RFM analysis on 100,000+ transactions to identify high-value customer segments. Built a Tableau dashboard to visualise KPIs and developed targeted retention strategies.</div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-label">Web Strategy · Client Project</div>
+        <div class="project-title">Valent Communications — Website Strategy</div>
+        <div class="project-desc">Developed a real-client website strategy using segmentation, UX principles, and digital branding frameworks.</div>
+        <div class="project-links">
+          <a href="https://design421.com/group1/" target="_blank" class="project-link">View Website</a>
+          <a href="https://docs.google.com/document/d/1TeX1dvb3z8r4sBla35xIagmg85HPRTjFIyZeTyHRO34/edit?usp=sharing" target="_blank" class="project-link">View Report</a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-label">Marketing Research</div>
+        <div class="project-title">Reels & Attention Span Study</div>
+        <div class="project-desc">Led a study on short-form video's impact on student attention spans, combining survey data with qualitative interviews.</div>
+        <div class="project-links">
+          <a href="https://swaraj6520.github.io/Swaraj-Portfolio1/media/MMR Project.pdf" target="_blank" class="project-link">View Report</a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-label">Product Launch Strategy</div>
+        <div class="project-title">Altura EV — Go-to-Market Launch Plan</div>
+        <div class="project-desc">Created a full go-to-market launch strategy for an EV concept — positioning, audience targeting, campaign framework, and media plan.</div>
+        <div class="project-links">
+          <a href="https://swaraj6520.github.io/Swaraj-Portfolio1/media/Altura EV.pdf" target="_blank" class="project-link">View Report</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">Skills</div>
+  <h2 class="section-title">Tools I actually <span class="dim">know how to use.</span></h2>
+  <div class="skills-wrap">
+    <div class="skill-group reveal">
+      <div class="skill-group-title"><span>📈</span> Growth & SEO</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SEO Strategy</span><span class="skill-tag">Keyword Research</span>
+        <span class="skill-tag">On-Page Optimisation</span><span class="skill-tag">Content Marketing</span>
+        <span class="skill-tag">Digital Campaigns</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title"><span>📊</span> Analytics & Data</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Google Analytics GA4</span><span class="skill-tag">Google Ads</span>
+        <span class="skill-tag">Tableau</span><span class="skill-tag">SQL</span><span class="skill-tag">Excel</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title"><span>🎯</span> Platforms & CRM</div>
+      <div class="skill-tags">
+        <span class="skill-tag">HubSpot CRM</span><span class="skill-tag">Email Marketing</span>
+        <span class="skill-tag">WordPress</span><span class="skill-tag">Alignable</span>
+        <span class="skill-tag">Instagram / Twitter</span><span class="skill-tag">YouTube</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-title"><span>🎨</span> Creative Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Canva</span><span class="skill-tag">Adobe Photoshop</span>
+        <span class="skill-tag">Premiere Pro</span><span class="skill-tag">Clipchamp</span>
+        <span class="skill-tag">Copywriting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-tag">Education</div>
+  <h2 class="section-title">Academic <span class="dim">foundation.</span></h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-degree">MS in Digital Marketing & Media</div>
+      <div class="edu-school">Yeshiva University, Katz School</div>
+      <div class="edu-detail">New York, NY · Expected May 2026</div>
+      <span class="edu-gpa">GPA: 3.89</span>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-degree">MA in Communication & Journalism</div>
+      <div class="edu-school">University of Mumbai</div>
+      <div class="edu-detail">Mumbai, India · October 2022</div>
+      <span class="edu-gpa">GPA: 3.82</span>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-degree">BA in Mass Media & Journalism</div>
+      <div class="edu-school">University of Mumbai</div>
+      <div class="edu-detail">Mumbai, India · September 2020</div>
+      <span class="edu-gpa">GPA: 3.30</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="section-tag">Certifications</div>
+  <h2 class="section-title">Verified <span class="dim">credentials.</span></h2>
+  <div class="certs-row">
+    <div class="cert-pill reveal"><span>📊</span> Google Analytics (GA4) Certified</div>
+    <div class="cert-pill reveal"><span>🎯</span> Google Ads — Search Certified</div>
+    <div class="cert-pill reveal"><span>🔶</span> HubSpot Content Marketing Certified</div>
+    <div class="cert-pill reveal"><span>🔶</span> HubSpot Email Marketing Certified</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-tag" style="justify-content:center">Let's connect</div>
+    <div class="contact-big">
+      Ready to make<br><span class="line2">something move?</span>
+    </div>
+    <p class="contact-sub">Actively looking for digital marketing, content, and growth roles in NYC. If you're building something and need someone who hits the ground running — let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:acharekarswaraj53@gmail.com" class="contact-link"><span>✉️</span> acharekarswaraj53@gmail.com</a>
+      <a href="https://www.linkedin.com/in/swaraj-acharekar/" target="_blank" class="contact-link"><span>💼</span> LinkedIn</a>
+      <a href="https://swaraj6520.github.io/Swaraj-Portfolio1/media/Swaraj_Acharekar_CV.pdf" target="_blank" class="contact-link"><span>📄</span> Download Resume</a>
+      <a href="https://www.instagram.com/swaraj_acharekar/reels/" target="_blank" class="contact-link"><span>📸</span> Instagram Reels</a>
+    </div>
+    <div class="contact-note">Jersey City, NJ · Open to on-site, hybrid, and remote · (929) 710-5370</div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Swaraj Acharekar</span>
+  <span>Built to stand out. ⚡</span>
+</footer>
+
+<script>
+// nav is always visible — no scroll toggle needed
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 70);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+function toggleExp(btn) {
+  const card = btn.closest('.exp-card');
+  const body = card.querySelector('.exp-body');
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.exp-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.exp-toggle').forEach(b => b.classList.remove('open'));
+  if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
+}
+
+function switchTab(btn, id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+</script>
 </body>
-
 </html>
 
 
