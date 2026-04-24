@@ -144,7 +144,21 @@ h2.section-title .dim{color:var(--muted);font-weight:400;}
 .project-link{font-size:0.7rem;font-weight:600;padding:5px 11px;border:1px solid var(--border);border-radius:5px;text-decoration:none;color:var(--muted);transition:border-color var(--t),color var(--t);}
 .project-link:hover{border-color:var(--accent);color:var(--accent);}
 
-/* SKILLS */
+/* REELS */
+.reels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;}
+.reel-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:var(--text);display:flex;flex-direction:column;transition:border-color var(--t),transform var(--t);}
+.reel-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.reel-thumb{aspect-ratio:9/16;background:#111;position:relative;overflow:hidden;}
+.reel-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
+.reel-card:hover .reel-thumb img{transform:scale(1.05);}
+.reel-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.reel-play div.play-icon{width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:16px solid var(--accent);margin-left:3px;filter:drop-shadow(0 0 8px rgba(232,255,71,0.5));}
+.reel-badge{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.65);border-radius:4px;padding:2px 8px;font-size:0.62rem;color:var(--accent);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}
+.reel-info{padding:12px 14px;}
+.reel-source{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:600;display:block;margin-bottom:4px;}
+.reel-link{font-size:0.78rem;color:var(--muted);}
+
+
 #skills{background:var(--bg);}
 .skills-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
 .skill-group{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color var(--t),transform var(--t);}
@@ -222,13 +236,13 @@ footer span:last-child{color:var(--accent);}
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Available for full-time roles · New York, NY</div>
+    <div class="hero-eyebrow">Available for full-time roles · Jersey City, NJ</div>
     <h1 class="hero-headline">
       I don't just make<br>content.<br>
       I make <em>things move.</em>
     </h1>
     <p class="hero-sub">
-      Digital marketer with 3+ years driving content-led growth; 2400% traffic increases, 10K+ followers built organically, and campaigns that actually convert.
+      Digital marketer with 3+ years driving content-led growth — 2400% traffic increases, 10K+ followers built organically, and campaigns that actually convert.
     </p>
     <div class="hero-ctas">
       <a href="#experience" class="btn-primary">See My Work →</a>
@@ -268,9 +282,9 @@ footer span:last-child{color:var(--accent);}
   <h2 class="section-title">The story behind <span class="dim">the numbers.</span></h2>
   <div class="about-grid">
     <div class="about-copy">
-      <p>I'm <strong>Swaraj Acharekar</strong>, a digital marketer finishing my MS at Yeshiva University, with a track record of turning under-resourced teams into content machines that rank, engage, and convert.</p>
+      <p>I'm <strong>Swaraj Acharekar</strong> — a digital marketer finishing my MS at Yeshiva University, with a track record of turning under-resourced teams into content machines that rank, engage, and convert.</p>
       <p>My career started at <strong>MotorOctane</strong>, one of India's leading automotive media brands with 5M+ subscribers. I learned fast: when you pair consistent publishing volume with real keyword discipline, <em>traffic doesn't just grow — it explodes.</em> We hit 2400% growth. I stopped treating SEO as a checklist and started treating it as a conversation with an audience.</p>
-      <p>At <strong>DASH</strong>, a NYC startup, I shifted to SMB-focused content and early-stage growth - writing copy that had to earn attention without budget. It taught me that clarity beats cleverness, every single time.</p>
+      <p>At <strong>DASH</strong>, a NYC startup, I shifted to SMB-focused content and early-stage growth — writing copy that had to earn attention without budget. It taught me that clarity beats cleverness, every single time.</p>
       <p>I think in <strong>systems, not posts.</strong> Every piece of content should do a job. Every metric should change what you do next.</p>
     </div>
     <div class="about-right">
@@ -280,7 +294,7 @@ footer span:last-child{color:var(--accent);}
       </div>
       <div class="fact-card reveal">
         <div class="fact-icon">📍</div>
-        <div class="fact-text"><strong>Based in New York, NY</strong>Open to NYC roles + remote opportunities</div>
+        <div class="fact-text"><strong>Based in Jersey City, NJ</strong>Open to NYC roles + remote opportunities</div>
       </div>
       <div class="fact-card reveal">
         <div class="fact-icon">🏆</div>
@@ -430,13 +444,6 @@ footer span:last-child{color:var(--accent);}
           <span class="award-tag">🏆 Performer of the Month ×2</span>
           <span class="award-tag">⭐ Most Disciplined Performer 2023</span>
         </div>
-        <div style="margin-top:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-  <span style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;">Collaborated with</span>
-  <span style="font-size:0.75rem;font-weight:500;color:var(--text);padding:4px 12px;border:1px solid var(--border);border-radius:100px;">Hyundai</span>
-  <span style="font-size:0.75rem;font-weight:500;color:var(--text);padding:4px 12px;border:1px solid var(--border);border-radius:100px;">Kia</span>
-  <span style="font-size:0.75rem;font-weight:500;color:var(--text);padding:4px 12px;border:1px solid var(--border);border-radius:100px;">Volvo</span>
-  <span style="font-size:0.75rem;font-weight:500;color:var(--text);padding:4px 12px;border:1px solid var(--border);border-radius:100px;">Mercedes-Benz</span>
-</div>
         <div class="insight-bar">
           <span>Key insight:</span> The unlock wasn't writing more — it was writing specifically. Keyword-research-first content turns the algorithm from an obstacle into a distribution channel.
         </div>
@@ -454,6 +461,7 @@ footer span:last-child{color:var(--accent);}
   <div class="work-tabs">
     <button class="tab-btn active" onclick="switchTab(this,'writing')">Writing</button>
     <button class="tab-btn" onclick="switchTab(this,'creatives')">Creatives</button>
+    <button class="tab-btn" onclick="switchTab(this,'reels')">Reels</button>
     <button class="tab-btn" onclick="switchTab(this,'projects')">Academic Projects</button>
   </div>
 
@@ -517,7 +525,67 @@ footer span:last-child{color:var(--accent);}
     <a href="https://drive.google.com/drive/folders/1fyhGiM5bE_gG1RmcRaMRaSAqOFjaXfk_?usp=sharing" target="_blank" class="view-more-link">View full creative archive →</a>
   </div>
 
-  <div class="tab-panel" id="tab-projects">
+  <div class="tab-panel" id="tab-reels">
+    <div class="reels-grid">
+      <a href="https://www.instagram.com/p/Cqsg9nBOE1f/" target="_blank" class="reel-card">
+        <div class="reel-thumb">
+          <img src="https://instagram.com/p/Cqsg9nBOE1f/media/?size=m" alt="Reel" onerror="this.style.display='none'">
+          <div class="reel-play"><div class="play-icon"></div></div>
+          <div class="reel-badge">Reel</div>
+        </div>
+        <div class="reel-info">
+          <span class="reel-source">MotorOctane</span>
+          <div class="reel-link">Watch on Instagram →</div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/p/Cp5BhBDpgcD/" target="_blank" class="reel-card">
+        <div class="reel-thumb">
+          <img src="https://instagram.com/p/Cp5BhBDpgcD/media/?size=m" alt="Reel" onerror="this.style.display='none'">
+          <div class="reel-play"><div class="play-icon"></div></div>
+          <div class="reel-badge">Reel</div>
+        </div>
+        <div class="reel-info">
+          <span class="reel-source">MotorOctane</span>
+          <div class="reel-link">Watch on Instagram →</div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/p/Co4mXdStfRA/" target="_blank" class="reel-card">
+        <div class="reel-thumb">
+          <img src="https://instagram.com/p/Co4mXdStfRA/media/?size=m" alt="Reel" onerror="this.style.display='none'">
+          <div class="reel-play"><div class="play-icon"></div></div>
+          <div class="reel-badge">Reel</div>
+        </div>
+        <div class="reel-info">
+          <span class="reel-source">MotorOctane</span>
+          <div class="reel-link">Watch on Instagram →</div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/p/CikkZj-jvMu/" target="_blank" class="reel-card">
+        <div class="reel-thumb">
+          <img src="https://instagram.com/p/CikkZj-jvMu/media/?size=m" alt="Reel" onerror="this.style.display:'none'">
+          <div class="reel-play"><div class="play-icon"></div></div>
+          <div class="reel-badge">Reel</div>
+        </div>
+        <div class="reel-info">
+          <span class="reel-source">MotorOctane</span>
+          <div class="reel-link">Watch on Instagram →</div>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/p/CgmYNLEI9W4/" target="_blank" class="reel-card">
+        <div class="reel-thumb">
+          <img src="https://instagram.com/p/CgmYNLEI9W4/media/?size=m" alt="Reel" onerror="this.style.display='none'">
+          <div class="reel-play"><div class="play-icon"></div></div>
+          <div class="reel-badge">Reel</div>
+        </div>
+        <div class="reel-info">
+          <span class="reel-source">MotorOctane</span>
+          <div class="reel-link">Watch on Instagram →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
     <div class="projects-grid">
       <div class="project-card reveal">
         <div class="project-label">Marketing Capstone · Fall 2025</div>
@@ -646,11 +714,11 @@ footer span:last-child{color:var(--accent);}
     <p class="contact-sub">Actively looking for digital marketing, content, and growth roles in NYC. If you're building something and need someone who hits the ground running — let's talk.</p>
     <div class="contact-links">
       <a href="mailto:acharekarswaraj53@gmail.com" class="contact-link"><span>✉️</span> acharekarswaraj53@gmail.com</a>
-      <a href="https://www.linkedin.com/in/swaraj-acharekar-64b500201/" target="_blank" class="contact-link"><span>💼</span> LinkedIn</a>
+      <a href="https://www.linkedin.com/in/swaraj-acharekar/" target="_blank" class="contact-link"><span>💼</span> LinkedIn</a>
       <a href="https://swaraj6520.github.io/Swaraj-Portfolio1/media/Swaraj_Acharekar_CV.pdf" target="_blank" class="contact-link"><span>📄</span> Download Resume</a>
       <a href="https://www.instagram.com/swaraj_acharekar/reels/" target="_blank" class="contact-link"><span>📸</span> Instagram Reels</a>
     </div>
-    <div class="contact-note">New York, NY · Open to on-site, hybrid, and remote · (929) 710-5370</div>
+    <div class="contact-note">Jersey City, NJ · Open to on-site, hybrid, and remote · (929) 710-5370</div>
   </div>
 </section>
 
@@ -690,7 +758,6 @@ function switchTab(btn, id) {
 </script>
 </body>
 </html>
-
 
 
 
