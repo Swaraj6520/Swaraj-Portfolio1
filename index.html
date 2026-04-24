@@ -145,9 +145,18 @@ h2.section-title .dim{color:var(--muted);font-weight:400;}
 .project-link:hover{border-color:var(--accent);color:var(--accent);}
 
 /* REELS */
-.reels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;align-items:start;}
-.reels-grid .instagram-media{min-width:0 !important;width:100% !important;}
-
+.reels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;align-items:start;}
+.reel-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:var(--text);display:flex;flex-direction:column;transition:border-color var(--t),transform var(--t);}
+.reel-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.reel-thumb{aspect-ratio:9/16;background:#111;position:relative;overflow:hidden;}
+.reel-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
+.reel-card:hover .reel-thumb img{transform:scale(1.05);}
+.reel-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.reel-play div.play-icon{width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:16px solid var(--accent);margin-left:3px;filter:drop-shadow(0 0 8px rgba(232,255,71,0.5));}
+.reel-badge{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.65);border-radius:4px;padding:2px 8px;font-size:0.62rem;color:var(--accent);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}
+.reel-info{padding:12px 14px;}
+.reel-source{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:600;display:block;margin-bottom:4px;}
+.reel-link{font-size:0.78rem;color:var(--muted);}
 
 
 #skills{background:var(--bg);}
@@ -516,7 +525,7 @@ footer span:last-child{color:var(--accent);}
     <a href="https://drive.google.com/drive/folders/1fyhGiM5bE_gG1RmcRaMRaSAqOFjaXfk_?usp=sharing" target="_blank" class="view-more-link">View full creative archive →</a>
   </div>
 
-<div class="tab-panel" id="tab-reels">
+  <div class="tab-panel" id="tab-reels">
     <div class="reels-grid">
       <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cqsg9nBOE1f/" data-instgrm-version="14" style="background:#1a1a1a;border:1px solid #252525;border-radius:12px;margin:0;max-width:100%;min-width:0;width:100%;"></blockquote>
       <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cp5BhBDpgcD/" data-instgrm-version="14" style="background:#1a1a1a;border:1px solid #252525;border-radius:12px;margin:0;max-width:100%;min-width:0;width:100%;"></blockquote>
@@ -526,57 +535,11 @@ footer span:last-child{color:var(--accent);}
     </div>
     <script async src="//www.instagram.com/embed.js"></script>
   </div>
-      </a>
-      <a href="https://www.instagram.com/p/Cp5BhBDpgcD/" target="_blank" class="reel-card">
-        <div class="reel-thumb">
-          <img src="https://instagram.com/p/Cp5BhBDpgcD/media/?size=m" alt="Reel" onerror="this.style.display='none'">
-          <div class="reel-play"><div class="play-icon"></div></div>
-          <div class="reel-badge">Reel</div>
-        </div>
-        <div class="reel-info">
-          <span class="reel-source">MotorOctane</span>
-          <div class="reel-link">Watch on Instagram →</div>
-        </div>
-      </a>
-      <a href="https://www.instagram.com/p/Co4mXdStfRA/" target="_blank" class="reel-card">
-        <div class="reel-thumb">
-          <img src="https://instagram.com/p/Co4mXdStfRA/media/?size=m" alt="Reel" onerror="this.style.display='none'">
-          <div class="reel-play"><div class="play-icon"></div></div>
-          <div class="reel-badge">Reel</div>
-        </div>
-        <div class="reel-info">
-          <span class="reel-source">MotorOctane</span>
-          <div class="reel-link">Watch on Instagram →</div>
-        </div>
-      </a>
-      <a href="https://www.instagram.com/p/CikkZj-jvMu/" target="_blank" class="reel-card">
-        <div class="reel-thumb">
-          <img src="https://instagram.com/p/CikkZj-jvMu/media/?size=m" alt="Reel" onerror="this.style.display:'none'">
-          <div class="reel-play"><div class="play-icon"></div></div>
-          <div class="reel-badge">Reel</div>
-        </div>
-        <div class="reel-info">
-          <span class="reel-source">MotorOctane</span>
-          <div class="reel-link">Watch on Instagram →</div>
-        </div>
-      </a>
-      <a href="https://www.instagram.com/p/CgmYNLEI9W4/" target="_blank" class="reel-card">
-        <div class="reel-thumb">
-          <img src="https://instagram.com/p/CgmYNLEI9W4/media/?size=m" alt="Reel" onerror="this.style.display='none'">
-          <div class="reel-play"><div class="play-icon"></div></div>
-          <div class="reel-badge">Reel</div>
-        </div>
-        <div class="reel-info">
-          <span class="reel-source">MotorOctane</span>
-          <div class="reel-link">Watch on Instagram →</div>
-        </div>
-      </a>
-    </div>
-  </div>
 
 
-<div class="tab-panel" id="tab-projects">
-    <div class="projects-grid">      <div class="project-card reveal">
+  <div class="tab-panel" id="tab-projects">
+    <div class="projects-grid">
+      <div class="project-card reveal">
         <div class="project-label">Marketing Capstone · Fall 2025</div>
         <div class="project-title">Aidium SaaS CRM — Marketing Plan</div>
         <div class="project-desc">Developed a comprehensive marketing plan for a CRM rebranding to Lendware — competitor analysis, loan officer adoption strategy, pricing model, and full KPI framework.</div>
@@ -747,7 +710,6 @@ function switchTab(btn, id) {
 </script>
 </body>
 </html>
-
 
 
 
