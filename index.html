@@ -145,18 +145,9 @@ h2.section-title .dim{color:var(--muted);font-weight:400;}
 .project-link:hover{border-color:var(--accent);color:var(--accent);}
 
 /* REELS */
-.reels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;align-items:start;}
-.reel-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:var(--text);display:flex;flex-direction:column;transition:border-color var(--t),transform var(--t);}
-.reel-card:hover{border-color:var(--accent);transform:translateY(-4px);}
-.reel-thumb{aspect-ratio:9/16;background:#111;position:relative;overflow:hidden;}
-.reel-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
-.reel-card:hover .reel-thumb img{transform:scale(1.05);}
-.reel-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
-.reel-play div.play-icon{width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:16px solid var(--accent);margin-left:3px;filter:drop-shadow(0 0 8px rgba(232,255,71,0.5));}
-.reel-badge{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.65);border-radius:4px;padding:2px 8px;font-size:0.62rem;color:var(--accent);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}
-.reel-info{padding:12px 14px;}
-.reel-source{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:600;display:block;margin-bottom:4px;}
-.reel-link{font-size:0.78rem;color:var(--muted);}
+.reels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;align-items:start;}
+.reels-grid .instagram-media{min-width:0 !important;width:100% !important;}
+
 
 
 #skills{background:var(--bg);}
