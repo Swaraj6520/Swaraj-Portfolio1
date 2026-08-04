@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Swaraj Acharekar — Retell AI: Changelog → Announcement</title>
+<meta name="description" content="A before-and-after writing sample: turning a raw Retell AI changelog into a polished launch announcement." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0b0b0c;
+    --panel:#141416;
+    --panel-2:#0f0f11;
+    --line:rgba(255,255,255,0.08);
+    --line-strong:rgba(255,255,255,0.14);
+    --ink:#ededee;
+    --muted:#8a8a90;
+    --muted-2:#6b6b70;
+    --lime:#c8fb3c;
+    --lime-dim:rgba(200,251,60,0.12);
+    --lime-line:rgba(200,251,60,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px;}
+
+  /* Top bar */
+  .topbar{
+    position:sticky;top:0;z-index:10;
+    background:rgba(11,11,12,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:820px;margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .mark{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    letter-spacing:-0.02em;font-size:18px;text-decoration:none;
+  }
+  .mark span{color:var(--lime);}
+  .back{
+    font-size:14px;color:var(--muted);text-decoration:none;
+    transition:color .2s ease;
+  }
+  .back:hover{color:var(--lime);}
+
+  /* Hero */
+  .hero{padding:72px 0 40px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--lime);margin-bottom:22px;
+  }
+  h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;letter-spacing:-0.025em;line-height:1.05;
+    font-size:clamp(34px,6vw,52px);
+    margin:0 0 24px;
+  }
+  h1 em{font-style:italic;color:var(--lime);}
+  .lede{
+    font-size:18px;color:var(--muted);max-width:660px;margin:0;
+  }
+  .lede strong{color:var(--ink);font-weight:600;}
+
+  /* Section scaffolding */
+  section{padding:34px 0;}
+  .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:16px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .label::before{
+    content:"";width:22px;height:1px;background:var(--lime);flex:none;
+  }
+  .label.after-label{color:var(--lime);}
+
+  /* BEFORE — raw terminal block */
+  .raw{
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+  }
+  .raw-head{
+    display:flex;align-items:center;gap:7px;
+    padding:12px 16px;border-bottom:1px solid var(--line);
+  }
+  .dot{width:11px;height:11px;border-radius:50%;background:#2c2c30;}
+  .raw-title{
+    margin-left:8px;font-family:'IBM Plex Mono',monospace;
+    font-size:12px;color:var(--muted-2);letter-spacing:0.03em;
+  }
+  .raw pre{
+    margin:0;padding:20px 18px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13.5px;line-height:1.7;color:#b9b9bd;
+    white-space:pre-wrap;word-break:break-word;
+  }
+  .raw pre .k{color:#7f8288;}
+
+  /* AFTER — polished announcement */
+  .announcement{
+    background:var(--panel);
+    border:1px solid var(--line-strong);
+    border-left:3px solid var(--lime);
+    border-radius:12px;
+    padding:36px 34px;
+  }
+  .announcement h2{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;letter-spacing:-0.02em;line-height:1.15;
+    font-size:clamp(24px,3.6vw,30px);
+    margin:0 0 22px;
+  }
+  .announcement p{margin:0 0 18px;color:#d7d7d9;}
+  .announcement p.tight{margin-bottom:10px;}
+  .announcement .kicker{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    color:var(--ink);font-size:19px;margin-bottom:20px;
+  }
+  .feat{list-style:none;padding:0;margin:0 0 22px;}
+  .feat li{
+    position:relative;padding:12px 0 12px 30px;
+    border-top:1px solid var(--line);color:#d7d7d9;
+  }
+  .feat li:last-child{border-bottom:1px solid var(--line);}
+  .feat li::before{
+    content:"\2192";position:absolute;left:0;top:12px;
+    color:var(--lime);font-weight:600;
+  }
+  .feat b{color:var(--ink);font-weight:600;}
+  .close-line{
+    font-family:'Space Grotesk',sans-serif;font-weight:500;
+    font-size:19px;color:var(--ink);line-height:1.45;
+    margin:24px 0 26px !important;
+  }
+  .cta{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;
+    padding-top:22px;border-top:1px solid var(--line);
+  }
+  .cta .cta-lead{color:var(--lime);font-weight:600;}
+  .cta .cta-path{
+    font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:var(--muted);
+  }
+
+  /* WHY IT MATTERS callout */
+  .why{
+    background:linear-gradient(180deg,var(--lime-dim),rgba(200,251,60,0.02));
+    border:1px solid var(--lime-line);
+    border-radius:12px;padding:30px 30px;
+  }
+  .why h3{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:20px;margin:0 0 14px;letter-spacing:-0.01em;
+  }
+  .why p{margin:0;color:#d3d6ca;font-size:16.5px;}
+
+  /* The thinking */
+  .thinking-grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .think{background:var(--panel);padding:22px 24px;}
+  .think .n{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;
+    color:var(--lime);letter-spacing:0.1em;margin-bottom:9px;
+  }
+  .think h4{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:16.5px;margin:0 0 7px;
+  }
+  .think p{margin:0;color:var(--muted);font-size:15px;}
+
+  /* Footer */
+  footer{
+    border-top:1px solid var(--line);
+    margin-top:44px;padding:40px 0 60px;
+  }
+  .foot-inner{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;}
+  .foot-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap;}
+  .foot-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s ease;}
+  .foot-links a:hover{color:var(--lime);}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+  @media (max-width:560px){
+    body{font-size:16px;}
+    .announcement{padding:26px 20px;}
+    .why{padding:24px 20px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="mark" href="./#hero">SA<span>.</span></a>
+      <a class="back" href="./#work">&larr; Back to portfolio</a>
+    </div>
+  </div>
+
+  <main class="wrap">
+
+    <header class="hero reveal">
+      <div class="eyebrow">Writing Sample · Product Marketing</div>
+      <h1>From a raw changelog to a launch people <em>actually read.</em></h1>
+      <p class="lede">I haven't shipped at Retell&mdash;<strong>yet</strong>. So I took one of their recent releases, <strong>Live Call Monitoring</strong>, and rewrote it the way I'd announce it. The raw engineering note first, my version second, and then the part that matters most: why anyone should care.</p>
+    </header>
+
+    <section class="reveal">
+      <div class="label">Before &mdash; the raw changelog</div>
+      <div class="raw">
+        <div class="raw-head">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="raw-title">release_notes.md</span>
+        </div>
+<pre><span class="k">v2.6 — Live Call Monitoring (GA)</span>
+- Real-time dashboard of all active/in-progress agent calls
+- Live transcript streaming per call (sub-second latency)
+- Status indicators: active / escalating / flagged
+- Configurable alerts: trigger phrases, sentiment drop, silence timeout
+- Barge-in: supervisor can join or take over a live call
+- Filter/search active calls by agent, campaign, phone number
+- WebSocket API to pipe live call state to external dashboards
+- Deprecates post-call-only review flow as sole QA path</pre>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="label after-label">After &mdash; the announcement I'd ship</div>
+      <article class="announcement">
+        <h2>Live Call Monitoring: watch every call as it happens &mdash; and step in before it goes wrong.</h2>
+        <p>A bad call used to be a post-mortem. You'd read the transcript after the customer already hung up &mdash; already frustrated, already gone. Too late to do anything but wince.</p>
+        <p class="kicker">Now you watch it live.</p>
+        <p>Live Call Monitoring gives you a real-time view of every conversation your agents are having right now. See one going sideways, and jump in before it ends.</p>
+        <ul class="feat">
+          <li><b>Every live call, one screen.</b> Watch each active conversation stream in real time, transcript and all. No refresh, no waiting for the recording.</li>
+          <li><b>Catch trouble the second it starts.</b> Set alerts on the signals that matter &mdash; a frustrated tone, a trigger phrase, a long silence &mdash; and get flagged the instant a call needs you.</li>
+          <li><b>Step in without missing a beat.</b> Join a live call or take it over entirely. Your customer never feels the handoff.</li>
+          <li><b>Find the one that matters, fast.</b> Filter active calls by agent, campaign, or number, and go straight to the conversation that needs eyes.</li>
+        </ul>
+        <p class="close-line">The save was always in the moment, not the recap. Now your team can actually be there for it &mdash; across every call, at once.</p>
+        <div class="cta">
+          <span class="cta-lead">See what your agents are saying &mdash; right now.</span>
+          <span class="cta-path">Settings &rarr; Monitoring. Live today.</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="reveal">
+      <div class="label">Why it matters &mdash; the customer value</div>
+      <div class="why">
+        <h3>Oversight goes from forensic to real-time.</h3>
+        <p>For a business running voice AI at scale, the scariest moment isn't a bad call &mdash; it's a bad call nobody saw until the customer was already gone. As volume grows, reviewing recordings after the fact stops working: you're auditing a fraction, always in hindsight, always too late to save the relationship. Live Call Monitoring lets a small team supervise thousands of simultaneous conversations, catch the ones going wrong while they can still be fixed, and step in before a frustrated caller becomes a churned one. For any company betting real relationships on voice AI, that shift from reviewing failures to preventing them is what makes scaling the automation safe.</p>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="label">The thinking</div>
+      <div class="thinking-grid">
+        <div class="think">
+          <div class="n">01</div>
+          <h4>Lead with the pain, not the feature.</h4>
+          <p>The raw note opens on a dashboard. The announcement opens on the moment a call goes wrong and you can't see it &mdash; you feel the old problem before the fix arrives.</p>
+        </div>
+        <div class="think">
+          <div class="n">02</div>
+          <h4>Every bullet is an outcome, not a spec.</h4>
+          <p>"Configurable alerts" becomes "catch trouble the second it starts." Same fact, reframed around what the customer actually gets.</p>
+        </div>
+        <div class="think">
+          <div class="n">03</div>
+          <h4>Punchy launch, measured value note.</h4>
+          <p>The announcement moves fast; the value note slows down to make the business case. Knowing which register fits where is the job.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap foot-inner">
+      <div class="foot-name">Swaraj Acharekar</div>
+      <div class="foot-links">
+        <a href="./#hero">Portfolio</a>
+        <a href="mailto:acharekarswaraj53@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/swaraj-acharekar/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      if(!('IntersectionObserver' in window)){
+        els.forEach(function(e){e.classList.add('in');});
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+        });
+      },{threshold:0.12});
+      els.forEach(function(e){io.observe(e);});
+    })();
+  </script>
+
+</body>
+</html>
