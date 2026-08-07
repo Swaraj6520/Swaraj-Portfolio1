@@ -138,6 +138,11 @@ h2.section-title .dim{color:var(--muted);font-weight:400;}
 .project-links{display:flex;gap:7px;flex-wrap:wrap;}
 .project-link{font-size:0.7rem;font-weight:600;padding:5px 11px;border:1px solid var(--border);border-radius:5px;text-decoration:none;color:var(--muted);transition:border-color var(--t),color var(--t);}
 .project-link:hover{border-color:var(--accent);color:var(--accent);}
+/* CASE STUDY CARD (featured) */
+.case-card{background:linear-gradient(180deg,rgba(232,255,71,0.05),var(--card));border:1px solid rgba(232,255,71,0.28);}
+.case-card .project-label{color:var(--accent);}
+.case-card .project-link{border-color:rgba(232,255,71,0.35);color:var(--accent);}
+.case-card .project-link:hover{background:var(--accent);color:#0d0d0d;border-color:var(--accent);}
 
 /* REELS */
 .reels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;align-items:start;}
@@ -231,13 +236,13 @@ footer span:last-child{color:var(--accent);}
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Available for full-time roles · New York, NY</div>
+    <div class="hero-eyebrow">Available for full-time roles · Remote &amp; relocation-friendly</div>
     <h1 class="hero-headline">
       I don't just make<br>content.<br>
       I make <em>things move.</em>
     </h1>
     <p class="hero-sub">
-      Digital marketer with 3+ years driving content-led growth — 1900% traffic increases, 10K+ followers built organically, and campaigns that actually convert.
+      Journalist-turned-marketer with 3+ years driving content-led growth — 1900% traffic increases, 10K+ followers built organically, and content that makes people actually care.
     </p>
     <div class="hero-ctas">
       <a href="#experience" class="btn-primary">See My Work →</a>
@@ -250,7 +255,7 @@ footer span:last-child{color:var(--accent);}
       <img src="https://swaraj6520.github.io/Swaraj-Portfolio1/media/About-you.jpg" alt="Swaraj Acharekar" onerror="this.style.background='#1a1a1a';this.style.minHeight='360px'">
       <div class="hero-photo-overlay">
         <div class="hero-photo-name">Swaraj Acharekar</div>
-        <div class="hero-photo-title">Digital Marketing · Content · SEO</div>
+        <div class="hero-photo-title">Content · Product Marketing · SEO</div>
       </div>
       <div class="hero-accent-dot"></div>
     </div>
@@ -298,11 +303,11 @@ footer span:last-child{color:var(--accent);}
     <div class="about-right">
       <div class="fact-card reveal">
         <div class="fact-icon">🎓</div>
-        <div class="fact-text"><strong>MS Digital Marketing & Media</strong>Yeshiva University · GPA 3.90 · May 2026</div>
+        <div class="fact-text"><strong>MS Digital Marketing &amp; Media</strong>Yeshiva University · GPA 3.90 · May 2026</div>
       </div>
       <div class="fact-card reveal">
         <div class="fact-icon">📍</div>
-        <div class="fact-text"><strong>Based in New York, NY</strong>Open to NYC roles + remote opportunities</div>
+        <div class="fact-text"><strong>Based in Jersey City, NJ (NYC metro)</strong>Open to remote, hybrid &amp; relocation anywhere in the US</div>
       </div>
       <div class="fact-card reveal">
         <div class="fact-icon">🏆</div>
@@ -310,7 +315,7 @@ footer span:last-child{color:var(--accent);}
       </div>
       <div class="fact-card reveal">
         <div class="fact-icon">⚡</div>
-        <div class="fact-text"><strong>Currently targeting:</strong>Content marketing, growth strategy, digital campaign management, and SEO-led editorial roles</div>
+        <div class="fact-text"><strong>Currently targeting:</strong>Content &amp; product marketing, growth strategy, and AI-driven content roles</div>
       </div>
     </div>
   </div>
@@ -332,24 +337,24 @@ footer span:last-child{color:var(--accent);}
             <span class="exp-location">· NYC Startup · New York</span>
           </div>
         </div>
-        <div class="exp-dates current">Jan 2026 – Present</div>
+        <div class="exp-dates">Jan 2026 – May 2026</div>
       </div>
       <button class="exp-toggle" onclick="toggleExp(this)">
-        <span class="toggle-icon">+</span> What I'm doing here
+        <span class="toggle-icon">+</span> What I did here
       </button>
       <div class="exp-body">
         <div class="exp-body-grid">
           <div class="exp-col">
             <h4>The Context</h4>
-            <p>DASH is a NYC-based startup targeting small business owners. Budget is lean, the brand is early-stage, and every piece of content has to earn its attention without paid backing.</p>
+            <p>DASH is a NYC-based startup targeting small business owners. Budget was lean, the brand was early-stage, and every piece of content had to earn its attention without paid backing.</p>
           </div>
           <div class="exp-col">
-            <h4>What I Do</h4>
+            <h4>What I Did</h4>
             <ul>
-              <li>Create daily platform-specific content for Alignable — the leading SMB professional network</li>
-              <li>Drive engagement and thought leadership among small business audiences</li>
-              <li>Support social media planning, content coordination, and performance tracking</li>
-              <li>Contribute to community growth and brand visibility initiatives</li>
+              <li>Created daily platform-specific content for Alignable — the leading SMB professional network</li>
+              <li>Drove engagement and thought leadership among small business audiences</li>
+              <li>Supported social media planning, content coordination, and performance tracking</li>
+              <li>Contributed to community growth and brand visibility initiatives</li>
             </ul>
           </div>
           <div class="exp-col">
@@ -467,13 +472,36 @@ footer span:last-child{color:var(--accent);}
   <h2 class="section-title">Real work, <span class="dim">real links.</span></h2>
 
   <div class="work-tabs">
-    <button class="tab-btn active" onclick="switchTab(this,'writing')">Writing</button>
+    <button class="tab-btn active" onclick="switchTab(this,'casestudies')">Case Studies</button>
+    <button class="tab-btn" onclick="switchTab(this,'writing')">Writing</button>
     <button class="tab-btn" onclick="switchTab(this,'creatives')">Creatives</button>
     <button class="tab-btn" onclick="switchTab(this,'reels')">Reels</button>
     <button class="tab-btn" onclick="switchTab(this,'projects')">Academic Projects</button>
   </div>
 
-  <div class="tab-panel active" id="tab-writing">
+  <!-- CASE STUDIES -->
+  <div class="tab-panel active" id="tab-casestudies">
+    <div class="projects-grid">
+      <div class="project-card case-card reveal">
+        <div class="project-label">Product Marketing · Case Study</div>
+        <div class="project-title">Retell AI — Changelog → Launch Announcement</div>
+        <div class="project-desc">Turned a raw engineering changelog into a polished product launch announcement. Shows the raw input, the finished announcement, and my reasoning on each creative choice.</div>
+        <div class="project-links">
+          <a href="https://swaraj6520.github.io/Swaraj-Portfolio1/retell.html" target="_blank" class="project-link">View Case Study →</a>
+        </div>
+      </div>
+      <div class="project-card case-card reveal">
+        <div class="project-label">Brand Narrative · Case Study</div>
+        <div class="project-title">Antigen — Making Security Human</div>
+        <div class="project-desc">Rewrote an offensive-security startup's dense, technical positioning into a clear, human brand story — one that sells confidence instead of fear.</div>
+        <div class="project-links">
+          <a href="https://swaraj6520.github.io/Swaraj-Portfolio1/antigen.html" target="_blank" class="project-link">View Case Study →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-writing">
     <div class="writing-grid">
       <a href="https://motoroctane.com/news/252917-what-does-horn-ok-please-mean-behind-trucks-in-india" target="_blank" class="writing-card">
         <img src="https://swaraj6520.github.io/Swaraj-Portfolio1/media/motoroctane-1.jpg" alt="Horn OK Please" class="writing-thumb">
@@ -574,14 +602,6 @@ footer span:last-child{color:var(--accent);}
           <a href="https://swaraj6520.github.io/Swaraj-Portfolio1/media/MMR Project.pdf" target="_blank" class="project-link">View Report</a>
         </div>
       </div>
-      <div class="project-card reveal">
-        <div class="project-label">Product Launch Strategy</div>
-        <div class="project-title">Altura EV — Go-to-Market Launch Plan</div>
-        <div class="project-desc">Created a full go-to-market launch strategy for an EV concept — positioning, audience targeting, campaign framework, and media plan.</div>
-        <div class="project-links">
-          <a href="https://swaraj6520.github.io/Swaraj-Portfolio1/media/Altura EV.pdf" target="_blank" class="project-link">View Report</a>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -615,11 +635,11 @@ footer span:last-child{color:var(--accent);}
       </div>
     </div>
     <div class="skill-group reveal">
-      <div class="skill-group-title"><span>🎨</span> Creative Tools</div>
+      <div class="skill-group-title"><span>🎨</span> Creative & AI Tools</div>
       <div class="skill-tags">
         <span class="skill-tag">Canva</span><span class="skill-tag">Adobe Photoshop</span>
         <span class="skill-tag">Premiere Pro</span><span class="skill-tag">Clipchamp</span>
-        <span class="skill-tag">Copywriting</span>
+        <span class="skill-tag">Copywriting</span><span class="skill-tag">ChatGPT / Claude</span>
       </div>
     </div>
   </div>
@@ -634,7 +654,7 @@ footer span:last-child{color:var(--accent);}
       <div class="edu-degree">MS in Digital Marketing & Media</div>
       <div class="edu-school">Yeshiva University, Katz School</div>
       <div class="edu-detail">New York, NY · May 2026</div>
-      <span class="edu-gpa">GPA: 3.89</span>
+      <span class="edu-gpa">GPA: 3.90</span>
     </div>
     <div class="edu-card reveal">
       <div class="edu-degree">MA in Communication & Journalism</div>
@@ -671,7 +691,7 @@ footer span:last-child{color:var(--accent);}
     <div class="contact-big">
       Ready to make<br><span class="line2">something move?</span>
     </div>
-    <p class="contact-sub">Actively looking for digital marketing, content, and growth roles in NYC. If you're building something and need someone who hits the ground running — let's talk.</p>
+    <p class="contact-sub">Actively looking for content, product, and growth marketing roles — open to remote and relocation. If you're building something and need someone who hits the ground running, let's talk.</p>
     <div class="contact-links">
       <a href="mailto:acharekarswaraj53@gmail.com" class="contact-link"><span>✉️</span> acharekarswaraj53@gmail.com</a>
       <a href="https://www.linkedin.com/in/swaraj-acharekar/" target="_blank" class="contact-link"><span>💼</span> LinkedIn</a>
@@ -683,7 +703,7 @@ footer span:last-child{color:var(--accent);}
 </section>
 
 <footer>
-  <span>© 2025 Swaraj Acharekar</span>
+  <span>© 2026 Swaraj Acharekar</span>
   <span>Built to stand out. ⚡</span>
 </footer>
 
@@ -718,10 +738,6 @@ function switchTab(btn, id) {
 </script>
 </body>
 </html>
-
-
-
-
 
 
 
