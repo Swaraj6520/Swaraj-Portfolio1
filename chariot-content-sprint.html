@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Independent content marketing concept for Chariot by Swaraj Acharekar." />
+  <title>Chariot Content Sprint | Swaraj Acharekar</title>
+  <style>
+    :root{
+      --ink:#121312;
+      --muted:#626760;
+      --paper:#f7f6f1;
+      --card:#ffffff;
+      --line:#dedfd7;
+      --accent:#b8ff5a;
+      --accent-2:#e9ffd1;
+      --dark:#171a16;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{width:min(var(--max), calc(100% - 40px)); margin:0 auto}
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      background:rgba(247,246,241,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .wrap{
+      min-height:62px; display:flex; align-items:center; justify-content:space-between; gap:24px;
+    }
+    .brand{font-weight:800; letter-spacing:-.02em}
+    .tag{font-size:13px; color:var(--muted)}
+    .hero{padding:88px 0 56px}
+    .eyebrow{
+      display:inline-block; padding:7px 11px; border:1px solid var(--ink);
+      border-radius:999px; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+      margin-bottom:22px;
+    }
+    h1{
+      font-size:clamp(48px, 8vw, 96px);
+      line-height:.94; letter-spacing:-.065em; margin:0; max-width:980px;
+    }
+    .lime{background:linear-gradient(transparent 58%, var(--accent) 58%)}
+    .hero-copy{
+      display:grid; grid-template-columns:1.4fr .8fr; gap:48px; align-items:end;
+      margin-top:42px;
+    }
+    .hero-copy p{
+      font-size:clamp(18px, 2vw, 24px); line-height:1.45; margin:0; max-width:760px;
+    }
+    .meta{
+      border-left:2px solid var(--ink); padding-left:18px; font-size:14px; color:var(--muted);
+    }
+    section{padding:68px 0; border-top:1px solid var(--line)}
+    .section-head{
+      display:grid; grid-template-columns:240px 1fr; gap:36px; margin-bottom:34px;
+    }
+    .kicker{
+      font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--muted)
+    }
+    h2{
+      font-size:clamp(32px, 5vw, 56px); letter-spacing:-.045em; line-height:1.03; margin:0;
+      max-width:820px;
+    }
+    h3{font-size:24px; line-height:1.2; letter-spacing:-.025em; margin:0 0 12px}
+    p{margin:0 0 16px}
+    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px}
+    .grid-2{display:grid; grid-template-columns:repeat(2, 1fr); gap:18px}
+    .card{
+      background:var(--card); border:1px solid var(--line); border-radius:18px; padding:24px;
+      box-shadow:0 8px 28px rgba(0,0,0,.035);
+    }
+    .card small{display:block; color:var(--muted); font-weight:700; margin-bottom:12px}
+    .stat{font-size:44px; font-weight:850; letter-spacing:-.045em; line-height:1}
+    .stat-label{margin-top:8px; color:var(--muted); font-size:14px}
+    .dark{
+      background:var(--dark); color:#f7f8f4; border-radius:26px; padding:34px; border:1px solid #262b25;
+    }
+    .article-title{
+      font-size:clamp(36px,5vw,64px); line-height:1.03; letter-spacing:-.05em; margin:12px 0 22px;
+      max-width:930px;
+    }
+    .deck{font-size:20px; color:#c8cec5; max-width:800px; margin-bottom:28px}
+    .opening{
+      background:#232821; border:1px solid #343b31; border-radius:16px; padding:24px; max-width:900px;
+      font-size:18px;
+    }
+    .label{
+      display:inline-block; background:var(--accent); color:#111; padding:5px 9px; border-radius:8px;
+      font-size:11px; font-weight:900; letter-spacing:.07em; text-transform:uppercase;
+    }
+    .platform{font-weight:850; font-size:14px; margin-bottom:10px}
+    .post{font-size:18px; line-height:1.55}
+    .post strong{font-weight:850}
+    .quote{
+      font-size:clamp(24px,3vw,36px); line-height:1.24; letter-spacing:-.025em; margin:0;
+    }
+    .flow{
+      display:grid; grid-template-columns:repeat(5,1fr); gap:10px; align-items:stretch;
+    }
+    .flow .step{
+      background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px;
+      font-size:14px;
+    }
+    .step b{display:block; font-size:13px; margin-bottom:6px}
+    .metrics{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+    .metric{
+      border-top:3px solid var(--ink); padding-top:14px; font-size:14px; color:var(--muted)
+    }
+    .metric b{display:block; color:var(--ink); font-size:16px; margin-bottom:3px}
+    .note{
+      margin-top:26px; padding:18px 20px; border-radius:14px; background:var(--accent-2);
+      border:1px solid #caeaa3; font-size:14px;
+    }
+    .sources a{
+      text-decoration:none; border-bottom:1px solid #999; word-break:break-word;
+    }
+    footer{padding:34px 0 60px; color:var(--muted); font-size:13px}
+    .footerline{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap}
+    @media (max-width:820px){
+      .hero{padding-top:64px}
+      .hero-copy,.section-head{grid-template-columns:1fr}
+      .grid-3,.grid-2,.metrics{grid-template-columns:1fr}
+      .flow{grid-template-columns:1fr}
+      .meta{border-left:0; border-top:2px solid var(--ink); padding:14px 0 0}
+    }
+    @media print{
+      .topbar{position:static}
+      body{background:#fff}
+      section{break-inside:avoid}
+      .card,.dark{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">Swaraj Acharekar</div>
+      <div class="tag">Independent content concept • Chariot</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="border-top:0">
+      <div class="wrap">
+        <div class="eyebrow">Speculative portfolio project</div>
+        <h1>Make invisible <span class="lime">DAF friction</span> visible.</h1>
+
+        <div class="hero-copy">
+          <p>
+            A compact content sprint showing how I would turn Chariot’s technical product
+            knowledge into useful stories across blog, social, email, video, and sales.
+          </p>
+          <div class="meta">
+            <strong>Goal</strong><br>
+            Build trust by making a niche financial workflow easier to understand.<br><br>
+            <strong>Audience</strong><br>
+            Nonprofit fundraising, development operations, and finance teams.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">01 / The insight</div>
+          <h2>The donation is approved. The hard part can still be figuring out what arrived.</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <small>THE FRICTION</small>
+            <h3>DAF reconciliation can become detective work.</h3>
+            <p>
+              A DAF gift may arrive after the donor made the decision to give, and matching the
+              incoming payment to the right donor and purpose can create operational friction.
+            </p>
+          </div>
+          <div class="card">
+            <small>THE STORY</small>
+            <h3>This is not just a finance problem.</h3>
+            <p>
+              Slow or unclear reconciliation can affect donor acknowledgement, stewardship,
+              reporting, and the overall giving experience.
+            </p>
+          </div>
+          <div class="card">
+            <small>THE CONTENT OPPORTUNITY</small>
+            <h3>Explain the workflow in plain English.</h3>
+            <p>
+              Start with a problem a fundraiser recognizes, then show how better payment data
+              and tracking can reduce the manual work behind the gift.
+            </p>
+          </div>
+        </div>
+
+        <div class="note">
+          This concept is based on publicly available Chariot materials. Chariot documents that
+          DAF reconciliation can be challenging because nonprofits may receive grant payments
+          after the donor’s decision, with limited visibility into the original gift details.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">02 / Anchor content</div>
+          <h2>One useful idea, built to travel.</h2>
+        </div>
+
+        <div class="dark">
+          <span class="label">Blog / Guide</span>
+          <div class="article-title">Your DAF gift arrived. Now whose gift is it?</div>
+          <div class="deck">
+            Why reconciliation becomes a donor-experience problem, not just a back-office problem.
+          </div>
+
+          <div class="opening">
+            A donor can decide to support your organization in a few minutes. The operational
+            trail that follows may take much longer. When a DAF grant arrives without the context
+            your team needs, someone has to connect the payment to the donor, the campaign, and
+            the intended purpose before stewardship can really begin.<br><br>
+            That gap matters. The faster your team can identify a gift, the faster you can thank
+            the donor, update your records, and keep the relationship moving. DAF reconciliation
+            is not only about closing the books. It is part of the donor experience.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">03 / Repurpose it</div>
+          <h2>The same insight should sound native everywhere it appears.</h2>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="platform">LinkedIn</div>
+            <div class="post">
+              <strong>A DAF gift can be generous and still create a scavenger hunt for your finance team.</strong><br><br>
+              The check lands. Now someone has to figure out who gave it, what campaign it belongs
+              to, and whether the donor has already been thanked.<br><br>
+              Reconciliation is easy to treat as back-office work. But every day a gift sits
+              unidentified is also a day stewardship is delayed.<br><br>
+              Better gift data does more than clean up operations. It helps fundraising teams
+              respond while the donor’s decision to give is still fresh.
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="platform">Newsletter intro</div>
+            <div class="post">
+              <strong>This week: the hidden gap between “gift made” and “gift understood.”</strong><br><br>
+              DAF giving is growing, but the operational experience after a donor clicks “give”
+              can still be messy. We’re looking at one overlooked part of the journey:
+              reconciliation, and why faster identification can make life easier for finance
+              teams and fundraisers alike.
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="platform">30-second video script</div>
+            <div class="post">
+              <strong>Hook:</strong> “Your DAF gift arrived. Great. Now, who sent it?”<br><br>
+              For some nonprofits, that question starts a manual search across grant notes,
+              spreadsheets, and donor records. And until the gift is matched, the thank-you can
+              wait too.<br><br>
+              DAF reconciliation sounds like a finance problem, but it becomes a fundraising
+              problem the moment it delays stewardship.<br><br>
+              The better the data travels with the gift, the faster your team can act on it.
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="platform">Sales enablement angle</div>
+            <div class="post">
+              <strong>Conversation starter:</strong><br><br>
+              “How much time does your team spend matching incoming DAF grants to the original
+              donor and designation?”<br><br>
+              That question turns a technical workflow into a measurable operating problem and
+              creates a natural bridge into Chariot’s reconciliation and gift-processing story.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">04 / Proof point</div>
+          <h2>Turn customer outcomes into a story sales can actually use.</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="stat">174</div>
+            <div class="stat-label">DAF gifts received by Susan G. Komen on DAF Day 2024</div>
+          </div>
+          <div class="card">
+            <div class="stat">$267K</div>
+            <div class="stat-label">in support raised that day</div>
+          </div>
+          <div class="card">
+            <div class="stat">$88K</div>
+            <div class="stat-label">largest single gift reported in the case study</div>
+          </div>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="card">
+          <small>HOW I’D PACKAGE THE CASE STUDY</small>
+          <p class="quote">
+            “A giving day is not just a campaign moment. It is a chance to make a giving method
+            visible, easy, and memorable.”
+          </p>
+          <p style="margin-top:18px">
+            <strong>For awareness:</strong> lead with the scale of the one-day result.<br>
+            <strong>For consideration:</strong> explain what changed in the donor experience and campaign execution.<br>
+            <strong>For sales:</strong> create a one-page version with the outcome, use case, and implementation story so the team can send the right proof point to the right nonprofit.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">05 / Distribution</div>
+          <h2>A content engine, not a one-off post.</h2>
+        </div>
+
+        <div class="flow">
+          <div class="step"><b>1. SME conversation</b>Capture the real operational problem in the language customers use.</div>
+          <div class="step"><b>2. Anchor piece</b>Publish one useful guide or customer story with a clear point of view.</div>
+          <div class="step"><b>3. Social</b>Pull out the sharpest insight for LinkedIn and X.</div>
+          <div class="step"><b>4. Email + video</b>Reframe the same idea for newsletter and short-form video.</div>
+          <div class="step"><b>5. Sales reuse</b>Package the proof point into a concise asset for active conversations.</div>
+        </div>
+
+        <div style="height:34px"></div>
+
+        <div class="metrics">
+          <div class="metric"><b>Attention</b>Hook rate, video completion, saves, shares</div>
+          <div class="metric"><b>Engagement</b>Replies, comments, newsletter CTR</div>
+          <div class="metric"><b>Intent</b>Guide downloads, demo traffic, case-study views</div>
+          <div class="metric"><b>Revenue signal</b>Sales usage, influenced opportunities, assisted pipeline</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">06 / Why this approach</div>
+          <h2>Start with the customer problem. Earn the right to talk about the product.</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <small>SPECIFIC</small>
+            <h3>Lead with a recognizable pain.</h3>
+            <p>“Whose gift is this?” is more useful than generic education about DAFs.</p>
+          </div>
+          <div class="card">
+            <small>REUSABLE</small>
+            <h3>Build once, distribute intelligently.</h3>
+            <p>One strong insight can become editorial, social, email, video, and sales content without feeling copied and pasted.</p>
+          </div>
+          <div class="card">
+            <small>MEASURABLE</small>
+            <h3>Every asset has a job.</h3>
+            <p>Measure whether the content earns attention, creates intent, and becomes useful to sales, not simply whether it shipped.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sources">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Sources</div>
+          <h2>Built from public Chariot materials.</h2>
+        </div>
+        <div class="card">
+          <p><strong>DAFpay overview:</strong><br>
+            <a href="https://docs.givechariot.com/v2026-04-01/guides/dafpay/overview" target="_blank" rel="noopener">docs.givechariot.com/v2026-04-01/guides/dafpay/overview</a>
+          </p>
+          <p><strong>DAFpay reconciliation FAQ:</strong><br>
+            <a href="https://docs.givechariot.com/guides/dafpay/integrating-dafpay/faq" target="_blank" rel="noopener">docs.givechariot.com/guides/dafpay/integrating-dafpay/faq</a>
+          </p>
+          <p><strong>Susan G. Komen case study:</strong><br>
+            <a href="https://www.givechariot.com/resources/customer-stories/susan-g-komen" target="_blank" rel="noopener">givechariot.com/resources/customer-stories/susan-g-komen</a>
+          </p>
+        </div>
+        <div class="note">
+          Independent speculative work created for portfolio purposes by Swaraj Acharekar.
+          Not commissioned by, affiliated with, or endorsed by Chariot.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footerline">
+      <span>© 2026 Swaraj Acharekar</span>
+      <span>Content strategy • Technical storytelling • Distribution</span>
+    </div>
+  </footer>
+</body>
+</html>
