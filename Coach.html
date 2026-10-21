@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Independent speculative landing page concept for COACH, focused on roofing sales teams." />
+  <title>COACH for Roofing Sales Teams | Independent Concept</title>
+  <style>
+    :root {
+      --ink: #0c1115;
+      --ink-2: #182028;
+      --paper: #f4f1e9;
+      --paper-2: #ebe6da;
+      --white: #fffdf8;
+      --lime: #d8ff68;
+      --orange: #ff6b35;
+      --blue: #8ec9ff;
+      --muted: #68727c;
+      --line: rgba(12,17,21,.14);
+      --radius: 22px;
+      --shadow: 0 22px 70px rgba(12,17,21,.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a.button { font: inherit; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      letter-spacing: .02em;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .topbar strong { color: var(--lime); }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(244,241,233,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      font-size: 24px;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+    }
+    .nav-links { display: flex; gap: 28px; align-items: center; font-size: 14px; font-weight: 700; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 14px 21px;
+      border: 1px solid var(--ink);
+      font-weight: 800;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.dark { background: var(--ink); color: white; box-shadow: 0 8px 24px rgba(12,17,21,.15); }
+    .button.lime { background: var(--lime); color: var(--ink); }
+    .button.ghost { background: transparent; }
+
+    .hero {
+      padding: 88px 0 66px;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.38);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+    h1 {
+      margin: 22px 0 20px;
+      font-size: clamp(52px, 6.4vw, 92px);
+      line-height: .95;
+      letter-spacing: -.065em;
+      max-width: 870px;
+    }
+    .hero-copy {
+      font-size: clamp(18px, 2vw, 23px);
+      max-width: 720px;
+      color: #37414a;
+      margin-bottom: 30px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .microcopy { margin-top: 15px; color: var(--muted); font-size: 13px; }
+
+    .field-card {
+      position: relative;
+      background: var(--ink);
+      color: white;
+      border-radius: 34px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      min-height: 565px;
+      overflow: hidden;
+    }
+    .field-card:before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: var(--lime);
+      opacity: .09;
+      right: -120px;
+      top: -150px;
+    }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 30px; }
+    .status { display: inline-flex; gap: 8px; align-items: center; font-size: 12px; color: #dfe5ea; }
+    .status .pulse { width: 8px; height: 8px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 0 6px rgba(216,255,104,.11); }
+    .example-label { color: #9fa9b2; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+    .meeting {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.055);
+      border-radius: 20px;
+      padding: 22px;
+      margin: 14px 0;
+    }
+    .meeting-head { display: flex; justify-content: space-between; gap: 15px; align-items: start; }
+    .meeting h3 { margin: 0; font-size: 18px; }
+    .meeting small { color: #aeb7bf; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 12px 6px 0 0;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      color: #e9eef1;
+      font-size: 12px;
+    }
+    .pill.good { background: rgba(216,255,104,.12); color: var(--lime); }
+    .coach-note {
+      margin-top: 18px;
+      background: var(--lime);
+      color: var(--ink);
+      border-radius: 20px;
+      padding: 20px;
+    }
+    .coach-note small { font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
+    .coach-note p { margin: 7px 0 0; font-weight: 800; font-size: 17px; line-height: 1.35; }
+
+    .logo-strip {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    .strip-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      align-items: center;
+      justify-content: center;
+      color: #46515a;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .strip-inner span:first-child { color: var(--ink); }
+
+    section { padding: 98px 0; }
+    .section-kicker { color: var(--orange); font-size: 13px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+    h2 {
+      font-size: clamp(40px, 5vw, 68px);
+      line-height: 1;
+      letter-spacing: -.055em;
+      margin: 14px 0 20px;
+      max-width: 900px;
+    }
+    .lede { max-width: 730px; color: #46515a; font-size: 19px; }
+
+    .problem-grid, .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 42px;
+    }
+    .tile {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      min-height: 235px;
+    }
+    .tile .num { font-weight: 900; color: var(--orange); font-size: 13px; letter-spacing: .08em; }
+    .tile h3 { font-size: 24px; letter-spacing: -.03em; margin: 32px 0 10px; }
+    .tile p { color: #53606a; margin: 0; }
+
+    .dark-section { background: var(--ink); color: white; }
+    .dark-section .lede { color: #b8c1c9; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 48px;
+    }
+    .flow-step {
+      min-height: 280px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: var(--ink-2);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .flow-step strong { font-size: 14px; color: var(--lime); }
+    .flow-step h3 { font-size: 23px; line-height: 1.1; margin: 0 0 10px; }
+    .flow-step p { color: #aeb7bf; margin: 0; }
+    .flow-arrow { font-size: 28px; opacity: .35; }
+
+    .compare {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 50px;
+      align-items: start;
+    }
+    .sticky-copy { position: sticky; top: 110px; }
+    .scenario-stack { display: grid; gap: 15px; }
+    .scenario {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+    }
+    .scenario .row { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
+    .scenario h3 { margin: 0; font-size: 21px; }
+    .scenario .tag { white-space: nowrap; font-size: 12px; font-weight: 900; padding: 7px 9px; border-radius: 999px; background: var(--paper-2); }
+    .scenario p { color: #52606a; margin-bottom: 0; }
+    .highlight { border-color: rgba(255,107,53,.55); box-shadow: 0 14px 40px rgba(255,107,53,.08); }
+
+    .questions {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 20px;
+    }
+    .q-list { display: grid; gap: 10px; }
+    .q-button {
+      text-align: left;
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.045);
+      color: white;
+      border-radius: 16px;
+      padding: 18px 20px;
+      cursor: pointer;
+      transition: .18s ease;
+      font-weight: 750;
+    }
+    .q-button:hover, .q-button.active { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+    .answer-panel {
+      background: white;
+      color: var(--ink);
+      border-radius: 24px;
+      padding: 30px;
+      min-height: 310px;
+    }
+    .answer-panel small { color: var(--orange); font-weight: 900; text-transform: uppercase; letter-spacing: .08em; }
+    .answer-panel h3 { font-size: 29px; letter-spacing: -.035em; margin: 15px 0 12px; }
+    .answer-panel p { color: #4d5962; font-size: 17px; }
+    .answer-note { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 22px; color: var(--muted); font-size: 13px; }
+
+    .cta-band {
+      background: var(--orange);
+      color: var(--ink);
+      border-radius: 32px;
+      padding: 52px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+    .cta-band h2 { margin: 0 0 12px; font-size: clamp(39px, 5vw, 64px); }
+    .cta-band p { margin: 0; font-size: 19px; max-width: 700px; }
+
+    footer { padding: 42px 0 60px; }
+    .footer-inner { border-top: 1px solid var(--line); padding-top: 30px; display: flex; justify-content: space-between; gap: 30px; align-items: flex-start; }
+    .disclaimer { color: var(--muted); font-size: 12px; max-width: 720px; }
+    .maker { font-size: 13px; font-weight: 800; text-align: right; }
+    .maker span { color: var(--muted); font-weight: 600; display: block; }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.button) { display: none; }
+      .hero-grid, .compare, .questions { grid-template-columns: 1fr; }
+      .hero { padding-top: 62px; }
+      .field-card { min-height: auto; }
+      .problem-grid, .benefit-grid { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: repeat(2,1fr); }
+      .sticky-copy { position: static; }
+      .cta-band { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 24px, 1160px); }
+      .nav-inner { min-height: 66px; }
+      .nav-links { gap: 8px; }
+      .nav-links .button { padding: 11px 14px; font-size: 13px; }
+      h1 { font-size: clamp(48px, 16vw, 72px); }
+      section { padding: 72px 0; }
+      .flow { grid-template-columns: 1fr; }
+      .field-card, .cta-band { border-radius: 24px; padding: 22px; }
+      .footer-inner { flex-direction: column; }
+      .maker { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar"><strong>Independent concept</strong> for COACH, focused on roofing sales teams</div>
+
+  <nav>
+    <div class="wrap nav-inner">
+      <a href="#top" class="brand" aria-label="COACH concept home">
+        <span class="brand-mark">C</span>
+        COACH
+      </a>
+      <div class="nav-links">
+        <a href="#why">Why Coach</a>
+        <a href="#how">How it works</a>
+        <a href="#questions">What you can learn</a>
+        <a class="button dark" href="https://calendly.com/mathieu-perez-ai-coach/nouvelle-reunion" target="_blank" rel="noopener">Book a demo ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Built for roofing sales teams</div>
+          <h1>Your best rep can’t be in every living room.</h1>
+          <p class="hero-copy">COACH listens to real customer conversations, shows managers where reps get stuck, and turns what your best sellers do into coaching the whole team can use.</p>
+          <div class="hero-actions">
+            <a class="button lime" href="https://calendly.com/mathieu-perez-ai-coach/nouvelle-reunion" target="_blank" rel="noopener">See COACH in action ↗</a>
+            <a class="button ghost" href="#how">See how it works ↓</a>
+          </div>
+          <div class="microcopy">No invented case study here. This page is a speculative marketing concept built from COACH’s public product positioning.</div>
+        </div>
+
+        <div class="field-card" aria-label="Example coaching interface concept">
+          <div class="card-top">
+            <div>
+              <strong>Today in the field</strong><br>
+              <span class="example-label">Example view</span>
+            </div>
+            <span class="status"><span class="pulse"></span> Meetings coming in</span>
+          </div>
+
+          <div class="meeting">
+            <div class="meeting-head">
+              <div><h3>Roof inspection</h3><small>Rep: Marcus</small></div>
+              <span class="pill good">Strong discovery</span>
+            </div>
+            <span class="pill">Insurance timing</span>
+            <span class="pill">Price objection</span>
+          </div>
+
+          <div class="meeting">
+            <div class="meeting-head">
+              <div><h3>Kitchen-table estimate</h3><small>Rep: Ava</small></div>
+              <span class="pill">Follow-up needed</span>
+            </div>
+            <span class="pill">Financing</span>
+            <span class="pill">Competitor mention</span>
+          </div>
+
+          <div class="coach-note">
+            <small>Coaching opportunity</small>
+            <p>Your team is handling price well. Financing is where conversations are getting vague. Review how top reps introduce monthly-payment options earlier.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="logo-strip">
+      <div class="wrap strip-inner">
+        <span>Built for face-to-face sales:</span>
+        <span>Roofing</span><span>HVAC</span><span>Home Improvement</span><span>Door-to-Door</span><span>Retail</span><span>Alarm Systems</span>
+      </div>
+    </div>
+
+    <section id="why">
+      <div class="wrap">
+        <div class="section-kicker">The problem</div>
+        <h2>You spend to get the lead. Then the part that decides the deal happens out of sight.</h2>
+        <p class="lede">Your CRM can tell you whether a job closed. It usually can’t tell you what happened at the kitchen table, which objection changed the conversation, or why one rep keeps winning the same deals everyone else loses.</p>
+
+        <div class="problem-grid">
+          <div class="tile">
+            <div class="num">01</div>
+            <h3>Ride-alongs don’t scale</h3>
+            <p>A manager can shadow a few reps. They can’t sit in on every inspection, estimate, and follow-up happening across the week.</p>
+          </div>
+          <div class="tile">
+            <div class="num">02</div>
+            <h3>“I think it went well” isn’t enough</h3>
+            <p>Post-call notes depend on memory. The useful part is often buried in the actual conversation, not the recap afterward.</p>
+          </div>
+          <div class="tile">
+            <div class="num">03</div>
+            <h3>Your best reps know things the team doesn’t</h3>
+            <p>The way they frame price, handle insurance questions, or earn trust can stay stuck in their heads instead of becoming a repeatable playbook.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="how">
+      <div class="wrap">
+        <div class="section-kicker">How it works</div>
+        <h2>Listen. Learn. Coach the moments that actually matter.</h2>
+        <p class="lede">COACH turns everyday customer conversations into something managers can use. Less guessing, fewer random ride-alongs, and more specific coaching.</p>
+
+        <div class="flow">
+          <div class="flow-step">
+            <strong>01</strong>
+            <div><h3>Rep records the meeting</h3><p>Customer conversations are captured from the field instead of disappearing when the rep leaves the driveway.</p></div>
+            <span class="flow-arrow">→</span>
+          </div>
+          <div class="flow-step">
+            <strong>02</strong>
+            <div><h3>COACH finds the patterns</h3><p>Objections, questions, strengths, weak spots, and repeatable behaviors become visible across conversations.</p></div>
+            <span class="flow-arrow">→</span>
+          </div>
+          <div class="flow-step">
+            <strong>03</strong>
+            <div><h3>Managers know where to step in</h3><p>Instead of reviewing everything, managers can focus on the reps and moments where human coaching can make a difference.</p></div>
+            <span class="flow-arrow">→</span>
+          </div>
+          <div class="flow-step">
+            <strong>04</strong>
+            <div><h3>What works becomes team knowledge</h3><p>Winning behaviors stop living with one rep and start becoming something the rest of the team can learn from.</p></div>
+            <span class="flow-arrow">✓</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap compare">
+        <div class="sticky-copy">
+          <div class="section-kicker">What changes</div>
+          <h2>Stop coaching from the scoreboard.</h2>
+          <p class="lede">Closed or lost is the end result. COACH helps you get closer to the reason behind it.</p>
+        </div>
+        <div class="scenario-stack">
+          <div class="scenario">
+            <div class="row"><h3>Without the conversation</h3><span class="tag">After the fact</span></div>
+            <p>“Marcus has been missing target for two weeks. Let’s ride with him Thursday and see what’s going on.”</p>
+          </div>
+          <div class="scenario highlight">
+            <div class="row"><h3>With COACH</h3><span class="tag">Specific</span></div>
+            <p>“Marcus is getting homeowners to the estimate, but he gets defensive when price comes up. Let’s work on how he frames value before the number lands.”</p>
+          </div>
+          <div class="scenario">
+            <div class="row"><h3>Without the conversation</h3><span class="tag">Anecdotal</span></div>
+            <p>“Ava is great with homeowners. Maybe the new reps should shadow her sometime.”</p>
+          </div>
+          <div class="scenario highlight">
+            <div class="row"><h3>With COACH</h3><span class="tag">Repeatable</span></div>
+            <p>“Ava consistently asks about timeline before introducing financing. That sequence is working. Let’s turn it into a coaching example for the team.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="questions">
+      <div class="wrap">
+        <div class="section-kicker">Your sales brain</div>
+        <h2>What would you ask if you could hear every sales conversation?</h2>
+        <p class="lede">These are example questions a roofing leader might want answered across the field. Click one to see the kind of decision it could support.</p>
+
+        <div class="questions">
+          <div class="q-list">
+            <button class="q-button active" data-key="price">Why are we losing price-sensitive homeowners?</button>
+            <button class="q-button" data-key="finance">When should reps introduce financing?</button>
+            <button class="q-button" data-key="competitor">Which competitors keep coming up?</button>
+            <button class="q-button" data-key="ramp">Where are new reps getting stuck?</button>
+            <button class="q-button" data-key="toprep">What are our top reps doing differently?</button>
+          </div>
+          <div class="answer-panel" id="answerPanel">
+            <small>Example use case</small>
+            <h3 id="answerTitle">Turn “too expensive” into something you can coach.</h3>
+            <p id="answerText">Instead of treating every lost deal as a pricing problem, look for what happened before the objection. Did the rep establish urgency? Explain the scope clearly? Bring up financing too late? The conversation gives managers something concrete to work on.</p>
+            <div class="answer-note">Illustrative example only. No customer performance data is being claimed.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="cta-band">
+          <div>
+            <h2>Your team is already having the conversations. Learn from them.</h2>
+            <p>See how COACH can help managers understand what happens in the field, coach with more context, and spread the habits of top performers.</p>
+          </div>
+          <a class="button dark" href="https://calendly.com/mathieu-perez-ai-coach/nouvelle-reunion" target="_blank" rel="noopener">Book a demo ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="disclaimer">
+        <strong>Independent speculative concept.</strong> This page was created as a portfolio/application exercise and was not commissioned, approved, or endorsed by COACH. Product statements are based on publicly available COACH materials and the role description. Example scenarios are illustrative and do not represent customer results.
+      </div>
+      <div class="maker">Concept by Swaraj Acharekar<span>Growth marketing application project</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const answers = {
+      price: {
+        title: 'Turn “too expensive” into something you can coach.',
+        text: 'Instead of treating every lost deal as a pricing problem, look for what happened before the objection. Did the rep establish urgency? Explain the scope clearly? Bring up financing too late? The conversation gives managers something concrete to work on.'
+      },
+      finance: {
+        title: 'See how your strongest reps make financing feel normal.',
+        text: 'Maybe the issue is not whether financing gets mentioned, but when and how. Compare the sequence used by top performers and coach the rest of the team on a clearer, more natural way to introduce it.'
+      },
+      competitor: {
+        title: 'Know what homeowners are comparing you against.',
+        text: 'Repeated competitor names, guarantees, pricing claims, and product comparisons can surface across conversations. That can shape coaching, sales materials, and the way your team handles common competitive objections.'
+      },
+      ramp: {
+        title: 'Find the point where new reps lose confidence.',
+        text: 'New reps might know the script but struggle when the conversation moves off-script. Looking across their meetings can help managers spot the exact moment they need practice instead of giving broad feedback after the week is over.'
+      },
+      toprep: {
+        title: 'Make your best rep less of a mystery.',
+        text: 'Top performers often do small things consistently: better discovery questions, cleaner transitions, stronger follow-ups, or calmer objection handling. COACH can help turn those patterns into examples the rest of the team can actually use.'
+      }
+    };
+
+    document.querySelectorAll('.q-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.q-button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const item = answers[btn.dataset.key];
+        document.getElementById('answerTitle').textContent = item.title;
+        document.getElementById('answerText').textContent = item.text;
+      });
+    });
+  </script>
+</body>
+</html>
