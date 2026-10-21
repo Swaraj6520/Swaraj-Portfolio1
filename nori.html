@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nori Robotics — One Week of Social | Swaraj Acharekar</title>
+  <meta name="description" content="Independent social content concept for Nori Robotics by Swaraj Acharekar." />
+  <style>
+    :root{
+      --ink:#11120f;
+      --paper:#f3f2eb;
+      --card:#fbfaf5;
+      --line:#cfcdbf;
+      --lime:#b7ff43;
+      --muted:#66685f;
+      --dark:#171914;
+      --white:#ffffff;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{width:min(var(--max), calc(100% - 36px)); margin:0 auto}
+    .topbar{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:22px 0; border-bottom:1px solid var(--line);
+      font-size:14px;
+    }
+    .brand{font-weight:900; letter-spacing:-.04em; font-size:22px}
+    .back{text-decoration:none; color:var(--muted)}
+    .back:hover{color:var(--ink)}
+    .hero{padding:74px 0 56px; display:grid; grid-template-columns:1.15fr .85fr; gap:54px; align-items:end}
+    .eyebrow{font:700 12px/1.2 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; text-transform:uppercase; letter-spacing:.14em; color:var(--muted)}
+    h1{font-size:clamp(54px,8vw,108px); line-height:.87; letter-spacing:-.075em; margin:18px 0 24px; max-width:900px}
+    .hero-copy{font-size:21px; max-width:760px; margin:0; color:#2c2f28}
+    .hero-note{border:1px solid var(--ink); padding:22px; background:var(--lime); transform:rotate(1deg); box-shadow:8px 8px 0 var(--ink)}
+    .hero-note strong{display:block; font-size:18px; margin-bottom:9px}
+    .hero-note p{margin:0; font-size:15px}
+    .hero-image{margin-top:54px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px 0}
+    .hero-image img{width:100%; height:min(58vw,590px); object-fit:cover; display:block; filter:saturate(.85) contrast(1.02)}
+    .caption{display:flex; justify-content:space-between; gap:18px; color:var(--muted); font-size:12px; margin-top:9px}
+    section{padding:72px 0; border-bottom:1px solid var(--line)}
+    .section-head{display:grid; grid-template-columns:210px 1fr; gap:38px; align-items:start; margin-bottom:36px}
+    .section-head h2{margin:0; font-size:clamp(36px,5vw,62px); line-height:.98; letter-spacing:-.05em}
+    .section-head p{max-width:760px; margin:10px 0 0; color:var(--muted); font-size:17px}
+    .spec-grid{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); border-left:1px solid var(--ink)}
+    .spec{padding:22px; min-height:125px; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink); background:var(--card)}
+    .spec b{font-size:28px; letter-spacing:-.04em; display:block; margin-bottom:6px}
+    .spec span{font-size:13px; color:var(--muted)}
+    .origin{margin-top:18px; font-size:14px; color:var(--muted)}
+    .post-stack{display:grid; gap:22px}
+    .post-card{background:var(--card); border:1px solid var(--ink); display:grid; grid-template-columns:210px 1fr; min-height:260px}
+    .post-meta{padding:24px; border-right:1px solid var(--ink); display:flex; flex-direction:column; justify-content:space-between; background:#edede6}
+    .platform{font:800 12px/1.2 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing:.11em; text-transform:uppercase}
+    .goal{font-size:12px; color:var(--muted)}
+    .post-body{padding:30px clamp(26px,4vw,54px)}
+    .post-body h3{font-size:32px; line-height:1.05; letter-spacing:-.04em; margin:0 0 16px}
+    .post-body p{margin:0 0 13px; max-width:770px}
+    .post-copy{white-space:pre-line; font-size:17px; max-width:760px}
+    .why{margin-top:26px; padding-top:18px; border-top:1px dashed var(--line); display:grid; grid-template-columns:120px 1fr; gap:18px; font-size:14px; color:var(--muted)}
+    .why strong{color:var(--ink)}
+    .shot-list{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:24px}
+    .shot{border:1px solid var(--line); background:#fff; padding:16px; min-height:145px}
+    .shot b{display:block; font:800 11px ui-monospace, SFMono-Regular, Menlo, monospace; color:var(--muted); margin-bottom:28px}
+    .shot p{font-size:14px; margin:0}
+    .callout{background:var(--dark); color:white; padding:36px; margin:28px 0 0; display:grid; grid-template-columns:1fr auto; align-items:end; gap:24px}
+    .callout .big{font-size:clamp(28px,4vw,48px); line-height:1; letter-spacing:-.045em; max-width:780px}
+    .callout .tag{font:700 12px ui-monospace, SFMono-Regular, Menlo, monospace; border:1px solid #61645b; padding:9px 12px; white-space:nowrap}
+    .calendar{display:grid; grid-template-columns:100px repeat(5,1fr); border-top:1px solid var(--ink); border-left:1px solid var(--ink)}
+    .cal{min-height:145px; padding:14px; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink); background:var(--card)}
+    .cal.day{font:800 11px ui-monospace, SFMono-Regular, Menlo, monospace; background:var(--lime)}
+    .cal.week{font:800 11px ui-monospace, SFMono-Regular, Menlo, monospace; writing-mode:vertical-rl; transform:rotate(180deg); text-align:center; background:#e6e5dc}
+    .cal b{display:block; font-size:12px; margin-bottom:5px}
+    .cal p{font-size:13px; margin:0; color:#3f423b}
+    .series-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+    .series{border:1px solid var(--ink); padding:26px; background:var(--card)}
+    .series .num{font:700 12px ui-monospace, SFMono-Regular, Menlo, monospace; color:var(--muted)}
+    .series h3{font-size:28px; letter-spacing:-.04em; margin:25px 0 9px}
+    .series p{margin:0; color:var(--muted)}
+    .ops{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .ops article{padding:22px; border-top:3px solid var(--ink); background:var(--card)}
+    .ops h3{font-size:20px; margin:0 0 9px}
+    .ops p{font-size:14px; margin:0; color:var(--muted)}
+    .footer{padding:50px 0 72px}
+    .footer-grid{display:flex; justify-content:space-between; gap:30px; align-items:flex-end}
+    .footer h2{font-size:clamp(40px,7vw,78px); letter-spacing:-.06em; line-height:.95; margin:0 0 14px}
+    .footer p{margin:0; color:var(--muted); max-width:650px}
+    .links{display:flex; gap:18px; font-size:14px; flex-wrap:wrap}
+    .links a{text-decoration:none; border-bottom:1px solid var(--ink)}
+    .disclaimer{margin-top:38px; padding-top:18px; border-top:1px solid var(--line); font-size:12px; color:var(--muted)}
+    @media (max-width:900px){
+      .hero,.section-head{grid-template-columns:1fr}
+      .hero{gap:28px}
+      .spec-grid{grid-template-columns:repeat(2,1fr)}
+      .post-card{grid-template-columns:1fr}
+      .post-meta{border-right:0;border-bottom:1px solid var(--ink); flex-direction:row; gap:20px}
+      .shot-list{grid-template-columns:repeat(2,1fr)}
+      .calendar{grid-template-columns:82px repeat(2,1fr); overflow:hidden}
+      .cal.hide-mobile{display:none}
+      .series-grid,.ops{grid-template-columns:1fr}
+      .footer-grid{display:block}
+      .links{margin-top:24px}
+    }
+    @media (max-width:560px){
+      .wrap{width:min(100% - 24px,var(--max))}
+      .hero{padding-top:50px}
+      h1{font-size:58px}
+      .hero-copy{font-size:18px}
+      .spec-grid{grid-template-columns:1fr 1fr}
+      .spec{padding:16px; min-height:110px}
+      .post-body{padding:24px 20px}
+      .post-body h3{font-size:28px}
+      .shot-list{grid-template-columns:1fr 1fr}
+      .calendar{display:block; border:0}
+      .cal{min-height:0;border:1px solid var(--ink);margin-bottom:-1px}
+      .cal.week{writing-mode:initial;transform:none;background:var(--lime)}
+      .cal.day{display:none}
+      .cal.hide-mobile{display:block}
+      .callout{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">SA.</div>
+      <a class="back" href="https://swaraj6520.github.io/Swaraj-Portfolio1/">← Back to portfolio</a>
+    </div>
+
+    <header class="hero">
+      <div>
+        <div class="eyebrow">Independent content concept · Nori Robotics</div>
+        <h1>NORI /<br>ONE WEEK<br>OF SOCIAL</h1>
+        <p class="hero-copy">If I spent a week inside Nori's San Francisco warehouse, these are the stories I'd look for first: the things engineers are testing, the moments the robot surprises you, the stuff that breaks, and the small details that make a $1,688 robot interesting.</p>
+      </div>
+      <aside class="hero-note">
+        <strong>I haven't been in the warehouse yet.</strong>
+        <p>So I kept this grounded in what Nori already says publicly. No invented customer quotes, no fake test results, no pretending I know what happened on the bench yesterday. The point is to show how I'd find and package the stories once I was there.</p>
+      </aside>
+    </header>
+
+    <div class="hero-image">
+      <img src="https://www.norirobotics.com/_next/image?q=75&amp;url=%2Fimages%2Fworkshop.2d100e21.jpg&amp;w=3840" alt="Nori A3 robots in the San Francisco workshop" />
+      <div class="caption"><span>Nori A3 in the SF workshop</span><span>Image: Nori Robotics</span></div>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Where I started</div>
+        <div>
+          <h2>The product already gives you plenty to talk about.</h2>
+          <p>The interesting part isn't repeating the spec sheet. It's using the specs as a way into bigger stories: affordability, engineering tradeoffs, what people will build, and what it takes to get robots out of demos and into the real world.</p>
+        </div>
+      </div>
+      <div class="spec-grid">
+        <div class="spec"><b>$1,688</b><span>Full price, no deposit</span></div>
+        <div class="spec"><b>7+1 DOF</b><span>Per arm, 1.5 kg payload each</span></div>
+        <div class="spec"><b>4 cameras</b><span>720p RGB, up to 30 fps</span></div>
+        <div class="spec"><b>6–8 hrs</b><span>Battery life</span></div>
+        <div class="spec"><b>12 m</b><span>Lidar range</span></div>
+        <div class="spec"><b>SF</b><span>Assembled in San Francisco</span></div>
+        <div class="spec"><b>Lab app</b><span>Train, operate and manage Nori</span></div>
+        <div class="spec"><b>Skills</b><span>Train at home, share anywhere</span></div>
+      </div>
+      <div class="origin">Public product facts pulled from norirobotics.com. I would verify every technical detail with engineering before publishing.</div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">The posts</div>
+        <div>
+          <h2>Same robot. Different reason to stop scrolling.</h2>
+          <p>I wouldn't copy-paste one announcement everywhere. X gets the sharp observation or the weird moment. LinkedIn gets the context. Video gets the thing people need to see with their own eyes.</p>
+        </div>
+      </div>
+
+      <div class="post-stack">
+        <article class="post-card">
+          <div class="post-meta">
+            <div class="platform">X · single post</div>
+            <div class="goal">Goal: product curiosity</div>
+          </div>
+          <div class="post-body">
+            <h3>$1,688 is the headline. The tradeoffs are the story.</h3>
+            <div class="post-copy">Nori A3 is $1,688.
+
+7+1 DOF per arm. 1.5 kg payload per arm. 4 cameras. lidar. 6–8 hour battery.
+
+Built in San Francisco.
+
+The interesting question isn't “how cheap can you make a robot?”
+
+It's “what do you refuse to cut?”</div>
+            <div class="why"><strong>Why I'd post it</strong><span>The price gets attention already. This turns it into an engineering conversation instead of another product announcement.</span></div>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">
+            <div class="platform">LinkedIn · text + workshop photo</div>
+            <div class="goal">Goal: engineering story</div>
+          </div>
+          <div class="post-body">
+            <h3>Cheap robots aren't useful if nobody can build on them.</h3>
+            <div class="post-copy">Most robotics demos end when the video ends.
+
+The more interesting question is what happens when the robot gets into someone else's hands.
+
+Nori A3 is built around that idea: a $1,688 robot, an app to train and operate it, and a Skills Marketplace so what one person teaches can eventually travel further than one machine.
+
+Affordability gets more robots into the world. More robots means more people trying things we would never think to test ourselves.
+
+That's the part I'd be watching closely.</div>
+            <div class="why"><strong>Why LinkedIn</strong><span>This needs a little more context than an X post. It connects the price point to the bigger product thesis without sounding like a brochure.</span></div>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">
+            <div class="platform">X / Reels · recurring video</div>
+            <div class="goal">Goal: build-in-public</div>
+          </div>
+          <div class="post-body">
+            <h3>What broke this week?</h3>
+            <p>No polished launch video. One engineer, one problem, one fix. The exact story changes every week because the work does.</p>
+            <div class="shot-list">
+              <div class="shot"><b>0–03s</b><p>Close-up of the robot doing the thing badly. Text: “What broke this week?”</p></div>
+              <div class="shot"><b>03–08s</b><p>Engineer: “We thought it was the arm. It wasn't the arm.”</p></div>
+              <div class="shot"><b>08–15s</b><p>Show the actual failure or test setup. Keep the messy bench in frame.</p></div>
+              <div class="shot"><b>15–24s</b><p>Run it again after the fix. End on whether it worked, not a corporate CTA.</p></div>
+            </div>
+            <div class="why"><strong>Why I'd make it</strong><span>Robotics is unusually good for build-in-public because failure is visual. The series gives engineers a reason to explain real work without asking them to “make content.”</span></div>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">
+            <div class="platform">X · community prompt</div>
+            <div class="goal">Goal: comments + ideas</div>
+          </div>
+          <div class="post-body">
+            <h3>You get a Nori A3 for 48 hours.</h3>
+            <div class="post-copy">You get a Nori A3 for 48 hours.
+
+What is the first completely unnecessary thing you teach it?
+
+Best answer gets attempted in the warehouse.</div>
+            <div class="why"><strong>Why I'd post it</strong><span>It gives the audience a reason to participate, and the comments become a backlog for future demos. I'd only promise the warehouse attempt if the team is actually willing to do it.</span></div>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">
+            <div class="platform">Reels / TikTok / Shorts · 15–20 sec</div>
+            <div class="goal">Goal: visual proof</div>
+          </div>
+          <div class="post-body">
+            <h3>Teach the robot one boring thing.</h3>
+            <p>The less cinematic the task, the better. Loading one dish, fetching one item, folding one towel. The point is watching the learning loop, not pretending the robot lives in a sci-fi movie.</p>
+            <div class="shot-list">
+              <div class="shot"><b>SHOT 1</b><p>Human does the task. Text: “Teach Nori this.”</p></div>
+              <div class="shot"><b>SHOT 2</b><p>Quick glimpse of the training/operation workflow.</p></div>
+              <div class="shot"><b>SHOT 3</b><p>First robot attempt. Keep the miss if there is one.</p></div>
+              <div class="shot"><b>SHOT 4</b><p>Best attempt. Text: “What should we try next?”</p></div>
+            </div>
+            <div class="why"><strong>Why I'd make it</strong><span>Nori's site already talks about everyday tasks and teaching skills. A simple before-and-after makes that idea understandable without a paragraph of robotics terminology.</span></div>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">
+            <div class="platform">LinkedIn · founder / company voice</div>
+            <div class="goal">Goal: company story</div>
+          </div>
+          <div class="post-body">
+            <h3>“Made in San Francisco” is content, not footer copy.</h3>
+            <div class="post-copy">A robot has a lot of ways to hide the hard parts.
+
+A warehouse doesn't.
+
+Parts arrive. Something doesn't fit. A test fails. An engineer changes it. Another robot rolls out.
+
+We're assembling Nori in San Francisco because the feedback loop matters more to us right now than pretending manufacturing is separate from engineering.
+
+I want to show more of that process here: what changed, what failed, and what the next batch taught us.</div>
+            <div class="why"><strong>Before publishing</strong><span>I would confirm the manufacturing rationale with the founders. The public fact is that Nori is assembled in San Francisco; the reasoning above is the story I'd want to interview them about rather than assume.</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="callout">
+        <div class="big">The warehouse should be the content engine. Not just the backdrop.</div>
+        <div class="tag">ENGINEERING → STORY → POST</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Two-week calendar</div>
+        <div>
+          <h2>A rhythm I could actually keep up.</h2>
+          <p>Enough structure that the account feels alive, with open space for whatever happens in the warehouse that week. I would rather publish six good things with a real point than fill every day with filler.</p>
+        </div>
+      </div>
+
+      <div class="calendar">
+        <div class="cal"></div>
+        <div class="cal day">MON</div><div class="cal day">TUE</div><div class="cal day hide-mobile">WED</div><div class="cal day hide-mobile">THU</div><div class="cal day hide-mobile">FRI</div>
+        <div class="cal week">WEEK 01</div>
+        <div class="cal"><b>LinkedIn</b><p>The $1,688 tradeoff story.</p></div>
+        <div class="cal"><b>X</b><p>One engineering observation + bench photo.</p></div>
+        <div class="cal hide-mobile"><b>Video</b><p>What broke this week?</p></div>
+        <div class="cal hide-mobile"><b>X</b><p>48-hour community challenge.</p></div>
+        <div class="cal hide-mobile"><b>LinkedIn</b><p>SF warehouse / manufacturing story.</p></div>
+        <div class="cal week">WEEK 02</div>
+        <div class="cal"><b>X + Video</b><p>Community challenge attempt.</p></div>
+        <div class="cal"><b>LinkedIn</b><p>Engineer explains one design choice.</p></div>
+        <div class="cal hide-mobile"><b>Reels</b><p>Teach Nori one boring thing.</p></div>
+        <div class="cal hide-mobile"><b>X</b><p>Spec people keep asking about, answered plainly.</p></div>
+        <div class="cal hide-mobile"><b>LinkedIn</b><p>What this week's testing changed.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Series I'd pitch</div>
+        <div>
+          <h2>Formats that get easier after episode one.</h2>
+          <p>The goal is to create a few repeatable habits so social doesn't depend on inventing a campaign every Monday morning.</p>
+        </div>
+      </div>
+      <div class="series-grid">
+        <article class="series"><div class="num">01</div><h3>What broke this week?</h3><p>An engineer explains one failure, the thing everyone initially blamed, and what actually fixed it.</p></article>
+        <article class="series"><div class="num">02</div><h3>Teach Nori this.</h3><p>One small task from human demonstration to robot attempt. Keep the imperfect first try when it tells the story better.</p></article>
+        <article class="series"><div class="num">03</div><h3>Why did you build it that way?</h3><p>One design decision at a time: cameras, grippers, arms, lidar, battery, manufacturing. Engineer first, marketer second.</p></article>
+        <article class="series"><div class="num">04</div><h3>Warehouse log.</h3><p>A running record of batches, new equipment, assembly changes, tests, and milestones. Short enough that it never becomes a production.</p></article>
+        <article class="series"><div class="num">05</div><h3>People behind Nori.</h3><p>One question at someone's station: what are you trying to make work today?</p></article>
+        <article class="series"><div class="num">06</div><h3>Audience task queue.</h3><p>Turn community comments into demo ideas, then close the loop by tagging the person whose suggestion gets tried.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">How I'd run it</div>
+        <div>
+          <h2>Get close to the work. Then stay out of engineering's way.</h2>
+          <p>I don't think the social person should constantly ask engineers for fully formed “content ideas.” The job is to make it easy for them to hand over raw material.</p>
+        </div>
+      </div>
+      <div class="ops">
+        <article><h3>One capture block</h3><p>I would reserve one reliable block each week to walk the warehouse, shoot demos, photograph the bench, and collect enough raw material to avoid chasing people every day.</p></article>
+        <article><h3>15 minutes with engineering</h3><p>Three questions: what changed, what broke, what surprised you? That's probably where the strongest technical posts come from.</p></article>
+        <article><h3>Platform-native edits</h3><p>X gets the sharpest observation. LinkedIn gets the story behind it. Short-form video gets the part that is more convincing when you simply watch the robot do it.</p></article>
+        <article><h3>Fast fact-check</h3><p>Every technical post gets a quick owner and approval path. The goal is accurate without turning every caption into a two-day review cycle.</p></article>
+        <article><h3>Watch the right numbers</h3><p>For X: shares, profile visits, relevant followers and replies. For LinkedIn: comments from the right people, saves and follows. For video: first-three-second hold and completion.</p></article>
+        <article><h3>Keep what works</h3><p>I wouldn't kill a format after one weak post. I'd change the hook, footage or framing first, then decide whether the idea itself is bad.</p></article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <div class="eyebrow">Built by</div>
+          <h2>Swaraj Acharekar</h2>
+          <p>Independent, speculative portfolio work. Not commissioned by, affiliated with, or endorsed by Nori Robotics. Product facts and imagery are based on Nori's public website and public company materials.</p>
+        </div>
+        <div class="links">
+          <a href="https://swaraj6520.github.io/Swaraj-Portfolio1/">Portfolio</a>
+          <a href="mailto:acharekarswaraj53@gmail.com">Email</a>
+          <a href="https://www.norirobotics.com/">Nori source site</a>
+        </div>
+      </div>
+      <div class="disclaimer">Source note: $1,688 price, fall 2026 shipping, 7+1 DOF arms, 1.5 kg payload per arm, four 720p cameras, lidar specs, 6–8 hour battery, Nori Lab app, Skills Marketplace, and San Francisco assembly are stated on norirobotics.com as of October 2026. Any hypothetical copy about internal engineering decisions is clearly marked for verification before publication.</div>
+    </footer>
+  </div>
+</body>
+</html>
