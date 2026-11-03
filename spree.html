@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spree AI Video — Case Study | Swaraj Acharekar</title>
+<meta name="description" content="How I turn a one-line idea into a 9:16 reel with Google Flow / Veo: the prompts, the workflow, and the human review behind two AI-generated Spree reels.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:#0d0d0d; --surface:#141414; --card:#1a1a1a; --border:#252525;
+  --accent:#e8ff47; --accent2:#ff6b35; --text:#f0ede6; --muted:#7a7a78;
+  --serif:'Syne',sans-serif; --body:'DM Sans',sans-serif;
+  --radius:12px; --t:0.35s cubic-bezier(0.22,1,0.36,1);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;} ::-webkit-scrollbar-track{background:var(--bg);} ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+a{color:inherit;}
+
+/* TOP BAR */
+#progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:101;box-shadow:0 0 12px rgba(232,255,71,0.6);}
+.bar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(13,13,13,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;text-decoration:none;}
+.logo span{color:var(--accent);}
+.back{font-size:0.76rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color var(--t);}
+.back:hover{color:var(--accent);}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 48px;}
+.tag{font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.tag::before{content:'';display:block;width:20px;height:1px;background:var(--accent);}
+h2.title{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.025em;line-height:1.08;margin-bottom:22px;}
+h2.title .dim{color:var(--muted);font-weight:400;}
+
+/* HERO */
+.hero{padding:88px 0 56px;}
+.hero h1{font-family:var(--serif);font-size:clamp(2.4rem,5.2vw,4.4rem);font-weight:800;line-height:1.02;letter-spacing:-0.03em;margin-bottom:24px;animation:fadeUp 0.8s var(--t) 0.1s both;}
+.hero h1 em{color:var(--accent);font-style:normal;}
+.hero .sub{font-size:1.05rem;font-weight:300;color:rgba(240,237,230,0.72);max-width:640px;margin-bottom:30px;animation:fadeUp 0.8s var(--t) 0.2s both;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;animation:fadeUp 0.8s var(--t) 0.3s both;}
+.chip{font-size:0.7rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:7px 13px;border-radius:100px;border:1px solid var(--border);color:var(--muted);}
+.chip b{color:var(--text);font-weight:600;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+/* BRIEF */
+.brief{padding:56px 0;border-top:1px solid var(--border);}
+.brief p{font-size:1.02rem;font-weight:300;color:rgba(240,237,230,0.78);max-width:720px;margin-bottom:16px;}
+.brief p strong{color:var(--text);font-weight:500;}
+.brief p em{color:var(--accent);font-style:normal;}
+
+/* REEL BLOCKS */
+.reel{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:56px;align-items:start;padding:64px 0;border-top:1px solid var(--border);}
+.reel.flip{grid-template-columns:1fr minmax(0,320px);}
+.reel.flip .phone{order:2;}
+.phone{border-radius:22px;overflow:hidden;border:1px solid var(--border);background:#000;aspect-ratio:9/16;box-shadow:0 30px 80px rgba(0,0,0,0.55),0 0 70px rgba(255,75,160,0.07);}
+.phone video{width:100%;height:100%;object-fit:cover;display:block;background:#000;}
+.reel-num{font-family:var(--serif);font-weight:800;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:10px;}
+.reel h3{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:800;letter-spacing:-0.02em;line-height:1.08;margin-bottom:14px;}
+.reel .lede{font-size:1rem;font-weight:300;color:rgba(240,237,230,0.75);margin-bottom:22px;}
+.beats{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
+.beat{display:grid;grid-template-columns:78px 1fr;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;}
+.beat-k{font-size:0.64rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);padding-top:3px;}
+.beat-v{font-size:0.88rem;color:rgba(240,237,230,0.8);line-height:1.5;}
+.beat-v i{color:var(--muted);font-style:italic;}
+.subs{font-size:0.78rem;color:var(--muted);margin-bottom:18px;}
+.subs b{color:var(--text);font-weight:500;}
+
+details.prompt{border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);overflow:hidden;}
+details.prompt summary{list-style:none;cursor:pointer;padding:14px 18px;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px;transition:color var(--t);}
+details.prompt summary::-webkit-details-marker{display:none;}
+details.prompt summary::before{content:'+';color:var(--accent);font-size:1rem;line-height:1;transition:transform var(--t);display:inline-block;}
+details.prompt[open] summary::before{transform:rotate(45deg);}
+details.prompt summary:hover{color:var(--accent);}
+.prompt-body{padding:2px 18px 18px;display:flex;flex-direction:column;gap:14px;}
+.prompt-label{font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:5px;}
+.prompt-text{font-size:0.8rem;line-height:1.6;color:rgba(240,237,230,0.7);white-space:pre-wrap;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 14px;}
+
+/* PROMPT CRAFT */
+.craft{padding:72px 0;border-top:1px solid var(--border);background:var(--surface);}
+.craft-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;margin-top:34px;}
+.craft-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:border-color var(--t),transform var(--t);}
+.craft-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.craft-n{font-family:var(--serif);font-weight:800;font-size:0.72rem;letter-spacing:0.1em;color:var(--accent);margin-bottom:8px;}
+.craft-card h4{font-family:var(--serif);font-size:1rem;font-weight:800;letter-spacing:-0.01em;margin-bottom:7px;line-height:1.2;}
+.craft-card p{font-size:0.85rem;color:var(--muted);line-height:1.55;}
+
+/* WORKFLOW */
+.flowsec{padding:72px 0;border-top:1px solid var(--border);}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:34px;}
+.step{border:1px solid var(--border);border-radius:var(--radius);padding:18px 16px;background:var(--card);position:relative;}
+.step-n{font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;transition:color 0.4s ease;}
+.step h4{font-family:var(--serif);font-size:0.95rem;font-weight:800;margin-bottom:6px;}
+.step p{font-size:0.78rem;color:var(--muted);line-height:1.5;}
+.step.human{border-color:rgba(232,255,71,0.35);background:linear-gradient(180deg,rgba(232,255,71,0.06),var(--card));}
+.step.human .step-n{color:var(--accent);}
+.insight{background:rgba(232,255,71,0.06);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:16px 20px;font-size:0.92rem;font-style:italic;margin-top:30px;}
+.insight span{color:var(--accent);font-style:normal;font-weight:600;}
+
+.note{padding:0 0 64px;}
+.note p{font-size:0.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:22px;max-width:720px;}
+
+/* CTA + FOOTER */
+.cta{padding:72px 0;border-top:1px solid var(--border);text-align:center;}
+.cta h2{font-family:var(--serif);font-size:clamp(1.8rem,3.6vw,3rem);font-weight:800;letter-spacing:-0.03em;line-height:1.02;margin-bottom:22px;}
+.cta h2 span{color:transparent;-webkit-text-stroke:1px var(--accent);}
+.btn{display:inline-block;background:var(--accent);color:#0d0d0d;font-family:var(--serif);font-weight:700;font-size:0.83rem;letter-spacing:0.04em;padding:13px 26px;border-radius:6px;text-decoration:none;margin:0 5px 8px;transition:transform var(--t),box-shadow var(--t);}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(232,255,71,0.25);}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border);font-family:var(--body);font-weight:500;}
+.btn.ghost:hover{border-color:var(--text);color:var(--accent);box-shadow:none;}
+footer{border-top:1px solid var(--border);padding:24px 48px;display:flex;justify-content:space-between;font-size:0.71rem;color:var(--muted);}
+footer span:last-child{color:var(--accent);}
+
+.js :where(.reveal){opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s var(--t),border-color var(--t);}
+.js :where(.reveal.visible){opacity:1;transform:translateY(0);}
+.js :where(.reveal.done){transition:border-color var(--t),transform var(--t);}
+
+@media(max-width:860px){
+  .bar{padding:14px 20px;}
+  .wrap{padding:0 22px;}
+  .hero{padding:56px 0 40px;}
+  .reel,.reel.flip{grid-template-columns:1fr;gap:28px;padding:48px 0;}
+  .reel.flip .phone{order:0;}
+  .phone{max-width:320px;}
+  .beat{grid-template-columns:64px 1fr;}
+  .steps{grid-template-columns:repeat(2,1fr);}
+  footer{flex-direction:column;gap:7px;text-align:center;padding:24px 22px;}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;transition-delay:0s !important;}
+  .js :where(.reveal){opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="bar">
+  <a href="index.html" class="logo">SA<span>.</span></a>
+  <a href="index.html#experience" class="back">← Back to portfolio</a>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="tag">AI Video · Case Study</div>
+    <h1>Spree: two reels, <em>one engine.</em></h1>
+    <p class="sub">How I turn a one-line idea into a 9:16 reel with Google Flow / Veo, and where a human stays in the loop.</p>
+    <div class="chips">
+      <span class="chip">Role · <b>Concept to publish</b></span>
+      <span class="chip">Tools · <b>Google Flow / Veo</b></span>
+      <span class="chip">Format · <b>9:16 vertical</b></span>
+      <span class="chip">Review · <b>Human on every cut</b></span>
+    </div>
+  </header>
+
+  <!-- BRIEF -->
+  <section class="brief reveal">
+    <div class="tag">The idea</div>
+    <h2 class="title">Sell the feeling. <span class="dim">Let the product be the punchline.</span></h2>
+    <p>Spree is a personalized deal-feed app. Deals are hard to make interesting: a price is a number, and numbers don't stop a scroll.</p>
+    <p>The <em>feeling</em> around a deal is much more interesting. The 3 AM rush when the alert you set finally fires. The quiet "worth it" after you order. So both reels start from a human moment, and the app shows up as the reason for it.</p>
+    <p>Everything below is AI-generated, including the people. Same engine, two different moods.</p>
+  </section>
+
+  <!-- REEL 1 -->
+  <section class="reel">
+    <div class="phone">
+      <video controls muted playsinline preload="metadata" poster="media/spree-3am-poster.jpg" aria-label="The 3 AM reel: a woman wakes her partner at night to tell him a deal alert just fired">
+        <source src="media/spree-3am-reel.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="reel-copy reveal">
+      <div class="reel-num">Reel 01 · 15 sec</div>
+      <h3>The 3 AM alert</h3>
+      <p class="lede">Comedy that carries the product message. The "emergency" is a deal alert, and the partner's face says what everyone is thinking.</p>
+      <div class="beats">
+        <div class="beat"><span class="beat-k">Hook</span><span class="beat-v">She shakes her sleeping partner awake, mid-whisper. <i>"babe. BABE. wake up, it's important."</i></span></div>
+        <div class="beat"><span class="beat-k">Turn</span><span class="beat-v">The pink screen in his face. <i>"the deal I set an alert for just dropped."</i> His alarm goes completely flat.</span></div>
+        <div class="beat"><span class="beat-k">Payoff</span><span class="beat-v"><i>"…go back to sleep."</i> She's already grinning and tapping to order.</span></div>
+      </div>
+      <p class="subs"><b>On-screen subtitles:</b> "babe WAKE UP it's important 😰" → "what's wrong?!"</p>
+      <details class="prompt">
+        <summary>Read the full prompt</summary>
+        <div class="prompt-body">
+          <div>
+            <div class="prompt-label">Clip A</div>
+            <div class="prompt-text">A cinematic, photorealistic live-action style scene, dim night bedroom lighting. First frame, mid-action: a woman in her early 30s, ordinary friendly face with freckles and messy bun, shaking her sleeping partner awake urgently, whispering loudly, “babe. BABE. wake up, it’s important.” Her partner, a man in his late 30s, average-looking with glasses and light stubble, jolts awake alarmed, sitting up fast, “what?! what’s wrong?!” She holds her glowing phone, wide awake and intense. Dim moonlit bedroom, faces softly lit, comedic tension, shallow depth of field, smooth cinematic motion. 9:16 vertical. Ends on his alarmed, just-woken face.
+Subtitles: “babe WAKE UP it’s important 😰” → (him) “what’s wrong?!”</div>
+          </div>
+          <div>
+            <div class="prompt-label">Clip B</div>
+            <div class="prompt-text">Same woman (freckles, messy bun) and man (glasses, stubble), same dim bedroom, continuing seamlessly. She turns her phone’s hot-pink screen to his face and whispers excitedly, “the deal I set an alert for just dropped.” He stares, processes it, and his alarmed face goes completely flat and unimpressed. A beat. Then he sighs, lies back down, and mutters, “…go back to sleep.” She’s already grinning and tapping to order. Comedic, deadpan, cozy-dim mood, hot-pink glow, shallow depth of field, smooth cinematic motion. 9:16 vertical. Opens on his alarmed face, matching the previous frame.</div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- REEL 2 -->
+  <section class="reel flip">
+    <div class="phone">
+      <video controls muted playsinline preload="metadata" poster="media/spree-staying-late-poster.jpg" aria-label="The staying late reel: a woman scrolling her phone in bed at night finds a deal and orders it">
+        <source src="media/spree-staying-late.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="reel-copy reveal">
+      <div class="reel-num">Reel 02 · 19 sec</div>
+      <h3>Staying late</h3>
+      <p class="lede">The same engine in a quieter register. No jokes at anyone's expense, just a small, private win at the end of the night.</p>
+      <div class="beats">
+        <div class="beat"><span class="beat-k">Hook</span><span class="beat-v">Phone glow on her face, wide awake in the dark. <i>"honestly? staying up late has its perks."</i></span></div>
+        <div class="beat"><span class="beat-k">Turn</span><span class="beat-v">Her scrolling slows. Something catches her eye and a grin spreads. <i>"wait—"</i></span></div>
+        <div class="beat"><span class="beat-k">Payoff</span><span class="beat-v">She taps to order, flops back, satisfied. <i>"got such a good deal. totally worth it… see you tomorrow."</i></span></div>
+      </div>
+      <p class="subs"><b>On-screen subtitles:</b> "staying up late has its perks 😏" → "wait—"</p>
+      <details class="prompt">
+        <summary>Read the full prompt</summary>
+        <div class="prompt-body">
+          <div>
+            <div class="prompt-label">Clip A</div>
+            <div class="prompt-text">A cinematic, photorealistic live-action style scene with soft, cozy low light — a phone screen glowing on her face in a dark bedroom. First frame: a woman in her late 20s, ordinary everyday appearance with a friendly face, freckles, and messy bun, lying in bed under the covers at night, wide awake, scrolling her phone with a relaxed “can’t sleep” look. She half-smiles at the screen and says softly, like she’s talking to herself, “honestly? staying up late has its perks.” Then her scrolling slows — something catches her eye and her eyes widen with interest as a slow grin spreads. Calm, cozy, intimate mood, soft phone-glow lighting on her face in the dark, shallow depth of field, smooth cinematic motion. 9:16 vertical. Ends on her grinning at the screen, caught by something.
+Subtitles: “staying up late has its perks 😏” → “wait—”</div>
+          </div>
+          <div>
+            <div class="prompt-label">Clip B</div>
+            <div class="prompt-text">A cinematic, photorealistic live-action style scene, same woman in her late 20s (friendly face, freckles, messy bun), same cozy dark bedroom, continuing seamlessly. Her phone’s hot-pink screen glows brighter as she taps to order, then flops back onto her pillow, satisfied. She pulls the blanket up, smiles contentedly at the camera, and says softly, “got such a good deal. totally worth it.” She closes her eyes, settling in, and murmurs, “…see you tomorrow.” The screen dims to dark. Calm, cozy, satisfied mood, soft warm hot-pink glow fading to dark, shallow depth of field, smooth cinematic motion. 9:16 vertical. Opens on her grinning at the screen, matching the previous frame exactly.</div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+</div>
+
+<!-- WHAT THE PROMPT IS DOING -->
+<section class="craft">
+  <div class="wrap">
+    <div class="tag">Under the hood</div>
+    <h2 class="title">What the prompt is <span class="dim">actually doing.</span></h2>
+    <div class="craft-grid">
+      <div class="craft-card reveal"><div class="craft-n">01</div><h4>A defined first frame</h4><p>Every clip opens on a specific image: mid-shake in the 3 AM reel, phone glow on a face in the other. The hook is decided before generating, not discovered after.</p></div>
+      <div class="craft-card reveal"><div class="craft-n">02</div><h4>Characters locked in words</h4><p>The same descriptors repeat in both clips (freckles, messy bun, glasses, light stubble), so the model keeps the same people from one clip to the next.</p></div>
+      <div class="craft-card reveal"><div class="craft-n">03</div><h4>A handoff between clips</h4><p>Clip B "opens on his alarmed face, matching the previous frame." Each clip ends on a named frame so the cut feels like one take.</p></div>
+      <div class="craft-card reveal"><div class="craft-n">04</div><h4>Emotion written as beats</h4><p>Alarm, processing, flat, "go back to sleep." The performance is directed like a script, and that is where the comedy comes from.</p></div>
+      <div class="craft-card reveal"><div class="craft-n">05</div><h4>Light with a job</h4><p>A dark room and one saturated color: the hot-pink phone glow. The product is the brightest thing in the frame.</p></div>
+      <div class="craft-card reveal"><div class="craft-n">06</div><h4>Captions written with the script</h4><p>Subtitles are scripted next to the dialogue, so the story reads with the sound off. That is how most people will watch it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="flowsec">
+  <div class="wrap">
+    <div class="tag">The workflow</div>
+    <h2 class="title">From idea to post, <span class="dim">with a human in the middle.</span></h2>
+    <div class="steps">
+      <div class="step reveal"><div class="step-n">01</div><h4>Concept</h4><p>Start from a feeling, not a feature. What does a deal alert feel like at 3 AM?</p></div>
+      <div class="step reveal"><div class="step-n">02</div><h4>Script</h4><p>Lines, subtitles and the last frame get written before anything is generated.</p></div>
+      <div class="step reveal"><div class="step-n">03</div><h4>Generate</h4><p>Google Flow / Veo, in two short clips so faces and mood stay consistent.</p></div>
+      <div class="step human reveal"><div class="step-n">04 · Human</div><h4>Review</h4><p>A person checks the faces, the pacing, the joke and the voice before it goes anywhere.</p></div>
+      <div class="step reveal"><div class="step-n">05</div><h4>Edit &amp; publish</h4><p>Stitch the clips, add captions, post.</p></div>
+      <div class="step reveal"><div class="step-n">06</div><h4>Learn</h4><p>Audience response decides the next idea.</p></div>
+    </div>
+    <div class="insight reveal"><span>Key insight:</span> AI is fast at pixels, not at taste. The prompt is the creative brief, and the review is the edit.</div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="note">
+    <p>Both reels are fully AI-generated with Google Flow / Veo. No real people appear. The prompts above are the exact ones used.</p>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Want content that <span>moves?</span></h2>
+    <a href="mailto:acharekarswaraj53@gmail.com" class="btn">Let's talk →</a>
+    <a href="index.html" class="btn ghost">Back to portfolio</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Swaraj Acharekar</span>
+  <span>Built to stand out. ⚡</span>
+</footer>
+
+<script>
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => {
+        e.target.classList.add('visible');
+        setTimeout(() => e.target.classList.add('done'), 900);
+      }, i * 70);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// progress bar
+const bar = document.getElementById('progress');
+let ticking = false;
+function onScroll() {
+  const r = document.documentElement, max = r.scrollHeight - r.clientHeight;
+  bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(r.scrollTop / max, 1) : 0) + ')';
+  ticking = false;
+}
+window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+onScroll();
+
+// Each reel plays once, muted, the first time it is mostly on screen (captions are burned in, so it reads without sound).
+// After that the viewer is in control.
+if (!reduceMotion) {
+  const vio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const p = e.target.play();
+        if (p && p.catch) p.catch(() => {});
+        vio.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.phone video').forEach(v => vio.observe(v));
+}
+</script>
+</body>
+</html>
