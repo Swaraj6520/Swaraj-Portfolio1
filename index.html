@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Swaraj Acharekar — Digital Marketing</title>
+<script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
@@ -33,7 +34,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-eyebrow{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px;animation:fadeUp 0.7s var(--t) 0.1s both;}
 .hero-eyebrow::before{content:'';display:block;width:30px;height:1px;background:var(--accent);}
 .hero-headline{font-family:var(--serif);font-size:clamp(2.8rem,5vw,5rem);font-weight:800;line-height:1.0;letter-spacing:-0.03em;margin-bottom:26px;animation:fadeUp 0.8s var(--t) 0.2s both;}
-.hero-headline em{color:var(--accent);font-style:normal;}
+.hero-headline em{color:var(--accent);font-style:normal;background:linear-gradient(var(--accent),var(--accent)) no-repeat 0 96%/0% 3px;animation:sweep 1s var(--t) 1s forwards;}
 .hero-sub{font-size:1rem;font-weight:300;color:var(--muted);max-width:500px;margin-bottom:38px;line-height:1.7;animation:fadeUp 0.8s var(--t) 0.3s both;}
 .hero-ctas{display:flex;gap:12px;align-items:center;animation:fadeUp 0.8s var(--t) 0.4s both;}
 .btn-primary{background:var(--accent);color:#0d0d0d;font-family:var(--serif);font-weight:700;font-size:0.83rem;letter-spacing:0.04em;padding:13px 26px;border:none;border-radius:6px;cursor:pointer;text-decoration:none;display:inline-block;transition:transform var(--t),box-shadow var(--t);}
@@ -96,7 +97,7 @@ h2.section-title .dim{color:var(--muted);font-weight:400;}
 .toggle-icon{transition:transform var(--t);}
 .exp-toggle.open .toggle-icon{transform:rotate(45deg);}
 .exp-body{max-height:0;overflow:hidden;transition:max-height 0.55s cubic-bezier(0.22,1,0.36,1);padding:0 32px;}
-.exp-body.open{max-height:900px;padding-bottom:32px;}
+.exp-body.open{max-height:1800px;padding-bottom:32px;}
 .exp-body-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;margin-bottom:16px;}
 .exp-col h4{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:7px;font-weight:600;}
 .exp-col ul{list-style:none;padding:0;}
@@ -201,8 +202,73 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 footer span:last-child{color:var(--accent);}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s var(--t);}
-.reveal.visible{opacity:1;transform:translateY(0);}
+/* Reveal on scroll (only hidden when JS is running, so the page never goes blank without it) */
+.js :where(.reveal){opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s var(--t),border-color var(--t);}
+.js :where(.reveal.visible){opacity:1;transform:translateY(0);}
+.js :where(.reveal.done){transition:border-color var(--t),transform var(--t);}
+
+/* ===== MOTION ===== */
+#progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:101;box-shadow:0 0 12px rgba(232,255,71,0.6);}
+.nav-links a{position:relative;}
+.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform var(--t);}
+.nav-links a.active{color:var(--accent);}
+.nav-links a.active::after,.nav-links a:hover::after{transform:scaleX(1);}
+.tab-panel.active{animation:tabIn 0.45s ease both;}
+@keyframes tabIn{from{opacity:0;}to{opacity:1;}}
+@keyframes sweep{to{background-size:100% 3px;}}
+
+/* KPI STRIP */
+#kpi-strip{padding:0;background:var(--bg);}
+.kpi-wrap{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 48px;}
+.kpi{text-align:center;padding:0 20px;border-right:1px solid var(--border);}
+.kpi:last-child{border-right:none;}
+.kpi-num{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);font-weight:800;color:var(--accent);line-height:1;margin-bottom:8px;font-variant-numeric:tabular-nums;}
+.kpi-label{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;}
+
+/* EXPERIENCE EXTRAS */
+.exp-prev{font-size:0.74rem;color:var(--muted);margin-top:6px;}
+.growth-bars{margin:0 32px 20px;display:flex;flex-direction:column;gap:9px;}
+.gb-cap{font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+.gb-row{display:grid;grid-template-columns:110px 1fr 52px;gap:12px;align-items:center;}
+.gb-label{font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.gb-track{height:10px;border-radius:100px;background:rgba(255,255,255,0.05);overflow:hidden;}
+.gb-fill{height:100%;border-radius:100px;width:var(--w);}
+.gb-before{background:#4a4a48;}
+.gb-after{background:var(--accent);box-shadow:0 0 18px rgba(232,255,71,0.45);}
+.gb-val{font-family:var(--serif);font-weight:800;font-size:0.95rem;text-align:right;}
+.js .gb-fill{width:0;transition:width 1.4s var(--t);}
+.js .growth-bars.in .gb-fill{width:var(--w);}
+.js .growth-bars.in .gb-after{transition-delay:0.35s;}
+
+/* SPREE WORKFLOW */
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;}
+.flow-step{font-size:0.7rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:7px 12px;border-radius:100px;border:1px solid var(--border);color:var(--muted);background:transparent;transition:color 0.4s ease,border-color 0.4s ease,background 0.4s ease;}
+.flow-arrow{color:var(--muted);font-size:0.8rem;}
+.exp-body.open .flow-step{color:var(--accent);border-color:rgba(232,255,71,0.35);background:rgba(232,255,71,0.07);transition-delay:calc(var(--i) * 140ms + 250ms);}
+
+/* DASH CONTENT CALENDAR */
+.cal{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-top:6px;}
+.cal-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.cal-head strong{color:var(--accent);font-weight:600;}
+.cal-grid{display:grid;grid-template-columns:76px repeat(5,1fr);gap:6px;align-items:center;}
+.cal-plat{font-size:0.58rem;text-align:center;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
+.cal-day{font-size:0.72rem;color:var(--text);font-weight:500;line-height:1.2;}
+.cal-day small{display:block;color:var(--muted);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.06em;}
+.cal-cell{height:26px;border-radius:5px;border:1px solid var(--border);background:rgba(255,255,255,0.03);transition:background 0.4s ease,border-color 0.4s ease;}
+.exp-body.open .cal-cell.v{background:rgba(255,107,53,0.28);border-color:rgba(255,107,53,0.55);transition-delay:calc(var(--i) * 35ms + 300ms);}
+.exp-body.open .cal-cell.s{background:rgba(232,255,71,0.2);border-color:rgba(232,255,71,0.5);transition-delay:calc(var(--i) * 35ms + 300ms);}
+.cal-foot{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:12px;font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);}
+.cal-legend{display:inline-flex;align-items:center;gap:6px;}
+.dot{display:inline-block;width:9px;height:9px;border-radius:3px;}
+.dot.v{background:rgba(255,107,53,0.7);}
+.dot.s{background:rgba(232,255,71,0.6);}
+.cal-count{margin-left:auto;color:var(--text);}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;transition-delay:0s !important;}
+  .js :where(.reveal){opacity:1;transform:none;}
+}
 
 @media(max-width:860px){
   nav{padding:14px 20px;flex-wrap:wrap;gap:10px;}
@@ -216,11 +282,24 @@ footer span:last-child{color:var(--accent);}
   .exp-body{padding:0 22px;}
   .exp-body.open{padding-bottom:26px;}
   footer{flex-direction:column;gap:7px;text-align:center;}
+  .kpi-wrap{grid-template-columns:repeat(2,1fr);padding:24px 22px;row-gap:22px;}
+  .kpi{padding:0 10px;}
+  .kpi:nth-child(2){border-right:none;}
+  .growth-bars{margin:0 22px 18px;}
+  .gb-row{grid-template-columns:84px 1fr 46px;gap:8px;}
+  .exp-metrics{flex-wrap:wrap;}
+  .metric{flex:1 1 45%;border-bottom:1px solid var(--border);}
+  .metric:nth-child(2n){border-right:none;}
+  .metric:nth-last-child(-n+2){border-bottom:none;}
+  .cal{padding:14px 12px;}
+  .cal-grid{grid-template-columns:44px repeat(5,1fr);gap:5px;}
+  .cal-count{margin-left:0;width:100%;}
 }
 </style>
 </head>
 <body>
 
+<div id="progress"></div>
 <nav id="nav">
   <a href="#hero" class="nav-logo">SA<span>.</span></a>
   <ul class="nav-links">
@@ -242,7 +321,7 @@ footer span:last-child{color:var(--accent);}
       I make <em>things move.</em>
     </h1>
     <p class="hero-sub">
-      Journalist-turned-marketer with 3+ years driving content-led growth — 1900% traffic increases, 10K+ followers built organically, and content that makes people actually care.
+      Journalist-turned-marketer with nearly 4 years driving content-led growth: a 1900% traffic increase, Reels that regularly clear 200K views, and now social and AI-assisted video for early-stage startups.
     </p>
     <div class="hero-ctas">
       <a href="#experience" class="btn-primary">See My Work →</a>
@@ -264,25 +343,23 @@ footer span:last-child{color:var(--accent);}
 </section>
 
   <!-- KPI STRIP -->
-<section id="kpi-strip" style="padding:0;background:#0d0d0d;">
-  <div style="border-top:1px solid #252525;border-bottom:1px solid #252525;padding:32px 48px;">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
-      <div style="text-align:center;padding:0 20px;border-right:1px solid #252525;">
-        <div style="font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;color:#e8ff47;line-height:1;margin-bottom:8px;">1900%</div>
-        <div style="font-size:0.68rem;color:#7a7a78;text-transform:uppercase;letter-spacing:0.1em;">Website traffic growth</div>
-      </div>
-      <div style="text-align:center;padding:0 20px;border-right:1px solid #252525;">
-        <div style="font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;color:#e8ff47;line-height:1;margin-bottom:8px;">10K+</div>
-        <div style="font-size:0.68rem;color:#7a7a78;text-transform:uppercase;letter-spacing:0.1em;">Twitter followers built</div>
-      </div>
-      <div style="text-align:center;padding:0 20px;border-right:1px solid #252525;">
-        <div style="font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;color:#e8ff47;line-height:1;margin-bottom:8px;">2705+</div>
-        <div style="font-size:0.68rem;color:#7a7a78;text-transform:uppercase;letter-spacing:0.1em;">Articles published</div>
-      </div>
-      <div style="text-align:center;padding:0 20px;">
-        <div style="font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;color:#e8ff47;line-height:1;margin-bottom:8px;">3+</div>
-        <div style="font-size:0.68rem;color:#7a7a78;text-transform:uppercase;letter-spacing:0.1em;">Years of experience</div>
-      </div>
+<section id="kpi-strip">
+  <div class="kpi-wrap">
+    <div class="kpi">
+      <div class="kpi-num"><span class="count" data-to="1900" data-suffix="%" data-plain="1">1900%</span></div>
+      <div class="kpi-label">Traffic growth · 300K → 6M monthly</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-num"><span class="count" data-to="2705">2,705</span></div>
+      <div class="kpi-label">Articles published</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-num"><span class="count" data-to="200" data-suffix="K+">200K+</span></div>
+      <div class="kpi-label">Typical campaign Reel views</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-num"><span class="count" data-to="25" data-suffix="K+">25K+</span></div>
+      <div class="kpi-label">Alignable Q&amp;A views · 12 weeks</div>
     </div>
   </div>
 </section>
@@ -295,9 +372,9 @@ footer span:last-child{color:var(--accent);}
     <div class="about-copy">
       <p>I'm <strong>Swaraj Acharekar</strong>, a <strong>journalist-turned-digital-marketer</strong> who recently completed my MS at Yeshiva University — with a track record of turning under-resourced teams into content machines that <strong>rank, engage, and convert.</strong></p>
 
-<p>My career started at <strong>MotorOctane</strong>, one of India's leading automotive media brands with <strong>5M+ subscribers</strong>. I learned fast: when you pair consistent publishing volume with real keyword discipline, traffic doesn't just grow, it explodes. We hit <strong>1900% growth</strong>. I stopped treating SEO as a checklist and started treating it as a conversation with an audience.</p>
-<p>At <strong>DASH</strong>, a NYC startup, I shifted to SMB-focused content and early-stage growth, writing copy that had to earn attention without a budget. It taught me that <strong>clarity beats cleverness</strong>, every single time.</p>
-<p>Lately I've been just as focused on where content is heading: I use <strong>AI tools daily</strong>, and I'm drawn to the problem of taking something technical or complex and <strong>making people actually care about it.</strong></p>
+<p>My career started at <strong>MotorOctane</strong>, one of India's leading automotive media brands with <strong>5M+ subscribers</strong>. I learned fast: when you pair consistent publishing volume with a Google Discover pivot and real keyword discipline, traffic doesn't just grow, it explodes. We went from 300K to 6M monthly visitors, <strong>1900% growth</strong>. I stopped treating SEO as a checklist and started treating it as a conversation with an audience.</p>
+<p>At <strong>DASH</strong>, a NYC startup, I went from intern to <strong>Digital Marketing Associate</strong>: running five social channels, building the company's LinkedIn presence from zero, and writing for small-business audiences with no ad budget behind it. It taught me that <strong>clarity beats cleverness</strong>, every single time.</p>
+<p>Lately I've been just as focused on where content is heading. At <strong>Spree</strong>, I build <strong>AI-assisted video and content workflows</strong> for an early-stage startup, with a human always on the final voice. I'm drawn to the problem of taking something technical or complex and <strong>making people actually care about it.</strong></p>
 <p>I think in <strong>systems, not posts.</strong> Every piece of content should do a job. Every metric should change what you do next.</p>
     </div>
     <div class="about-right">
@@ -327,17 +404,78 @@ footer span:last-child{color:var(--accent);}
   <h2 class="section-title">Roles I've held, <span class="dim">impact I've made.</span></h2>
   <div class="exp-list">
 
+    <!-- SPREE -->
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Growth Marketer</div>
+          <div class="exp-company-row">
+            <span class="exp-company">Spree</span>
+            <span class="exp-location">· Early-stage startup · Remote</span>
+          </div>
+        </div>
+        <div class="exp-dates current">Aug 2026 – Present</div>
+      </div>
+      <button class="exp-toggle" onclick="toggleExp(this)">
+        <span class="toggle-icon">+</span> How I build content here
+      </button>
+      <div class="exp-body">
+        <div class="exp-body-grid">
+          <div class="exp-col">
+            <h4>The Context</h4>
+            <p>An early-stage startup where I create AI-assisted video and social-first content, from the first concept to the published post, and use audience response to decide what gets made next.</p>
+          </div>
+          <div class="exp-col">
+            <h4>What I Do</h4>
+            <ul>
+              <li>Create AI-assisted video and social-first content, from concept and script through creative experiments to publishing</li>
+              <li>Build AI-assisted workflows across research, ideation, drafting and repurposing</li>
+              <li>Read audience response to sharpen future content</li>
+            </ul>
+          </div>
+          <div class="exp-col">
+            <h4>Tools</h4>
+            <ul>
+              <li>Google Flow / Veo for AI video generation</li>
+              <li>ChatGPT and Claude for research, scripting and repurposing</li>
+              <li>A human on every final cut</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-col" style="margin-top:8px;">
+          <h4>The workflow</h4>
+          <div class="flow">
+            <span class="flow-step" style="--i:0">Concept</span><span class="flow-arrow">→</span>
+            <span class="flow-step" style="--i:1">Script</span><span class="flow-arrow">→</span>
+            <span class="flow-step" style="--i:2">Generate</span><span class="flow-arrow">→</span>
+            <span class="flow-step" style="--i:3">Human review</span><span class="flow-arrow">→</span>
+            <span class="flow-step" style="--i:4">Publish</span><span class="flow-arrow">→</span>
+            <span class="flow-step" style="--i:5">Learn</span>
+          </div>
+        </div>
+        <div class="project-links" style="margin-top:18px;"><a href="spree.html" target="_blank" class="project-link" style="border-color:rgba(232,255,71,0.35);color:var(--accent);">Watch the reels + read the prompts →</a></div>
+        <div class="insight-bar"><span>Key insight:</span> AI makes the first draft fast. Judgment decides what ships, so every workflow keeps a human on the final voice and messaging.</div>
+      </div>
+    </div>
+
     <!-- DASH -->
     <div class="exp-card reveal">
       <div class="exp-header">
         <div>
-          <div class="exp-role">Digital Marketing Intern</div>
+          <div class="exp-role">Digital Marketing Associate</div>
           <div class="exp-company-row">
             <span class="exp-company">DASH</span>
             <span class="exp-location">· NYC Startup · New York</span>
           </div>
+          <div class="exp-prev">Previously Digital Marketing Intern · Jan – May 2026</div>
         </div>
-        <div class="exp-dates">Jan 2026 – May 2026</div>
+        <div class="exp-dates current">Aug 2026 – Present</div>
+      </div>
+      <div class="exp-metrics">
+        <div class="metric"><span class="metric-num">25K+</span><span class="metric-desc">Alignable Q&amp;A views · 12 wks</span></div>
+        <div class="metric"><span class="metric-num">5</span><span class="metric-desc">Platforms run</span></div>
+        <div class="metric"><span class="metric-num">0→1</span><span class="metric-desc">B2B LinkedIn channel</span></div>
+        <div class="metric"><span class="metric-num">100+</span><span class="metric-desc">Post slots / month</span></div>
       </div>
       <button class="exp-toggle" onclick="toggleExp(this)">
         <span class="toggle-icon">+</span> What I did here
@@ -346,15 +484,16 @@ footer span:last-child{color:var(--accent);}
         <div class="exp-body-grid">
           <div class="exp-col">
             <h4>The Context</h4>
-            <p>DASH is a NYC-based startup targeting small business owners. Budget was lean, the brand was early-stage, and every piece of content had to earn its attention without paid backing.</p>
+            <p>DASH is a NYC-based startup targeting small business owners. Budget is lean, the brand is early-stage, and every piece of content has to earn its attention without paid backing.</p>
           </div>
           <div class="exp-col">
-            <h4>What I Did</h4>
+            <h4>What I Do</h4>
             <ul>
-              <li>Created daily platform-specific content for Alignable — the leading SMB professional network</li>
-              <li>Drove engagement and thought leadership among small business audiences</li>
-              <li>Supported social media planning, content coordination, and performance tracking</li>
-              <li>Contributed to community growth and brand visibility initiatives</li>
+              <li>Plan and publish across Instagram, TikTok, Facebook, LinkedIn and X, coordinating priorities with leadership</li>
+              <li>Build cross-platform content calendars and organize video assets for a steady publishing schedule</li>
+              <li>Created a small-business Q&amp;A on Alignable that hit 25K+ views in 12 weeks</li>
+              <li>Established DASH's LinkedIn presence: content strategy and a publishing cadence for a new B2B channel</li>
+              <li>Support social account setup, platform access and branding</li>
             </ul>
           </div>
           <div class="exp-col">
@@ -362,10 +501,32 @@ footer span:last-child{color:var(--accent);}
             <ul>
               <li>Channel selection IS strategy at a startup — Alignable reaches SMBs where LinkedIn doesn't</li>
               <li>SMB audiences trust peer voice over brand voice</li>
-              <li>Pre-scale content is also the sales team's warmup act</li>
+              <li>A calendar is what turns scattered posts into a publishing habit</li>
             </ul>
           </div>
         </div>
+
+        <div class="cal" role="img" aria-label="Weekly content calendar: video on Monday, Wednesday and Friday, stills on Tuesday and Thursday, each posted across Instagram, TikTok, Facebook, LinkedIn and X">
+          <div class="cal-head">
+            <span><strong>The system</strong> · one week of the November calendar</span>
+            <span>Scheduled in Hootsuite · 12–3pm ET</span>
+          </div>
+          <div class="cal-grid">
+            <span></span>
+            <span class="cal-plat">IG</span><span class="cal-plat">TikTok</span><span class="cal-plat">FB</span><span class="cal-plat">LinkedIn</span><span class="cal-plat">X</span>
+            <span class="cal-day">Mon<small>Video</small></span><span class="cal-cell v" style="--i:0"></span><span class="cal-cell v" style="--i:1"></span><span class="cal-cell v" style="--i:2"></span><span class="cal-cell v" style="--i:3"></span><span class="cal-cell v" style="--i:4"></span>
+            <span class="cal-day">Tue<small>Still</small></span><span class="cal-cell s" style="--i:5"></span><span class="cal-cell s" style="--i:6"></span><span class="cal-cell s" style="--i:7"></span><span class="cal-cell s" style="--i:8"></span><span class="cal-cell s" style="--i:9"></span>
+            <span class="cal-day">Wed<small>Video</small></span><span class="cal-cell v" style="--i:10"></span><span class="cal-cell v" style="--i:11"></span><span class="cal-cell v" style="--i:12"></span><span class="cal-cell v" style="--i:13"></span><span class="cal-cell v" style="--i:14"></span>
+            <span class="cal-day">Thu<small>Still</small></span><span class="cal-cell s" style="--i:15"></span><span class="cal-cell s" style="--i:16"></span><span class="cal-cell s" style="--i:17"></span><span class="cal-cell s" style="--i:18"></span><span class="cal-cell s" style="--i:19"></span>
+            <span class="cal-day">Fri<small>Video</small></span><span class="cal-cell v" style="--i:20"></span><span class="cal-cell v" style="--i:21"></span><span class="cal-cell v" style="--i:22"></span><span class="cal-cell v" style="--i:23"></span><span class="cal-cell v" style="--i:24"></span>
+          </div>
+          <div class="cal-foot">
+            <span class="cal-legend"><i class="dot v"></i>Video</span>
+            <span class="cal-legend"><i class="dot s"></i>Still</span>
+            <span class="cal-count">21 posting days · 5 platforms · 105 post slots in November</span>
+          </div>
+        </div>
+
         <div class="insight-bar"><span>Key insight:</span> At an early-stage startup, content isn't separate from sales — it's the credibility that makes cold outreach actually get replies.</div>
       </div>
     </div>
@@ -419,11 +580,16 @@ footer span:last-child{color:var(--accent);}
         </div>
         <div class="exp-dates">Jul 2021 – Jun 2024</div>
       </div>
+      <div class="growth-bars" aria-label="Monthly website visitors grew from 300 thousand to 6 million in about 12 months">
+        <div class="gb-cap">Monthly website visitors</div>
+        <div class="gb-row"><span class="gb-label">Before</span><div class="gb-track"><div class="gb-fill gb-before" style="--w:5%"></div></div><span class="gb-val">300K</span></div>
+        <div class="gb-row"><span class="gb-label">~12 mo later</span><div class="gb-track"><div class="gb-fill gb-after" style="--w:100%"></div></div><span class="gb-val" style="color:var(--accent)">6M</span></div>
+      </div>
       <div class="exp-metrics">
         <div class="metric"><span class="metric-num">1900%</span><span class="metric-desc">Traffic growth</span></div>
-        <div class="metric"><span class="metric-num">10K+</span><span class="metric-desc">Twitter followers</span></div>
-        <div class="metric"><span class="metric-num">2705</span><span class="metric-desc">Articles published</span></div>
-        <div class="metric"><span class="metric-num">4</span><span class="metric-desc">OEM campaigns</span></div>
+        <div class="metric"><span class="metric-num">+10K</span><span class="metric-desc">X followers · 8K → 18K</span></div>
+        <div class="metric"><span class="metric-num">2,705</span><span class="metric-desc">Articles published</span></div>
+        <div class="metric"><span class="metric-num">200K+</span><span class="metric-desc">Typical campaign Reel views</span></div>
       </div>
       <button class="exp-toggle" onclick="toggleExp(this)">
         <span class="toggle-icon">+</span> How we got to 1900%
@@ -432,24 +598,24 @@ footer span:last-child{color:var(--accent);}
         <div class="exp-body-grid">
           <div class="exp-col">
             <h4>The Challenge</h4>
-            <p>MotorOctane had strong editorial voice but minimal search visibility. Traffic was stagnant and the content process wasn't built around search intent.</p>
+            <p>MotorOctane had a strong editorial voice and about 300K monthly visitors. The content process wasn't built around how readers actually find automotive stories.</p>
           </div>
           <div class="exp-col">
             <h4>The Approach</h4>
             <ul>
-              <li>Shifted from opinion-first to intent-first content using keyword research</li>
-              <li>Built a publishing rhythm of 5–6 daily articles aligned to automotive search trends</li>
-              <li>Developed and executed a Twitter growth strategy from the ground up</li>
-              <li>Coordinated influencer campaigns with Hyundai, Kia, Volvo, and Mercedes-Benz</li>
+              <li>Pivoted the content strategy toward Google Discover, backed by keyword research and search-trend analysis</li>
+              <li>Built a publishing rhythm of 5–6 articles a day</li>
+              <li>Grew X/Twitter through a daily posting cadence and trend-led content</li>
+              <li>Worked with brand marketing and PR teams on influencer partnerships for Hyundai, Kia, Volvo, and Mercedes-Benz</li>
             </ul>
           </div>
           <div class="exp-col">
             <h4>The Results</h4>
             <ul>
-              <li>Grew website traffic from 300K to 6M monthly visitors — a 1900% increase</li>
-              <li>Twitter following grew by 10,000+ organic followers</li>
-              <li>Delivered high-impact sponsored content for 4 major automotive OEMs</li>
-              <li>Supported Instagram and YouTube teams with branded video content</li>
+              <li>Traffic grew from 300K to 6M monthly visitors, a 1900% increase in about 12 months</li>
+              <li>Published 2,705 articles</li>
+              <li>X/Twitter grew from 8K to 18K followers</li>
+              <li>Concepted and appeared in short-form video as part of a small team; campaign Reels typically drew 200K+ views, top performers passed 1M</li>
             </ul>
           </div>
         </div>
@@ -458,11 +624,10 @@ footer span:last-child{color:var(--accent);}
           <span class="award-tag">⭐ Most Disciplined Performer 2023</span>
         </div>
         <div class="insight-bar">
-          <span>Key insight:</span> The unlock wasn't writing more — it was writing specifically. Keyword-research-first content turns the algorithm from an obstacle into a distribution channel.
+          <span>Key insight:</span> The unlock wasn't just writing more. It was writing for where readers actually discover stories, then pairing that pivot with keyword discipline.
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -496,6 +661,14 @@ footer span:last-child{color:var(--accent);}
         <div class="project-desc">Rewrote an offensive-security startup's dense, technical positioning into a clear, human brand story — one that sells confidence instead of fear.</div>
         <div class="project-links">
           <a href="https://swaraj6520.github.io/Swaraj-Portfolio1/antigen.html" target="_blank" class="project-link">View Case Study →</a>
+        </div>
+      </div>
+      <div class="project-card case-card reveal">
+        <div class="project-label">AI Video · Case Study</div>
+        <div class="project-title">Spree — Two Reels, One Engine</div>
+        <div class="project-desc">Two AI-generated reels built with Google Flow / Veo, from the first idea to the final cut. Watch both, read the exact prompts, and see where a human stays in the loop.</div>
+        <div class="project-links">
+          <a href="spree.html" target="_blank" class="project-link">View Case Study →</a>
         </div>
       </div>
     </div>
@@ -637,7 +810,7 @@ footer span:last-child{color:var(--accent);}
       <div class="skill-tags">
         <span class="skill-tag">HubSpot CRM</span><span class="skill-tag">Email Marketing</span>
         <span class="skill-tag">WordPress</span><span class="skill-tag">Alignable</span>
-        <span class="skill-tag">Instagram / Twitter</span><span class="skill-tag">YouTube</span>
+        <span class="skill-tag">Hootsuite</span><span class="skill-tag">Instagram / Twitter</span><span class="skill-tag">YouTube</span>
       </div>
     </div>
     <div class="skill-group reveal">
@@ -645,7 +818,7 @@ footer span:last-child{color:var(--accent);}
       <div class="skill-tags">
         <span class="skill-tag">Canva</span><span class="skill-tag">Adobe Photoshop</span>
         <span class="skill-tag">Premiere Pro</span><span class="skill-tag">Clipchamp</span>
-        <span class="skill-tag">Copywriting</span><span class="skill-tag">ChatGPT / Claude</span>
+        <span class="skill-tag">Copywriting</span><span class="skill-tag">ChatGPT / Claude</span><span class="skill-tag">Google Flow / Veo</span>
       </div>
     </div>
   </div>
@@ -714,17 +887,69 @@ footer span:last-child{color:var(--accent);}
 </footer>
 
 <script>
-// nav is always visible — no scroll toggle needed
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Reveal on scroll
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
     if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 70);
+      setTimeout(() => {
+        e.target.classList.add('visible');
+        setTimeout(() => e.target.classList.add('done'), 900);
+      }, i * 70);
       io.unobserve(e.target);
     }
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// KPI count-up (the final number is already in the HTML, so nothing breaks without JS)
+function runCount(el) {
+  const to = +el.dataset.to, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+  const dur = 1400, t0 = performance.now();
+  (function tick(now) {
+    const p = Math.min((now - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+    const v = Math.round(to * eased);
+    el.textContent = pre + (el.dataset.plain ? v : v.toLocaleString('en-US')) + suf;
+    if (p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+if (!reduceMotion) {
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { runCount(e.target); countIO.unobserve(e.target); } });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.count').forEach(el => {
+    el.textContent = (el.dataset.prefix || '') + '0' + (el.dataset.suffix || '');
+    countIO.observe(el);
+  });
+}
+
+// Before/after traffic bars
+const barIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); barIO.unobserve(e.target); } });
+}, { threshold: 0.4 });
+document.querySelectorAll('.growth-bars').forEach(el => barIO.observe(el));
+
+// Scroll progress bar + active nav link
+const progressBar = document.getElementById('progress');
+const navLinks = [...document.querySelectorAll('.nav-links a')];
+const navSections = navLinks.map(a => document.querySelector(a.getAttribute('href')));
+let ticking = false;
+function onScroll() {
+  const root = document.documentElement;
+  const max = root.scrollHeight - root.clientHeight;
+  progressBar.style.transform = 'scaleX(' + (max > 0 ? Math.min(root.scrollTop / max, 1) : 0) + ')';
+  const y = root.scrollTop + 160;
+  let cur = -1;
+  navSections.forEach((s, i) => { if (s && s.offsetTop <= y) cur = i; });
+  if (max > 0 && root.scrollTop >= max - 4) cur = navLinks.length - 1;
+  navLinks.forEach((a, i) => a.classList.toggle('active', i === cur));
+  ticking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+}, { passive: true });
+onScroll();
 
 function toggleExp(btn) {
   const card = btn.closest('.exp-card');
@@ -744,7 +969,6 @@ function switchTab(btn, id) {
 </script>
 </body>
 </html>
-
 
 
 
