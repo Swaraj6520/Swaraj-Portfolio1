@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One idea, three channels · Editorial work sample by Swaraj Acharekar</title>
+<meta name="description" content="An independent editorial work sample by Swaraj Acharekar: one idea from Compound's newsletter, adapted for LinkedIn, email, and YouTube, with a plan to publish.">
+<style>
+  :root {
+    --bg: #F7F4EE;
+    --ink: #1B1915;
+    --ink-soft: #4A453D;
+    --rule: #D9D2C5;
+    --accent: #A23B16;
+    --accent-soft: #F3E3DA;
+    --paper: #FFFDF9;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --measure: 40rem;
+    --wide: 64rem;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--bg); padding: .6rem 1rem; z-index: 100; }
+  .skip:focus { left: 1rem; top: 1rem; }
+
+  /* Top nav */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(247, 244, 238, 0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .topbar-inner {
+    max-width: var(--wide); margin: 0 auto; padding: .7rem 1.25rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .wordmark { font-family: var(--serif); font-weight: 700; color: var(--ink); text-decoration: none; font-size: 1.05rem; white-space: nowrap; }
+  .topbar nav ul { list-style: none; display: flex; gap: 1.1rem; margin: 0; padding: 0; overflow-x: auto; }
+  .topbar nav a { color: var(--ink-soft); text-decoration: none; font-size: .9rem; white-space: nowrap; }
+  .topbar nav a:hover { color: var(--accent); }
+  @media (max-width: 760px) { .topbar nav { display: none; } }
+
+  /* Layout */
+  section { padding: 4.5rem 1.25rem; border-bottom: 1px solid var(--rule); }
+  .wrap { max-width: var(--wide); margin: 0 auto; }
+  .narrow { max-width: var(--measure); }
+  .eyebrow {
+    font-family: var(--sans); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin: 0 0 .9rem;
+  }
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 700; line-height: 1.15; margin: 0; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(2.4rem, 6vw, 4.1rem); max-width: 16ch; }
+  h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-bottom: 1rem; max-width: 22ch; }
+  h3 { font-size: 1.35rem; margin: 2rem 0 .6rem; }
+  h4 { font-family: var(--sans); font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin: 1.6rem 0 .5rem; }
+  p { margin: 0 0 1rem; }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); max-width: var(--measure); }
+  .muted { color: var(--ink-soft); }
+  .small { font-size: .92rem; }
+
+  /* Hero */
+  .hero { padding-top: 5.5rem; padding-bottom: 5rem; }
+  .hero .lede { margin-top: 1.4rem; font-size: 1.3rem; }
+  .byline { margin-top: 1.6rem; font-size: .95rem; color: var(--ink-soft); }
+  .btn {
+    display: inline-block; margin-top: 2rem; padding: .85rem 1.35rem;
+    background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 600;
+    border-radius: 3px; border: 2px solid var(--ink);
+  }
+  .btn:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-ghost { background: transparent; color: var(--ink); margin-left: .5rem; }
+  .btn-ghost:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  @media (max-width: 480px) { .btn-ghost { margin-left: 0; margin-top: .75rem; } .btn { margin-right: .5rem; } }
+
+  /* Definition grid */
+  .facts { display: grid; grid-template-columns: 12rem 1fr; gap: 0; margin-top: 2rem; border-top: 1px solid var(--rule); }
+  .facts dt, .facts dd { margin: 0; padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
+  .facts dt { font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; padding-right: 1.5rem; padding-top: 1.3rem; }
+  .facts dd { max-width: var(--measure); }
+  .facts dd strong { font-family: var(--serif); font-size: 1.15rem; }
+  @media (max-width: 640px) {
+    .facts { grid-template-columns: 1fr; }
+    .facts dt { border-bottom: 0; padding-bottom: 0; }
+  }
+
+  /* Tabs */
+  .tablist { display: flex; gap: 0; border-bottom: 1px solid var(--rule); margin-top: 2.2rem; overflow-x: auto; }
+  .tab {
+    appearance: none; background: none; border: 0; border-bottom: 3px solid transparent;
+    padding: .9rem 1.2rem .8rem; font: 600 1rem var(--sans); color: var(--ink-soft); cursor: pointer;
+    margin-bottom: -1px; white-space: nowrap;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+  .panel { padding-top: 2rem; }
+  .panel[hidden] { display: none; }
+  .no-js .tablist { display: none; }
+  .no-js .panel[hidden] { display: block; }
+  .no-js .panel { border-top: 1px solid var(--rule); margin-top: 2rem; }
+  .panel-title { display: none; }
+  .no-js .panel-title { display: block; }
+
+  .panel-grid { display: grid; grid-template-columns: minmax(0, 1fr) 18rem; gap: 3rem; align-items: start; }
+  @media (max-width: 900px) { .panel-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+  .label {
+    display: inline-block; font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+    color: var(--accent); border: 1px solid var(--accent); padding: .2rem .55rem; border-radius: 2px; margin-bottom: 1.2rem;
+  }
+  .draft {
+    background: var(--paper); border: 1px solid var(--rule); padding: 1.8rem 2rem;
+    font-family: var(--serif); font-size: 1.12rem; line-height: 1.7; max-width: var(--measure);
+  }
+  .draft p { margin-bottom: 1.05rem; }
+  .draft p:last-child { margin-bottom: 0; }
+  @media (max-width: 520px) { .draft { padding: 1.3rem 1.2rem; font-size: 1.05rem; } }
+
+  /* Inline editor flag inside a draft */
+  .flag {
+    display: block; font-family: var(--sans); font-size: .85rem; line-height: 1.5;
+    color: var(--accent); background: var(--accent-soft); border-left: 2px solid var(--accent);
+    padding: .45rem .7rem; margin-top: .5rem;
+  }
+
+  .meta { font-size: .9rem; color: var(--ink-soft); margin-top: .8rem; }
+  .side { font-size: .95rem; border-top: 3px solid var(--ink); padding-top: 1rem; }
+  .side h4:first-child { margin-top: 0; }
+  .side ul { padding-left: 1.1rem; margin: 0 0 1rem; }
+  .side li { margin-bottom: .45rem; }
+
+  .subjects { list-style: none; padding: 0; margin: 0 0 1.2rem; }
+  .subjects li { font-family: var(--serif); font-size: 1.15rem; padding: .55rem 0; border-bottom: 1px dashed var(--rule); }
+  .subjects li span { font-family: var(--sans); font-size: .78rem; color: var(--ink-soft); display: block; letter-spacing: .06em; text-transform: uppercase; }
+
+  .extension { margin-top: 1.6rem; max-width: var(--measure); border: 1px solid var(--accent); padding: 1.4rem 1.6rem; }
+  .extension .label { margin-bottom: .8rem; }
+  .extension ol { padding-left: 1.3rem; margin: 0; }
+  .extension li { margin-bottom: .9rem; }
+  .extension li b { font-family: var(--serif); font-size: 1.08rem; }
+  .extension li span { display: block; color: var(--ink-soft); font-size: .95rem; }
+
+  /* Brief table */
+  .brief { width: 100%; border-collapse: collapse; max-width: 46rem; }
+  .brief th, .brief td { text-align: left; vertical-align: top; padding: .95rem 0; border-bottom: 1px solid var(--rule); }
+  .brief th { width: 10rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; padding-right: 1.2rem; }
+  .brief td ol, .brief td ul { margin: 0; padding-left: 1.2rem; }
+  .brief td li { margin-bottom: .45rem; }
+  @media (max-width: 600px) {
+    .brief, .brief tbody, .brief tr, .brief th, .brief td { display: block; width: 100%; }
+    .brief th { border-bottom: 0; padding-bottom: .2rem; }
+  }
+
+  /* Journey */
+  .journey {
+    list-style: none; padding: 0; margin: 2rem 0 .6rem;
+    display: flex; flex-wrap: wrap; align-items: stretch; gap: .5rem;
+  }
+  .journey li {
+    display: flex; align-items: center; gap: .5rem;
+    font-family: var(--serif); font-weight: 700; font-size: 1.05rem;
+  }
+  .journey li span {
+    display: block; padding: .75rem 1rem; background: var(--paper); border: 1px solid var(--rule);
+  }
+  .journey li:last-child span { border-color: var(--accent); }
+  .journey li + li::before { content: "\2192"; color: var(--accent); font-family: var(--sans); font-weight: 400; }
+  @media (max-width: 640px) {
+    .journey { flex-direction: column; align-items: flex-start; }
+    .journey li { flex-direction: column; align-items: flex-start; }
+    .journey li + li::before { content: "\2193"; padding-left: 1rem; }
+  }
+
+  /* Expandable details */
+  details.more { margin-top: 1.6rem; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); max-width: 52rem; }
+  details.more > summary {
+    cursor: pointer; list-style: none; padding: 1rem 0; font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  }
+  details.more > summary::-webkit-details-marker { display: none; }
+  details.more > summary::after { content: "+"; font-size: 1.35rem; line-height: 1; color: var(--accent); }
+  details.more[open] > summary::after { content: "\2212"; }
+  details.more > .more-body { padding: .2rem 0 1.6rem; }
+  details.note { margin-top: 1.4rem; max-width: var(--measure); border-left: 2px solid var(--accent); padding: .2rem 0 .2rem 1rem; }
+  details.note > summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+  details.note p { margin: .6rem 0 0; color: var(--ink-soft); }
+
+  /* Schedule */
+  .legend { display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: .9rem; margin: .4rem 0 0; padding: 0; list-style: none; }
+  .tag { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .15rem .45rem; border-radius: 2px; margin-right: .35rem; vertical-align: 1px; }
+  .tag-me { background: var(--ink); color: var(--bg); }
+  .tag-ceo { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .tag-agency { background: transparent; color: var(--ink-soft); border: 1px solid var(--ink-soft); }
+  .week { list-style: none; padding: 0; margin: 1.6rem 0 0; border-top: 2px solid var(--ink); }
+  .week > li { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 1.2rem 0; border-bottom: 1px solid var(--rule); }
+  .day { font-family: var(--serif); font-weight: 700; font-size: 1.15rem; }
+  .day small { display: block; font-family: var(--sans); font-weight: 400; font-size: .85rem; color: var(--ink-soft); }
+  .week ul { list-style: none; padding: 0; margin: 0; }
+  .week ul li { margin-bottom: .45rem; }
+  @media (max-width: 600px) { .week > li { grid-template-columns: 1fr; gap: .4rem; } }
+
+  .qs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 2.5rem; margin-top: .4rem; }
+  .qs div { border-top: 1px solid var(--rule); padding: 1rem 0; }
+  .qs h4 { margin-top: 0; }
+  .qs ul { margin: 0; padding-left: 1.1rem; }
+  @media (max-width: 700px) { .qs { grid-template-columns: 1fr; } }
+
+  /* Measures */
+  .measures { width: 100%; border-collapse: collapse; margin-top: .4rem; }
+  .measures th, .measures td { text-align: left; vertical-align: top; padding: 1rem 1rem 1rem 0; border-bottom: 1px solid var(--rule); }
+  .measures thead th { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); border-bottom: 2px solid var(--ink); }
+  .measures tbody th { font-family: var(--serif); font-size: 1.1rem; width: 9rem; }
+  @media (max-width: 640px) {
+    .measures thead { display: none; }
+    .measures, .measures tbody, .measures tr, .measures th, .measures td { display: block; width: 100%; }
+    .measures tr { border-bottom: 1px solid var(--rule); padding: .8rem 0; }
+    .measures th, .measures td { border: 0; padding: .25rem 0; }
+    .measures td::before { content: attr(data-h); display: block; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+  }
+
+  footer { padding: 3.5rem 1.25rem 4rem; }
+  footer .links { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0 1.5rem; }
+  footer .links a { font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+  @media print {
+    .topbar, .tablist, .btn { display: none !important; }
+    .panel[hidden] { display: block !important; }
+    .panel-title { display: block !important; }
+    section { padding: 2rem 0; }
+  }
+</style>
+</head>
+<body class="no-js">
+<script>document.body.classList.remove('no-js');</script>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="#top">Work sample · Swaraj Acharekar</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#decision">The decision</a></li>
+        <li><a href="#sample">The sample</a></li>
+        <li><a href="#opportunity">One opportunity</a></li>
+        <li><a href="#workflow">The week</a></li>
+        <li><a href="#learning">What I'd learn</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- =========================================================
+     1. INTRODUCTION
+     ========================================================= -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Editorial work sample · Content Marketer, Compound</p>
+    <h1>One idea. Three channels. A plan to publish.</h1>
+    <p class="lede">A small editorial work sample exploring how I'd turn Compound's existing expertise into LinkedIn, newsletter, and YouTube content.</p>
+    <p class="byline">Prepared by Swaraj Acharekar · Independent interview sample</p>
+    <a class="btn" href="#decision">Explore the sample</a>
+    <a class="btn btn-ghost" href="#sample">Skip to the drafts</a>
+  </div>
+</section>
+
+<!-- =========================================================
+     2. THE EDITORIAL DECISION
+     ========================================================= -->
+<section id="decision">
+  <div class="wrap">
+    <p class="eyebrow">The editorial decision</p>
+    <h2>Pick the filter that's hardest to fake.</h2>
+
+    <dl class="facts">
+      <dt>Source</dt>
+      <dd><a href="https://www.readsocialfiles.com/p/how-to-vet-your-executive-content-agency" target="_blank" rel="noopener"><strong>How to vet your Executive Content agency</strong></a><br><span class="muted small">Tommy Clark, Social Files, September 7, 2026. The issue gives five filters for choosing a partner: who actually writes for you, whether the founder loves the craft, whether the agency qualifies you, how they adapt to tone, and whether you like each other as people.</span></dd>
+
+      <dt>Audience</dt>
+      <dd>B2B founders and marketing leaders evaluating an executive-content partner. <span class="muted">Working hypothesis: they're comparing agencies mostly on price and samples, and some have had an engagement that didn't work. I'd check this against real sales-call notes.</span></dd>
+
+      <dt>Angle</dt>
+      <dd>Personal chemistry between an executive and their writer matters because good content depends on candid conversations, useful feedback, and a working relationship that keeps ideas flowing.</dd>
+
+      <dt>One belief to leave behind</dt>
+      <dd><strong>"Before I sign, I need to talk to the person who will actually write for me."</strong></dd>
+
+      <dt>Why this angle</dt>
+      <dd>It's the filter Tommy stresses most, and it's the hardest to fake: any agency can show samples, but only the writer can show the conversation works. That makes it useful to the reader and explains why Compound runs prospects through a second call.</dd>
+    </dl>
+
+    <p class="small muted" style="margin-top:1.4rem"><strong>What's whose:</strong> the five filters and the point about chemistry are Tommy's. The audience hypothesis, the drafts, the interview questions, the journey, and the plan are my proposals. Every draft needs Tommy's input and approval before it could be published.</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     3. THE CONTENT SAMPLE
+     ========================================================= -->
+<section id="sample">
+  <div class="wrap">
+    <p class="eyebrow">The content sample</p>
+    <h2>Same idea, adapted for each channel.</h2>
+    <p class="lede">Each channel does a different job. LinkedIn makes the argument. The newsletter makes it usable. Video shows what a good working relationship looks and sounds like.</p>
+
+    <div class="tablist" role="tablist" aria-label="Channel drafts">
+      <button class="tab" role="tab" id="tab-li" aria-controls="panel-li" aria-selected="true">LinkedIn</button>
+      <button class="tab" role="tab" id="tab-nl" aria-controls="panel-nl" aria-selected="false" tabindex="-1">Newsletter</button>
+      <button class="tab" role="tab" id="tab-yt" aria-controls="panel-yt" aria-selected="false" tabindex="-1">YouTube</button>
+    </div>
+
+    <!-- LINKEDIN -->
+    <div class="panel" role="tabpanel" id="panel-li" aria-labelledby="tab-li" tabindex="0">
+      <h3 class="panel-title">LinkedIn</h3>
+      <div class="panel-grid">
+        <div>
+          <span class="label">Proposed executive LinkedIn draft · Subject to voice review</span>
+          <div class="draft">
+            <p>When you compare content agencies, price, samples, and turnaround time are easy to put side by side. The working relationship is harder to assess.</p>
+            <p>For founder-led content, it might matter most. The question is simple: do you actually like talking to the person writing for you?</p>
+            <p>Founder-led content runs on conversation. Every couple of weeks you sit down with your writer and talk through what you're seeing in the market, what you disagree with, and what's happening with customers. In between, you trade notes on Slack. That's where the raw material comes from.</p>
+            <p>Now picture that conversation feeling like a chore. Interviews get pushed. Feedback gets shorter and vaguer. The writer fills the gaps with safe, generic ideas, and the content starts to sound like nobody.</p>
+            <p>So before you sign, get on a call with the actual writer, not the founder or the salesperson. Ask how they'd adapt to your voice, and notice whether it feels like a conversation or a pitch.</p>
+            <p>What's one thing you'd want to know about a writer before handing them your name?</p>
+          </div>
+          <p class="meta">About 180 words · Written for the CEO's account</p>
+        </div>
+        <aside class="side" aria-label="Editorial note for LinkedIn">
+          <h4>Editorial note</h4>
+          <p><strong>The hook.</strong> It starts with something every buyer recognizes (the things that are easy to compare) and turns to the thing that isn't. That's more specific than opening on "chemistry matters."</p>
+          <p><strong>What's hypothetical.</strong> The "picture that conversation" paragraph is an illustration, not a reported experience. A real, anonymized moment from Tommy would make it stronger.</p>
+          <p><strong>Connecting to the newsletter.</strong> The post ends on a question to invite discussion. Once the follow-up issue exists, I'd add a short line pointing to it, such as "I put six questions to ask a prospective writer in this week's Social Files," with the link in the post or first comment, depending on what Tommy prefers. That line is what turns the post into the first step of the journey below.</p>
+          <h4>Questions for Tommy</h4>
+          <ul>
+            <li>Is there a real example, anonymized, of chemistry making or breaking an engagement?</li>
+            <li>Should the post mention Compound's second call with the Head of Content?</li>
+            <li>Preferred ending: question, takeaway, or no CTA?</li>
+            <li>Any phrases he'd never use?</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="panel" role="tabpanel" id="panel-nl" aria-labelledby="tab-nl" tabindex="0" hidden>
+      <h3 class="panel-title">Newsletter</h3>
+      <div class="panel-grid">
+        <div>
+          <span class="label">Proposed Social Files follow-up issue · Subject to voice review</span>
+
+          <h4>Subject line options</h4>
+          <ul class="subjects">
+            <li><span>Option A · direct</span>6 questions to ask the person who'll write as you</li>
+            <li><span>Option B · curiosity</span>The agency filter that's hardest to test</li>
+          </ul>
+          <h4>Preview text</h4>
+          <p class="draft" style="padding:1rem 1.3rem;font-size:1.02rem">A sales call can't show you what working together will feel like. These questions can help.</p>
+
+          <h4>Opening</h4>
+          <div class="draft">
+            <p>Hey!</p>
+            <p>In September I wrote about five filters for vetting an executive content agency. The last one was the simplest: make sure you like each other as people.</p>
+            <p>It may also be the hardest to test before you sign. A sales call is built to go smoothly. The real test comes later, say in a content interview after a draft has missed and you need to explain why.</p>
+            <p>So this week I want to make that filter practical. Below are six questions to ask the person who will actually write for you. They aren't trick questions, and there's no single right answer. What you're listening for is how they think about working with you: how they pull ideas out of a conversation, how they handle vague feedback, and whether they'll push back when something isn't working.</p>
+            <p>A strong writer should be able to answer these comfortably, and might ask you a few questions back. If someone sounds rehearsed, or keeps steering back to deliverables and post counts, that's worth noticing too.</p>
+            <p>Use them on your next call. Borrow them for your own hiring. Forward them to whoever on your team is running the search.</p>
+          </div>
+          <p class="meta">About 200 words</p>
+
+          <div class="extension">
+            <span class="label">Swaraj's proposed extension · not from the source article</span>
+            <ol>
+              <li><b>"Walk me through our first content interview."</b><span>Shows whether they have a real process for pulling ideas out of you.</span></li>
+              <li><b>"What do you do when my only feedback is 'this doesn't sound like me'?"</b><span>Tests how they turn vague feedback into something usable.</span></li>
+              <li><b>"How much of my time will you honestly need each week?"</b><span>A realistic answer is a better sign than a low one.</span></li>
+              <li><b>"If you disagree with one of my edits, what happens?"</b><span>You want a writer who will push back with a reason, not one who folds or digs in.</span></li>
+              <li><b>"How do you like to work between interviews?"</b><span>Reveals whether day-to-day communication will feel easy or forced.</span></li>
+              <li><b>"What would make you tell us this isn't working?"</b><span>Good partners can name the warning signs early.</span></li>
+            </ol>
+          </div>
+
+          <h4>Next step for the reader</h4>
+          <p style="max-width:var(--measure)">Before your next agency call, pick two of these questions and ask them to the writer, not the salesperson. Then compare how each conversation felt, not just what each proposal costs.</p>
+        </div>
+        <aside class="side" aria-label="Editorial note for the newsletter">
+          <h4>Why email, not another post</h4>
+          <p>A list of questions is something people save, forward to a colleague, and bring into a call. It also follows up directly on a previous issue, which rewards existing subscribers and gives the LinkedIn post a useful place to point.</p>
+          <h4>What it adds beyond the source</h4>
+          <p>The September issue says to make sure you like each other. This issue gives the reader a way to check before signing.</p>
+          <h4>What's hypothetical</h4>
+          <p>The content-interview moment in the third paragraph is an illustration, not a reported experience. I'd ask Tommy to swap in a real one if he has it.</p>
+          <h4>Questions for Tommy</h4>
+          <ul>
+            <li>Which questions would he cut or reword?</li>
+            <li>Keep the usual sections, like the bookshelf, around this?</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <!-- YOUTUBE -->
+    <div class="panel" role="tabpanel" id="panel-yt" aria-labelledby="tab-yt" tabindex="0" hidden>
+      <h3 class="panel-title">YouTube</h3>
+      <div class="panel-grid">
+        <div>
+          <span class="label">Proposed agency brief · 3 to 5 minute video</span>
+          <table class="brief">
+            <tbody>
+              <tr><th scope="row">Audience</th><td>Founders and Heads of Marketing at B2B tech companies who are shortlisting executive-content agencies.</td></tr>
+              <tr><th scope="row">Objective</th><td>Help viewers test fit before they sign, and show what a good working relationship with a writer looks and sounds like.</td></tr>
+              <tr><th scope="row">Title options</th><td><ol><li>How to tell if a ghostwriter will actually work for you</li><li>The question founders forget to ask a content agency</li></ol></td></tr>
+              <tr><th scope="row">Thumbnail</th><td>Tommy on camera, mid-conversation, beside a short text card reading "Do you like your writer?" Warm, plain background. No fake app screenshots.</td></tr>
+              <tr><th scope="row">Opening hook</th><td>"Price and samples are easy to compare. Whether you'll work well with your writer is harder to see, and it might matter more."</td></tr>
+              <tr><th scope="row">Three beats</th><td><ol>
+                <li><strong>Why it runs on conversation.</strong> What a content interview is for, and why ideas come from the back and forth, not a brief.</li>
+                <li><strong>What missing chemistry could look like.</strong> A few hypothetical signs (pushed interviews, vague feedback, generic drafts), then Tommy's own perspective from the interview below.</li>
+                <li><strong>How to test it before you sign.</strong> Two or three questions from the newsletter, on screen, with what a good answer sounds like.</li>
+              </ol></td></tr>
+              <tr><th scope="row">Suggested visuals</th><td><ul>
+                <li>Short, clearly staged clip of a content interview, if Tommy and a writer are willing to record one</li>
+                <li>A clearly labeled mock example: vague feedback vs. useful feedback on the same draft</li>
+                <li>Questions as simple text cards</li>
+              </ul></td></tr>
+              <tr><th scope="row">CTA</th><td>"The full list of six questions is in this week's Social Files. Link below."</td></tr>
+            </tbody>
+          </table>
+
+          <h4>Three questions to ask Tommy before scripting</h4>
+          <ol style="max-width:var(--measure);padding-left:1.2rem">
+            <li>When chemistry isn't there early in an engagement, what do you notice first?</li>
+            <li>What does a good content interview feel like from your side of the table?</li>
+            <li>What happens on your end when a client's feedback starts getting vague?</li>
+          </ol>
+          <p class="small muted">His answers shape beat two. I wouldn't script them in advance.</p>
+        </div>
+        <aside class="side" aria-label="Editorial note for YouTube">
+          <h4>What video adds</h4>
+          <p>The argument is about how a conversation feels. Text can describe that. Video can show it: tone, pace, and the moment a good question draws out a better answer. That's why the brief centers on a real or staged interview rather than Tommy reading the LinkedIn post to camera.</p>
+          <h4>Handoff notes for the agency</h4>
+          <ul>
+            <li>Production timing follows the agency's schedule, not this week's</li>
+            <li>No client names, quotes, or results unless Tommy approves them</li>
+            <li>Title and thumbnail go to Tommy for a final yes</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     4. ONE OPPORTUNITY I'D EXPLORE
+     ========================================================= -->
+<section id="opportunity">
+  <div class="wrap">
+    <p class="eyebrow">One opportunity I'd explore</p>
+    <h2>Give a useful idea a clear next step.</h2>
+    <div class="narrow">
+      <p class="lede">The newsletter already gives founders practical advice they can use before choosing a content partner. I'd explore connecting this sample's LinkedIn post to the proposed follow-up issue: the post introduces the question, and the email gives readers a practical checklist.</p>
+      <p>For someone who finds Compound through this content but isn't ready for an agency conversation, a relevant invitation to subscribe could keep the relationship going. Before recommending changes, I'd ask how the newsletter currently fits into Compound's acquisition strategy and what paths already work.</p>
+    </div>
+
+    <ol class="journey" aria-label="Proposed reader journey">
+      <li><span>LinkedIn post</span></li>
+      <li><span>Follow-up newsletter</span></li>
+      <li><span>Continued readership</span></li>
+      <li><span>Agency conversation when relevant</span></li>
+    </ol>
+    <p class="small muted">Proposed journey, subject to existing strategy and audience data.</p>
+
+    <details class="note">
+      <summary>One detail I'd clarify</summary>
+      <p>The homepage and September newsletter describe different founder-time commitments. I'd confirm whether those refer to different services or expectations before suggesting any copy changes.</p>
+    </details>
+  </div>
+</section>
+
+<!-- =========================================================
+     5. HOW I WOULD GET IT PUBLISHED
+     ========================================================= -->
+<section id="workflow">
+  <div class="wrap">
+    <p class="eyebrow">How I would get it published</p>
+    <h2>A proposed week.</h2>
+    <p class="lede">I'd own the drafting, coordination, and follow-up. Tommy's input and approval shape every piece, and the YouTube agency sets its own production timeline. Illustrative and adjustable.</p>
+
+    <details class="more">
+      <summary>See the day-by-day plan</summary>
+      <div class="more-body">
+        <ul class="legend" aria-label="Legend">
+          <li><span class="tag tag-me">Me</span>I own it</li>
+          <li><span class="tag tag-ceo">CEO</span>Needs Tommy</li>
+          <li><span class="tag tag-agency">Agency</span>YouTube partner</li>
+        </ul>
+        <ol class="week">
+          <li>
+            <div class="day">Monday<small>Choose and gather</small></div>
+            <ul>
+              <li><span class="tag tag-me">Me</span>Propose the angle with a one-line rationale and source link</li>
+              <li><span class="tag tag-ceo">CEO</span>Short input call, or voice notes, on the angle</li>
+            </ul>
+          </li>
+          <li>
+            <div class="day">Tuesday<small>Draft</small></div>
+            <ul>
+              <li><span class="tag tag-me">Me</span>Draft the LinkedIn post and newsletter issue</li>
+              <li><span class="tag tag-me">Me</span>Prepare the video brief and interview questions</li>
+            </ul>
+          </li>
+          <li>
+            <div class="day">Wednesday<small>Review</small></div>
+            <ul>
+              <li><span class="tag tag-ceo">CEO</span>Review drafts and leave feedback in one place</li>
+              <li><span class="tag tag-me">Me</span>Consolidate feedback, revise, and secure approvals</li>
+              <li><span class="tag tag-agency">Agency</span>Review the brief for feasibility</li>
+            </ul>
+          </li>
+          <li>
+            <div class="day">Thursday<small>Publish and hand off</small></div>
+            <ul>
+              <li><span class="tag tag-me">Me</span>Publish the approved LinkedIn post and schedule the approved newsletter</li>
+              <li><span class="tag tag-agency">Agency</span>Confirm the production plan and shoot date. The finished video can land in a later week.</li>
+            </ul>
+          </li>
+          <li>
+            <div class="day">Friday<small>Learn</small></div>
+            <ul>
+              <li><span class="tag tag-me">Me</span>Review early response, note questions people asked, and record the next hypothesis</li>
+              <li><span class="tag tag-ceo">CEO</span>Optional: a two-line summary to read</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="more">
+      <summary>Questions I would ask before publishing</summary>
+      <div class="more-body">
+        <div class="qs">
+          <div>
+            <h4>Audience priorities</h4>
+            <ul><li>Who is showing up on sales calls right now?</li><li>What do they ask most before signing?</li></ul>
+          </div>
+          <div>
+            <h4>Voice</h4>
+            <ul><li>Which past posts feel most like Tommy?</li><li>Words, formats, or hooks he avoids?</li></ul>
+          </div>
+          <div>
+            <h4>Source material</h4>
+            <ul><li>Which recordings, call notes, or client stories can be used?</li><li>What needs anonymizing or approval?</li></ul>
+          </div>
+          <div>
+            <h4>Current process</h4>
+            <ul><li>How do approvals work today, and who has final say?</li><li>What's the YouTube agency's lead time and briefing format?</li></ul>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- =========================================================
+     6. WHAT I WOULD LEARN
+     ========================================================= -->
+<section id="learning">
+  <div class="wrap">
+    <p class="eyebrow">What I would learn</p>
+    <h2>Measures that point to real interest.</h2>
+    <p class="lede">No targets or forecasts. I'd agree on measures with the team first and look for signs that readers are moving closer to a conversation with Compound.</p>
+
+    <details class="more">
+      <summary>Proposed measures by channel</summary>
+      <div class="more-body">
+        <table class="measures">
+          <thead><tr><th scope="col">Channel</th><th scope="col">What I'd watch</th><th scope="col">What it might tell us</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">LinkedIn</th><td data-h="What I'd watch">Relevant comments, profile visits, and attributable site visits where available</td><td data-h="What it might tell us">Whether the right people recognize the problem</td></tr>
+            <tr><th scope="row">Newsletter</th><td data-h="What I'd watch">Clicks, subscriber growth, replies, and unsubscribes</td><td data-h="What it might tell us">Whether practical tools earn attention and trust</td></tr>
+            <tr><th scope="row">YouTube</th><td data-h="What I'd watch">Click-through rate, retention, and relevant viewer questions</td><td data-h="What it might tell us">Whether the packaging works and where viewers drop off</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="more">
+      <summary>One experiment, and its limits</summary>
+      <div class="more-body narrow">
+        <p><strong>Practical checklist vs. point of view.</strong> Over several weeks, alternate comparable LinkedIn posts between a checklist framing ("six questions to ask") and a point-of-view framing ("why chemistry beats samples"). Keep topic, length, and posting time as similar as possible, and compare comments from the target audience and clicks to the newsletter.</p>
+        <p><strong>Limits.</strong> A handful of posts is a small sample. Timing, topic, and platform changes can swing results more than framing does. I'd treat the outcome as a direction to test further, not a rule, and read the numbers alongside what people actually say in comments and replies.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================================================
+     7. FOOTER
+     ========================================================= -->
+<footer>
+  <div class="wrap">
+    <p class="eyebrow">Swaraj Acharekar</p>
+    <div class="links">
+      <a href="https://swaraj6520.github.io/Swaraj-Portfolio1/" target="_blank" rel="noopener">Portfolio</a>
+      <a href="mailto:acharekarswaraj53@gmail.com">Email</a>
+      <a href="https://www.readsocialfiles.com/p/how-to-vet-your-executive-content-agency" target="_blank" rel="noopener">Source article</a>
+    </div>
+    <p class="small muted narrow">Based on public material. Concepts and drafts are exploratory and have not been approved or published by Compound.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  if (!tabs.length) return;
+  function select(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { select(tab, false); });
+    tab.addEventListener('keydown', function (e) {
+      var n = null;
+      if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+      else if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+      else if (e.key === 'Home') n = tabs[0];
+      else if (e.key === 'End') n = tabs[tabs.length - 1];
+      if (n) { e.preventDefault(); select(n, true); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
